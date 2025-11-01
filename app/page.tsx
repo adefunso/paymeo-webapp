@@ -120,7 +120,8 @@ function ProfileSlideIn({
           </div>
         )}
          {/* Mobile App Badge */}
-  <div className="mt-10 flex justify-center md:justify-start ml-10">
+         <div className="flex justify-between">
+<div className="mt-10 flex justify-center md:justify-start ml-6">
     <span className="bg-black/70 text-[12px] text-white hover:bg-black/70 px-3 py-2 rounded-[20px] border-0">
       MOBILE APP COMING SOON!
     </span>
@@ -134,6 +135,9 @@ function ProfileSlideIn({
         >
           <X className="w-6 h-6 text-gray-800" />
         </button>
+
+         </div>
+  
 
         {/* Content */}
         <div className="relative z-10 flex-1 p-10 overflow-y-auto flex flex-col justify-center items-center text-center">
@@ -274,7 +278,7 @@ useEffect(() => {
       />
 
       {/* Hero Section */}
-      <section className="relative h-screen flex flex-col overflow-hidden">
+      <section className="relative h-screen xl:h-screen flex flex-col overflow-hidden">
         {/* Background Phone Image */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b  from-gray-100/80 via-gray-50/50 to-white/90 z-10">
@@ -314,7 +318,7 @@ useEffect(() => {
 
 
         {/* Main Content */}
-        <div className="relative z-10 flex-1 flex items-center px-4 sm:px-6 lg:px-10 pb-16 pt-8 mt-30">
+        <div className="relative z-10 flex-1 flex items-center px-4 sm:px-6 lg:px-10 pb-16 pt-8 mt-20">
           <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-end">
             
       
@@ -460,7 +464,7 @@ useEffect(() => {
   {/* How It Works Button */}
   <button
     onClick={scrollToSection}
-    className="bg-black/70 hover:bg-black/80 backdrop-blur-sm text-white text-sm sm:text-base px-5 py-3 rounded-[25px] flex items-center gap-2 transition-all group whitespace-nowrap"
+    className="hidden xl:flex bg-black/70 hover:bg-black/80 backdrop-blur-sm text-white text-sm sm:text-base px-5 py-3 rounded-[25px] flex items-center gap-2 transition-all group whitespace-nowrap"
     aria-label="Scroll to how it works section"
   >
     How it works
@@ -770,9 +774,7 @@ useEffect(() => {
   <div className="relative z-10 max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:px-20">
     {/* Heading */}
     <div className="text-center mb-12">
-      <h2 className="text-4xl md:text-5xl font-semibold mb-4 text-white drop-shadow-md">
-        Built for Connection & Commerce
-      </h2>
+      
       <p className="bg-black/20 backdrop-blur-md rounded-lg px-6 py-4 text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
         Paymeo combines social networking with commerce — every interaction can turn into a trusted sale or meaningful connection.
       </p>
@@ -781,7 +783,7 @@ useEffect(() => {
     {/* Feature cards grid */}
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       {/* Card — Verified Community */}
-      <Card className="bg-white/6 backdrop-blur-md border border-white/8 rounded-2xl shadow-2xl overflow-hidden transform transition hover:-translate-y-2">
+      <Card className="bg-white/60 backdrop-blur-md border border-white/8 rounded-2xl shadow-2xl overflow-hidden transform transition hover:-translate-y-2">
         <CardContent className="p-8">
           <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-4 bg-white/8">
             <CheckCircle2 className="w-8 h-8 text-black" />
@@ -794,7 +796,7 @@ useEffect(() => {
       </Card>
 
       {/* Card — Smart Matching */}
-      <Card className="bg-white/6 backdrop-blur-md border border-white/8 rounded-2xl shadow-2xl overflow-hidden transform transition hover:-translate-y-2">
+      <Card className="bg-white/60 backdrop-blur-md border border-white/8 rounded-2xl shadow-2xl overflow-hidden transform transition hover:-translate-y-2">
         <CardContent className="p-8">
           <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-4 bg-white/8">
             <Network className="w-8 h-8 text-black" />
@@ -807,7 +809,7 @@ useEffect(() => {
       </Card>
 
       {/* Card — Seamless Payments */}
-      <Card className="bg-white/6 backdrop-blur-md border border-white/8 rounded-2xl shadow-2xl overflow-hidden transform transition hover:-translate-y-2">
+      <Card className="bg-white/60 backdrop-blur-md border border-white/8 rounded-2xl shadow-2xl overflow-hidden transform transition hover:-translate-y-2">
         <CardContent className="p-8">
           <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-4 bg-white/8">
             <Sparkles className="w-8 h-8 text-black" />
@@ -875,7 +877,7 @@ useEffect(() => {
 
   {/* Top-centered Meo capsule */}
   <div className="relative z-10 flex justify-center pt-6 sm:pt-30 ">
-    <div className="inline-flex items-center gap-1 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+    <div className="inline-flex items-center gap-1 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 mt-[20%] xl:mt-[6%]">
       <Image src={imgPaymeoLogoWhite2} alt="Meo" width={24} height={24} />
       <span className="text-white font-medium text-base sm:text-lg">Meo</span>
     </div>
