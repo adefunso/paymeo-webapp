@@ -18,18 +18,21 @@ export default async function Image() {
     (
       <div
         style={{
-          fontSize: 128,
+          margin: 0,
+          fontFamily: 'Arial, Helvetica, sans-serif',
           background: 'linear-gradient(135deg, #1e5aff 0%, #0d3bb8 100%)',
-          width: '100%',
-          height: '100%',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
+          width: '100%',
+          height: '100%',
           color: 'white',
           padding: '80px',
+          boxSizing: 'border-box',
         }}
       >
+        {/* Top Section: Logo + Name */}
         <div
           style={{
             display: 'flex',
@@ -38,21 +41,29 @@ export default async function Image() {
             marginBottom: '40px',
           }}
         >
+          <img
+            src="https://res.cloudinary.com/diml8ljwa/image/upload/v1761962049/paymeologowhite_ukabff.png"
+            alt="Paymeo Logo"
+            width={170}
+            height={170}
+            style={{
+              borderRadius: '24px',
+              objectFit: 'contain',
+            }}
+          />
           <div
             style={{
-              width: '120px',
-              height: '120px',
-              background: 'white',
-              borderRadius: '30px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
+              fontSize: '100px',
+              fontWeight: 'bold',
+              marginTop: '-35px',
+              marginLeft: '-30px',
             }}
           >
-            <span style={{ fontSize: '80px' }}>P</span>
+            paymeo
           </div>
-          <div style={{ fontSize: '100px', fontWeight: 'bold' }}>paymeo</div>
         </div>
+
+        {/* Tagline */}
         <div
           style={{
             fontSize: '48px',
