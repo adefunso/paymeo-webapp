@@ -93,7 +93,7 @@ function ProfileSlideIn({
                 <div className="w-12 h-12 bg-[#1e5aff] rounded-[14px] flex items-center justify-center mb-4">
                   <Image src={imgPaymeoLogoWhite2} alt="Paymeo" className="w-10 h-10 object-contain" />
                 </div>
-                <h3 className="text-2xl font-semibold">Paymeo Account</h3>
+                
               </div>
 
               {activeTab === "personal" ? (
