@@ -72,7 +72,7 @@ export default function Footer() {
                   className="w-8 h-8"
                 />
               </div>
-              <span className="text-[36px] font-semibold text-gray-800 ml-[-6px]">
+              <span className="text-xl font-semibold text-gray-800 ml-[-6px]">
                 paymeo
               </span>
             </div>
