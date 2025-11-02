@@ -73,7 +73,7 @@ export default function Footer() {
                 />
               </div>
               <span className="text-xl font-semibold text-gray-800">
-                Paymeo
+                paymeo
               </span>
             </div>
             <p className="text-sm text-gray-500 mb-4">
