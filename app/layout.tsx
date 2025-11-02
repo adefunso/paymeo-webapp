@@ -1,6 +1,37 @@
 import type { Metadata } from 'next'
 import '../styles/globals.css'
 import JsonLd from '../components/JsonLd'
+import { Manrope } from "next/font/google";
+import localFont from "next/font/local";
+
+
+const paymeoSans = localFont({
+  src: [
+    {
+      path: "../public/fonts/PaymeoSans-Regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/PaymeoSans-Medium.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/PaymeoSans-Bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-paymeo-sans",
+  display: "swap",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://paymeo.co'),
@@ -90,7 +121,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={paymeoSans.variable}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />

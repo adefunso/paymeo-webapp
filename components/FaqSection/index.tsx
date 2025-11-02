@@ -40,6 +40,12 @@ export default function FaqSection() {
       "Of course. You don’t need to own a business to use Paymeo. You can send money, request payments, split bills, or simply interact with others who can help you fulfill a need or offer a service.",
   },
   {
+  question: "What can I do with Meo?",
+  answer:
+    "Meo is your personal and business assistant across the entire Paymeo ecosystem. It helps you perform actions, manage tasks, and interact with people or businesses through simple text or voice commands. For individuals, Meo can help you send or request money, discover sellers or service providers, make purchases, and manage your wallet — all hands-free. For businesses and creators, Meo helps you respond to customers, negotiate and close sales, track payments, generate invoices, and even recommend actions to boost engagement or sales. As Meo evolves, it will become an intelligent intent-recognition AI that powers discovery, support, insights, and automation across the Paymeo and Meo Platforms ecosystem — making every interaction faster, smarter, and more human.",
+},
+
+  {
     question: "How will Paymeo handle delivery and fulfillment?",
     answer:
       "In our later rollout phases, Paymeo will integrate with verified delivery partners and our in-house logistics platform, to ensure that goods ordered through Paymeo are delivered safely, efficiently, and transparently. Each delivery will include live tracking, insurance options, and user feedback systems.",

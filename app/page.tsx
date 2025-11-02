@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { X } from "lucide-react";
 import { Button } from "../components/ui/button";
@@ -47,6 +48,7 @@ import FaqSection from "../components/FaqSection";
 import router from "next/router";
 import WaitlistDialog from "@/components/WaitlistDialog";
 import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 
 /* ---------------------------------------------------------
    Profile slide-in modal (Framer Motion)
@@ -228,6 +230,7 @@ export default function HomePage() {
   const [isProfileOpen, setIsProfileOpen] = useState(false); // slide-in profile
   const [activePhase, setActivePhase] = useState(1);
   const [waitlistOpen, setWaitlistOpen] = useState(false);
+  const router = useRouter(); // ✅ initialize router
 
 const openWaitlist = () => setWaitlistOpen(true);
 
@@ -260,9 +263,9 @@ useEffect(() => {
 
   const videos = {
     personal:
-      "https://res.cloudinary.com/diml8ljwa/video/upload/v1761867554/paymeohero_kbu1ho.mp4",
+      "https://res.cloudinary.com/diml8ljwa/video/upload/v1762030872/paymeohero2_epsi0l.mp4",
     business:
-      "https://res.cloudinary.com/diml8ljwa/video/upload/v1761868622/paymeomale_tipedj.mp4",
+      "https://res.cloudinary.com/diml8ljwa/video/upload/v1762033165/paymeomale_2_kjb5ig.mp4",
   };
 
   const culture = "https://res.cloudinary.com/diml8ljwa/image/upload/v1761872629/hero_illustration_ppefew.png";
@@ -281,7 +284,7 @@ useEffect(() => {
       <section className="relative h-screen xl:h-screen flex flex-col overflow-hidden">
         {/* Background Phone Image */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b  from-gray-100/80 via-gray-50/50 to-white/90 z-10">
+          <div className="absolute inset-0 bg-gradient-to-b  from-[#1e5aff]-100/80 via-[#1e5aff]-50/50 to-[#1e5aff]/90 z-10">
           <video
   key={activeTab} // forces reload when tab changes
   autoPlay
@@ -329,14 +332,15 @@ useEffect(() => {
                   <span className="font-normal">
                     {activeTab === "personal" ? "We're now in" : "For"}
                   </span>
-                  <span>{activeTab === "personal" ? "Beta! 🍲🔥" : "Businesses"}</span>
+                  <span>{activeTab === "personal" ? "Beta! 🍲🔥" : "Businesses 💼"}</span>
                 </Badge>
 
                 {activeTab === "personal" ? (
                   <>
-                    <h1 className="text-4xl sm:text-5xl lg:text-[50px] leading-tight mb-6 text-black">
-                      The Intent-Driven Social Commerce
-                    </h1>
+                   <h1 className="text-4xl sm:text-5xl lg:text-[50px] leading-tight mb-6 text-black font-extrabold">
+  The Intent-Driven Social Commerce
+</h1>
+
                     <p className="text-base text-black/80 leading-relaxed mb-8">
                       Discover, shop with confidence, pay friends and connect over the things you love, powered by your requests.
                     </p>
@@ -355,7 +359,7 @@ useEffect(() => {
                   </>
                 ) : (
                   <>
-                    <h1 className="text-4xl sm:text-5xl lg:text-[50px] leading-tight mb-6 text-black">
+                    <h1 className="text-4xl sm:text-5xl lg:text-[50px] leading-tight mb-6 text-black font-extrabold">
                       Grow with Intent-Driven Commerce
                     </h1>
                     <p className="text-base text-black/80 leading-relaxed mb-8">
@@ -401,19 +405,19 @@ useEffect(() => {
                 <div className="flex items-center justify-center lg:justify-end -space-x-2 mb-4" aria-label="User avatars">
                   <Avatar className="w-14 h-14 border-2 border-white">
                     <AvatarImage src={img6.src} alt="Paymeo user" />
-                    <AvatarFallback>U1</AvatarFallback>
+                    
                   </Avatar>
                   <Avatar className="w-14 h-14 border-2 border-white">
                     <AvatarImage src={img4.src} alt="Paymeo user" />
-                    <AvatarFallback>U2</AvatarFallback>
+                    
                   </Avatar>
                   <Avatar className="w-14 h-14 border-2 border-white">
                     <AvatarImage src={img2.src} alt="Paymeo user" />
-                    <AvatarFallback>U3</AvatarFallback>
+                   
                   </Avatar>
                   <Avatar className="w-14 h-14 border-2 border-white">
                     <AvatarImage src={img1.src} alt="Paymeo user" />
-                    <AvatarFallback>U4</AvatarFallback>
+                    
                   </Avatar>
                 </div>
                 {activeTab === "personal" ? (
@@ -447,7 +451,7 @@ useEffect(() => {
       variant="outline"
       className="hidden lg:flex border-2 border-white text-white hover:bg-white hover:text-[#1e5aff] rounded-[15px] h-[76px] px-8 text-xl backdrop-blur-sm bg-transparent group transition-all"
     >
-      <a href="/signup">
+      <a href="https://web.paymeo.co">
         Get Started Now
         <ArrowUp className="w-7 h-7 ml-3 rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
       </a>
@@ -692,7 +696,7 @@ useEffect(() => {
 
     {/* Background Video */}
     <video
-      src="https://res.cloudinary.com/diml8ljwa/video/upload/v1761883663/0_Woman_Girl_2160x3840_iotmbf.mp4"
+      src="https://res.cloudinary.com/diml8ljwa/video/upload/v1762028652/womanvid_ciomln.mp4"
       autoPlay
       loop
       muted
@@ -900,7 +904,7 @@ useEffect(() => {
   LIKE YOU DO
 </h5>
       <p className="text-white/90 text-[13px] sm:text-base md:text-lg leading-relaxed">
-        Meo is your dedicated 24/7 Sales AI Agent built to understand, engage, and convert intent into sales like you.<br/>
+        Meo is your dedicated <span className="text-[#1e5aff]">24/7</span> Sales AI Agent built to understand, engage, and convert intent into sales like you.<br/>
         Allowing you make more sales even while you sleep!
       </p>
     </div>
@@ -912,119 +916,7 @@ useEffect(() => {
 
 <FaqSection />
 
-      {/* Footer */}
-<footer className="bg-white text-gray-600 border-t border-gray-200">
-  <div className="max-w-7xl mx-auto px-6 lg:px-20 py-16">
-
-    {/* Newsletter Signup */}
-    <div className="mb-16">
-      <h3 className="text-lg md:text-xl font-medium text-gray-800 mb-4">
-        Get news and updates from Paymeo
-      </h3>
-
-      <form
-        onSubmit={(e) => e.preventDefault()}
-        className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-2"
-      >
-        <input
-          type="email"
-          required
-          placeholder="Email"
-          className="w-full sm:w-96 px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1e5aff]"
-        />
-        <button
-          type="submit"
-          className="px-6 py-3 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-50 transition font-medium"
-        >
-          Sign up
-        </button>
-      </form>
-
-      <p className="mt-4 text-xs text-gray-500 max-w-2xl">
-        By signing up, you agree to receive updates and marketing messages (e.g., email, social, etc.) from Paymeo about our existing and future products and services. 
-        You can unsubscribe at any time via the link in our emails. 
-        Your subscription is subject to our{" "}
-        <a href="#" className="text-[#1e5aff] hover:underline">Terms</a> and{" "}
-        <a href="#" className="text-[#1e5aff] hover:underline">Privacy Policy</a>.
-      </p>
-    </div>
-
-    {/* Footer links */}
-    <div className="border-t border-gray-200 pt-12 grid grid-cols-1 md:grid-cols-4 gap-8">
-      {/* Logo + Socials */}
-      <div>
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-9 h-9 bg-[#1e5aff] rounded-[14px] flex items-center justify-center">
-            <Image src={imgPaymeoLogoWhite2} alt="Paymeo" className="w-8 h-8" />
-          </div>
-          <span className="text-xl font-semibold text-gray-800">Paymeo</span>
-        </div>
-        <p className="text-sm text-gray-500 mb-4">
-          Intent-driven social commerce platform.
-        </p>
-
-        <div className="flex items-center gap-4 text-white/70 mt-2">
-  <a href="https://facebook.com/usepaymeo" target="_blank" rel="noopener noreferrer" className="text-[#1e5aff] hover:text-[#1e5aff] transition">
-    <RiFacebookFill className="text-2xl" />
-  </a>
-  <a href="https://instagram.com/usepaymeo" target="_blank" rel="noopener noreferrer" className="text-[#1e5aff] hover:text-[#1e5aff] transition">
-    <RiInstagramLine className="text-2xl" />
-  </a>
-  <a href="https://twitter.com/usepaymeo" target="_blank" rel="noopener noreferrer" className="text-[#1e5aff] hover:text-[#1e5aff] transition">
-    <RiTwitterXLine className="text-2xl" />
-  </a>
-  <a href="https://tiktok.com/@usepaymeo" target="_blank" rel="noopener noreferrer" className="text-[#1e5aff] hover:text-[#1e5aff] transition">
-    <RiTiktokFill className="text-2xl" />
-  </a>
-  <a href="https://www.linkedin.com/company/usepaymeo" target="_blank" rel="noopener noreferrer" className="text-[#1e5aff] hover:text-[#1e5aff] transition">
-    <RiLinkedinFill className="text-2xl" />
-  </a>
-</div>
-      </div>
-
-      {/* Platform */}
-      <div>
-        <h4 className="text-gray-800 font-medium mb-4">Platform</h4>
-        <ul className="space-y-2 text-sm">
-          <li><a href="#how-it-works" className="hover:text-gray-800 transition">How It Works</a></li>
-          <li><a href="#more-features" className="hover:text-gray-800 transition">Features</a></li>
-          <li><a href="#" className="hover:text-gray-800 transition">Mobile App</a></li>
-          <li><a href="#meo" className="hover:text-gray-800 transition">Meo AI</a></li>
-        </ul>
-      </div>
-
-      {/* Company */}
-      <div>
-        <h4 className="text-gray-800 font-medium mb-4">Company</h4>
-        <ul className="space-y-2 text-sm">
-          <li><a href="#" className="hover:text-gray-800 transition">About</a></li>
-          <li><a href="#" className="hover:text-gray-800 transition">Blog</a></li>
-          <li><a href="#" className="hover:text-gray-800 transition">Careers</a></li>
-        </ul>
-      </div>
-
-      {/* Support */}
-      <div>
-        <h4 className="text-gray-800 font-medium mb-4">Support</h4>
-        <ul className="space-y-2 text-sm">
-          <li><a href="#" className="hover:text-gray-800 transition">Help Center</a></li>
-          <li><a href="#" className="hover:text-gray-800 transition">Contact</a></li>
-          <li><a href="#" className="hover:text-gray-800 transition">Privacy</a></li>
-        </ul>
-      </div>
-    </div>
-
-    {/* Bottom copyright */}
-    <div className="border-t border-gray-200 mt-12 pt-6 text-sm text-gray-500 flex flex-col sm:flex-row items-center justify-between">
-      <p>&copy; 2025 Paymeo. All rights reserved.</p>
-      <div className="flex gap-6 mt-3 sm:mt-0">
-        <a href="#" className="hover:text-gray-800 transition">Terms</a>
-        <a href="#" className="hover:text-gray-800 transition">Privacy</a>
-        <a href="#" className="hover:text-gray-800 transition">Cookies</a>
-      </div>
-    </div>
-  </div>
-</footer>
+      <Footer />
 
     </div>
   );
