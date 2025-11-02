@@ -19,7 +19,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-white text-gray-600 border-t border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 lg:px-20 py-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-2 py-16">
         {/* Newsletter Signup */}
         <div className="mb-16">
           <h3 className="text-lg md:text-xl font-medium text-gray-800 mb-4">
@@ -72,7 +72,7 @@ export default function Footer() {
                   className="w-8 h-8"
                 />
               </div>
-              <span className="text-xl font-semibold text-gray-800">
+              <span className="text-[36px] font-semibold text-gray-800 ml-[-6px]">
                 paymeo
               </span>
             </div>
