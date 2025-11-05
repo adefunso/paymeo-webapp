@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, RefObject } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -50,16 +50,110 @@ import WaitlistDialog from "@/components/WaitlistDialog";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
+// Type definitions for our custom hooks
+interface UseInViewportReturn {
+  ref: RefObject<HTMLElement | null>;
+  isInView: boolean;
+}
+
+interface IntersectionObserverOptions {
+  threshold?: number;
+  rootMargin?: string;
+}
+
+/* ---------------------------------------------------------
+   Custom Hook: Use Intersection Observer
+   - Detects when elements enter/leave viewport
+   - Used for lazy loading videos and animations
+--------------------------------------------------------- */
+function useInViewport(options: IntersectionObserverOptions = {}): UseInViewportReturn {
+  const [isInView, setIsInView] = useState(false);
+  const ref = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      setIsInView(entry.isIntersecting);
+    }, {
+      threshold: 0.1,
+      rootMargin: '50px',
+      ...options
+    });
+
+    observer.observe(element);
+
+    return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
+    };
+  }, [options]);
+
+  return { ref, isInView };
+}
+
+/* ---------------------------------------------------------
+   Optimized Video Component
+   - Only plays when in viewport
+   - Pauses when out of viewport
+--------------------------------------------------------- */
+interface LazyVideoProps {
+  src: string;
+  className?: string;
+  autoPlay?: boolean;
+  loop?: boolean;
+  muted?: boolean;
+  playsInline?: boolean;
+  [key: string]: any;
+}
+
+function LazyVideo({ 
+  src, 
+  className, 
+  autoPlay = true, 
+  loop = true, 
+  muted = true, 
+  playsInline = true, 
+  ...props 
+}: LazyVideoProps) {
+  const { ref, isInView } = useInViewport();
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (isInView) {
+      video.play().catch((e: Error) => console.log("Video play failed:", e));
+    } else {
+      video.pause();
+    }
+  }, [isInView]);
+
+  return (
+    <div ref={ref as RefObject<HTMLDivElement>}>
+      <video
+        ref={videoRef}
+        src={src}
+        className={className}
+        autoPlay={autoPlay}
+        loop={loop}
+        muted={muted}
+        playsInline={playsInline}
+        {...props}
+      />
+    </div>
+  );
+}
+
 /* ---------------------------------------------------------
    Profile slide-in modal (Framer Motion)
    - Slides in from the right
    - Shows different content for personal vs business tabs
    - Can trigger the waitlist dialog by calling `openWaitlist()`
 --------------------------------------------------------- */
-
-
-
-
 function ProfileSlideIn({
   open,
   onClose,
@@ -79,16 +173,13 @@ function ProfileSlideIn({
     return () => window.removeEventListener("keydown", handleEsc);
   }, [open, onClose]);
 
-  
-
-
   return (
    <AnimatePresence>
   {open && (
     <>
       {/* Backdrop */}
       <motion.div
-        className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm z-60"
+        className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm z-50"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -98,9 +189,9 @@ function ProfileSlideIn({
       {/* Main Slide-in Panel */}
       <motion.aside
         className={`
-          fixed top-5 xl:right-5 bottom-5 z-50
+          fixed top-5 xl:right-5 bottom-5 z-60
           w-[100%] sm:w-[70%] md:w-[65%] lg:w-[60%] xl:w-[50%]
-          bg-white rounded-[40px] shadow-2xl overflow-hidden flex flex-col z-70
+          bg-white rounded-[40px] shadow-2xl overflow-hidden flex flex-col
         `}
         initial={{ x: "100%" }}
         animate={{ x: 0 }}
@@ -231,14 +322,22 @@ export default function HomePage() {
   const [waitlistOpen, setWaitlistOpen] = useState(false);
   const router = useRouter(); // ✅ initialize router
 
+  // Use intersection observer for animations
+  const { ref: howItWorksRef, isInView: howItWorksInView } = useInViewport();
+  const { ref: featuresRef, isInView: featuresInView } = useInViewport();
+  const { ref: meoRef, isInView: meoInView } = useInViewport();
+
 const openWaitlist = () => setWaitlistOpen(true);
 
 useEffect(() => {
-  const interval = setInterval(() => {
-    setActivePhase((prev) => (prev === 4 ? 1 : prev + 1));
-  }, 7000); // switch every 7 seconds
-  return () => clearInterval(interval);
-}, []);
+  // Only run the animation interval if the section is in view
+  if (howItWorksInView) {
+    const interval = setInterval(() => {
+      setActivePhase((prev) => (prev === 4 ? 1 : prev + 1));
+    }, 7000); // switch every 7 seconds
+    return () => clearInterval(interval);
+  }
+}, [howItWorksInView]);
 
 
 
@@ -262,9 +361,9 @@ useEffect(() => {
 
   const videos = {
     personal:
-      "https://res.cloudinary.com/diml8ljwa/video/upload/v1762030872/paymeohero2_epsi0l.mp4",
+      "https://res.cloudinary.com/diml8ljwa/video/upload/q_70,f_webm,vc_vp9,w_1200,ac_none,du_8/v1762294237/paymeohero_1_tq8bao",
     business:
-      "https://res.cloudinary.com/diml8ljwa/video/upload/v1762033165/paymeomale_2_kjb5ig.mp4",
+      "https://res.cloudinary.com/diml8ljwa/video/upload/v1762296185/paymeomale_1_qirryn.webm",
   };
 
   const culture = "https://res.cloudinary.com/diml8ljwa/image/upload/v1761872629/hero_illustration_ppefew.png";
@@ -284,23 +383,11 @@ useEffect(() => {
         {/* Background Phone Image */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b  from-[#1e5aff]-100/80 via-[#1e5aff]-50/50 to-[#1e5aff]/90 z-10">
-          <video
+          <LazyVideo
   key={activeTab} // forces reload when tab changes
-  autoPlay
-  loop
-  muted
-  playsInline
+  src={videos[activeTab]}
   className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full object-cover z-0 transition-all duration-700"
->
-  <source src={videos[activeTab]} type="video/mp4" />
-  <Image
-    src={imgSilhouetteIphoneMockup1}
-    width={1440}
-    height={900}
-    alt="Paymeo Mobile App Preview"
-    className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1440px] h-auto object-cover opacity-100"
-  />
-</video>
+/>
             
           </div>
           
@@ -494,6 +581,7 @@ useEffect(() => {
       {/* How It Works Section */}
 <section
   id="how-it-works"
+  ref={howItWorksRef}
   className="relative py-10 px-4 sm:px-6 lg:px-10 bg-white overflow-hidden"
 >
   {/* Background Image */}
@@ -518,9 +606,9 @@ useEffect(() => {
 <Card className="relative bg-gradient-to-br from-blue-50 to-blue-50 border-2 border-[#c4d4ff] rounded-[30px] overflow-hidden h-screen shadow-lg">
   <CardContent className="relative h-full flex items-center justify-center overflow-hidden">
 
-    {/* Animation Container */}
+    {/* Animation Container - Only animate when in view */}
     <AnimatePresence mode="wait">
-      {activePhase === 1 && (
+      {howItWorksInView && activePhase === 1 && (
         <motion.div
           key="phase1"
           initial={{ opacity: 0, y: 100 }}
@@ -566,7 +654,7 @@ useEffect(() => {
         </motion.div>
       )}
 
-      {activePhase === 2 && (
+      {howItWorksInView && activePhase === 2 && (
         <motion.div
           key="phase2"
           initial={{ opacity: 0, y: 100 }}
@@ -585,9 +673,9 @@ useEffect(() => {
           </motion.h3>
 
           <motion.img
-            src="https://res.cloudinary.com/diml8ljwa/image/upload/v1761884350/paymeoswipe_m3sdyp.svg"
+            src="https://res.cloudinary.com/diml8ljwa/image/upload/v1762341472/paymeoswipe_1_wq0dgo.webp"
             alt="Sales Dashboard"
-            className="w-[350%] md:w-[600px] lg:w-[600px] xl:w-[600px] mr-5"
+            className="w-[350%] md:w-[600px] lg:w-[600px] xl:w-[600px]"
           />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -600,7 +688,7 @@ useEffect(() => {
         </motion.div>
       )}
 
-      {activePhase === 3 && (
+      {howItWorksInView && activePhase === 3 && (
         <motion.div
           key="phase3"
           initial={{ opacity: 0, y: 100 }}
@@ -654,7 +742,7 @@ useEffect(() => {
         </motion.div>
       )}
 
-      {activePhase === 4 && (
+      {howItWorksInView && activePhase === 4 && (
         <motion.div
           key="phase4"
           initial={{ opacity: 0, y: 100 }}
@@ -693,13 +781,9 @@ useEffect(() => {
 <Card className="relative bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-[#c4d4ff] rounded-[30px] overflow-hidden h-screen shadow-lg">
   <CardContent className="relative h-full p-0 overflow-hidden">
 
-    {/* Background Video */}
-    <video
-      src="https://res.cloudinary.com/diml8ljwa/video/upload/v1762028652/womanvid_ciomln.mp4"
-      autoPlay
-      loop
-      muted
-      playsInline
+    {/* Background Video - Only plays when in view */}
+    <LazyVideo
+      src="https://res.cloudinary.com/diml8ljwa/video/upload/v1762297517/woman_1_wjwhiw.webm"
       className="absolute inset-0 w-full h-full object-cover"
     />
 
@@ -710,7 +794,7 @@ useEffect(() => {
     <div className="relative z-20 h-full flex flex-col justify-end items-center text-center p-8 md:p-12">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={howItWorksInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <div className="flex items-center justify-center mb-4">
@@ -723,7 +807,7 @@ useEffect(() => {
           Express Your Intent
         </h3>
         <p className="text-base md:text-lg text-gray-200 max-w-md mx-auto">
-          From shopping, collaborating & sending cash to friends, seeking recommendations, to selling. Paymeo understands what you’re looking for and connects you with the right opportunities — instantly.
+          From shopping, collaborating & sending cash to friends, seeking recommendations, to selling. Paymeo understands what you're looking for and connects you with the right opportunities — instantly.
         </p>
       </motion.div>
     </div>
@@ -754,21 +838,12 @@ useEffect(() => {
 
 
    {/* More Features Section — video background + glass feature cards */}
-<section id="more-features" className="relative overflow-hidden min-h-screen flex flex-col justify-between">
-  {/* Video background (full bleed) */}
-  <video
+<section id="more-features" ref={featuresRef} className="relative overflow-hidden min-h-screen flex flex-col justify-between">
+  {/* Video background (full bleed) - Only plays when in view */}
+  <LazyVideo
     className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-    autoPlay
-    muted
-    loop
-    playsInline
-    poster=""
-  >
-    <source
-      src="https://res.cloudinary.com/diml8ljwa/video/upload/v1761862907/paymeohand_rbd6vd.mp4"
-      type="video/mp4"
-    />
-  </video>
+    src="https://res.cloudinary.com/diml8ljwa/video/upload/v1761862907/paymeohand_rbd6vd.mp4"
+  />
 
   {/* Overlays */}
   <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-white/10 z-0" />
@@ -858,21 +933,12 @@ useEffect(() => {
 
       {/* Final CTA — full-bleed video background with glass CTA */}
 {/* MEO Section — Fully Responsive Cinematic Hero */}
-<section className="relative overflow-hidden h-screen flex flex-col justify-between" id="meo">
-  {/* Video background */}
-  <video
+<section className="relative overflow-hidden h-screen flex flex-col justify-between" id="meo" ref={meoRef}>
+  {/* Video background - Only plays when in view */}
+  <LazyVideo
     className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-    autoPlay
-    muted
-    loop
-    playsInline
-    poster="/assets/cta-poster.jpg"
-  >
-    <source
-      src="https://res.cloudinary.com/diml8ljwa/video/upload/v1761933303/meo4_wrmxkv.mp4"
-      type="video/mp4"
-    />
-  </video>
+    src="https://res.cloudinary.com/diml8ljwa/video/upload/v1762296791/meo4_frbyem.webm"
+  />
 
   {/* Overlays */}
   <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80 z-0" />
@@ -887,7 +953,7 @@ useEffect(() => {
   </div>
 
   {/* Bottom section: responsive grid */}
-  <div className="relative z-10 w-full px-6 sm:px-10 md:px-20 pb-10 sm:pb-12 flex flex-col sm:flex-row items-end justify-between gap-8 sm:gap-0">
+  <div className="relative z-10 w-full px-6 sm:px-10 md:px-20 pb-10 sm:pb-12 flex flex-col sm:flex-row items-end justify-between gap=8 sm:gap-0">
     {/* Left — Button */}
    <div className="flex justify-center sm:justify-start w-full sm:w-auto">
   <button className=" lg:flex items-center justify-center border-2 border-white text-white hover:bg-white hover:text-[#1e5aff] rounded-[15px] h-[46px] xl:h-[76px] px-8 text-xl backdrop-blur-sm bg-transparent group transition-all">
