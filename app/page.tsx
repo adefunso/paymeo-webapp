@@ -106,7 +106,7 @@ interface LazyVideoProps {
   loop?: boolean;
   muted?: boolean;
   playsInline?: boolean;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 function LazyVideo({ 
@@ -363,7 +363,7 @@ useEffect(() => {
     personal:
       "https://res.cloudinary.com/diml8ljwa/video/upload/q_70,f_webm,vc_vp9,w_1200,ac_none,du_8/v1762294237/paymeohero_1_tq8bao",
     business:
-      "https://res.cloudinary.com/diml8ljwa/video/upload/v1762296185/paymeomale_1_qirryn.webm",
+      "https://res.cloudinary.com/diml8ljwa/video/upload/q_70,f_webm,vc_vp9,w_1200,ac_none,du_8/v1762296185/paymeomale_1_qirryn",
   };
 
   const culture = "https://res.cloudinary.com/diml8ljwa/image/upload/v1761872629/hero_illustration_ppefew.png";
@@ -783,7 +783,7 @@ useEffect(() => {
 
     {/* Background Video - Only plays when in view */}
     <LazyVideo
-      src="https://res.cloudinary.com/diml8ljwa/video/upload/v1762297517/woman_1_wjwhiw.webm"
+      src="https://res.cloudinary.com/diml8ljwa/video/upload/q_70,f_webm,vc_vp9,w_1200,ac_none,du_8/v1762297517/woman_1_wjwhiw"
       className="absolute inset-0 w-full h-full object-cover"
     />
 
@@ -807,7 +807,7 @@ useEffect(() => {
           Express Your Intent
         </h3>
         <p className="text-base md:text-lg text-gray-200 max-w-md mx-auto">
-          From shopping, collaborating & sending cash to friends, seeking recommendations, to selling. Paymeo understands what you're looking for and connects you with the right opportunities — instantly.
+          From shopping, collaborating & sending cash to friends, seeking recommendations, to selling. Paymeo understands what you&apos;re looking for and connects you with the right opportunities — instantly.
         </p>
       </motion.div>
     </div>
@@ -842,7 +842,7 @@ useEffect(() => {
   {/* Video background (full bleed) - Only plays when in view */}
   <LazyVideo
     className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-    src="https://res.cloudinary.com/diml8ljwa/video/upload/v1761862907/paymeohand_rbd6vd.mp4"
+    src="https://res.cloudinary.com/diml8ljwa/video/upload/q_70,f_webm,vc_vp9,w_1200,ac_none,du_8/v1761862907/paymeohand_rbd6vd"
   />
 
   {/* Overlays */}
