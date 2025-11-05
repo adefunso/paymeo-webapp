@@ -736,7 +736,7 @@ useEffect(() => {
             transition={{ delay: 0.3 }}
             className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-800 mb-4 sm:mb-6 text-center px-4 sm:px-10"
           >
-             Shop and collaborate with friends & businesses through <i className="text-[#1e5aff]">Chat Flows</i>
+             Shop. Collaborate with friends, family & businesses through <i className="text-[#1e5aff]">Chat Flows</i>
           </motion.h3>
 
           {/* Chat Screen */}
