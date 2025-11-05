@@ -379,205 +379,190 @@ useEffect(() => {
       />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col overflow-hidden">
-        {/* Background Phone Image */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b  from-[#1e5aff]-100/80 via-[#1e5aff]-50/50 to-[#1e5aff]/90 z-10">
-          <LazyVideo
-  key={activeTab} // forces reload when tab changes
-  src={videos[activeTab]}
-  className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full object-cover z-0 transition-all duration-700"
-/>
-            
-          </div>
-          
-          
-          
+<section className="relative min-h-screen flex flex-col overflow-hidden">
+  {/* Background Phone Image */}
+  <div className="absolute inset-0 overflow-hidden">
+    <div className="absolute inset-0 bg-gradient-to-b from-[#1e5aff]/80 via-[#1e5aff]/60 to-[#1e5aff]/90 z-10">
+      <LazyVideo
+        key={activeTab}
+        src={videos[activeTab]}
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full object-cover z-0 transition-all duration-700"
+      />
+    </div>
 
-          {/* Blur overlays */}
-          <div className="absolute inset-0 backdrop-blur-sm bg-black/5" />
-          <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-black/10 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-black/10 to-transparent" />
-        </div>
+    {/* Blur overlays */}
+    <div className="absolute inset-0 backdrop-blur-sm bg-black/5" />
+    <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-black/10 to-transparent" />
+    <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-black/10 to-transparent" />
+  </div>
 
-       {/* Navigation */}
+  {/* Navigation */}
+  <Nav
+    imgPaymeoLogoWhite2={imgPaymeoLogoWhite2}
+    activeTab={activeTab}
+    setActiveTab={setActiveTab}
+    setIsProfileOpen={setIsProfileOpen}
+  />
 
-       <Nav imgPaymeoLogoWhite2={imgPaymeoLogoWhite2} activeTab={activeTab} setActiveTab={setActiveTab} setIsProfileOpen={setIsProfileOpen} />
-
-
-
-        {/* Main Content */}
-        <div className="relative z-10 flex-1 flex items-center px-4 sm:px-6 lg:px-10 pb-16 pt-20 sm:pt-8 mt-16 sm:mt-20">
-          <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-end">
-            
+  {/* Main Content */}
+  <div className="relative z-10 flex-1 flex items-center px-4 sm:px-6 lg:px-10 pb-20 pt-24 sm:pt-20">
+    <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 items-end">
       
-            {/* Left Column - Hero Card */}
-            <Card className="bg-white border border-[#c4d4ff] rounded-[30px] p-6 sm:p-8 md:p-10 shadow-lg h-[120%] xl:h-[100%]">
-              <CardContent className="p-0 h-[100%]">
-                <Badge className="bg-[#e6dbff] text-violet-500 hover:bg-[#e6dbff] border border-violet-500 mb-4 sm:mb-6 text-xs sm:text-sm">
-                  <span className="font-normal">
-                    {activeTab === "personal" ? "We're now in" : "For"}
-                  </span>
-                  <span>{activeTab === "personal" ? "Beta! 🍲🔥" : "Businesses 💼"}</span>
-                </Badge>
+      {/* Left Column - Hero Card */}
+      <Card className="bg-white border border-[#c4d4ff] rounded-[30px] p-6 sm:p-8 md:p-10 shadow-lg min-h-[380px] sm:min-h-[420px] flex flex-col justify-between">
+        <CardContent className="p-0 flex flex-col justify-between h-full">
+          <div>
+            <Badge className="bg-[#e6dbff] text-violet-500 hover:bg-[#e6dbff] border border-violet-500 mb-4 sm:mb-6 text-xs sm:text-sm">
+              <span className="font-normal">
+                {activeTab === "personal" ? "We're now in" : "For"}
+              </span>
+              <span>{activeTab === "personal" ? "Beta! 🍲🔥" : "Businesses 💼"}</span>
+            </Badge>
 
-                {activeTab === "personal" ? (
-                  <>
-                   <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[50px] leading-tight mb-4 sm:mb-6 text-black font-extrabold">
-  The Intent-Driven Social Commerce
-</h1>
+            {activeTab === "personal" ? (
+              <>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[50px] leading-tight mb-4 sm:mb-6 text-black font-extrabold">
+                  The Intent-Driven Social Commerce
+                </h1>
 
-                    <p className="text-sm sm:text-base text-black/80 leading-relaxed mb-6 sm:mb-8">
-                      Discover, shop with confidence, pay friends and connect over the things you love, powered by your requests.
-                    </p>
+                <p className="text-sm sm:text-base text-black/80 leading-relaxed mb-6 sm:mb-8">
+                  Discover, shop with confidence, pay friends and connect over the things you love, powered by your requests.
+                </p>
+              </>
+            ) : (
+              <>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[50px] leading-tight mb-4 sm:mb-6 text-black font-extrabold">
+                  Grow with Intent-Driven Commerce
+                </h1>
+                <p className="text-sm sm:text-base text-black/80 leading-relaxed mb-6 sm:mb-8">
+                  Power your sales, manage payments, and connect with customers all in one place.
+                </p>
+              </>
+            )}
+          </div>
 
-                    {/* CTA Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                      <Dialog open={isOpen} onOpenChange={setIsOpen}>
-                        <DialogTrigger asChild>
-                          <Button className="bg-[#1e5aff] hover:bg-[#1e5aff]/90 text-white rounded-[20px] h-10 sm:h-12 px-4 sm:px-6 group text-sm sm:text-base">
-                            Join The Waitlist
-                            <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5 ml-2 rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                          </Button>
-                        </DialogTrigger>
-                      </Dialog>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[50px] leading-tight mb-4 sm:mb-6 text-black font-extrabold">
-                      Grow with Intent-Driven Commerce
-                    </h1>
-                    <p className="text-sm sm:text-base text-black/80 leading-relaxed mb-6 sm:mb-8">
-                      Power your sales, manage payments, and connect with customers all in one place.
-                    </p>
-
-                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                      <Link href="https://web.paymeo.co">
-                      
-                          <Button className="bg-[#1e5aff] hover:bg-[#1e5aff]/90 text-white rounded-[20px] h-10 sm:h-12 px-4 sm:px-6 group text-sm sm:text-base">
-                            Get Started for Free
-                            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
-                          </Button>
-                        
-                      </Link>
-                    <Button
-  className="border border-[#c4d4ff] bg-white text-[#1e5aff] rounded-[20px] h-10 sm:h-12 px-4 sm:px-6 
-             group transition-colors duration-200 hover:bg-black text-sm sm:text-base"
-  onClick={() => setIsProfileOpen(true)}
->
-  <span className="group-hover:text-white flex items-center">
-    Sign in
-    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-colors group-hover:text-white" />
-  </span>
-</Button>
-                    </div>
-                  </>
-                )}
-              </CardContent>
-            </Card>
-
-            {/* Right Column - Waitlist Info (avatars + join button) */}
-            <div className="flex flex-col items-center lg:items-end gap-4 sm:gap-6">
-              <motion.div
-    key={activeTab}
-    initial={{ opacity: 0, y: 10 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -10 }}
-    transition={{ duration: 0.6 }}
-    className="text-center lg:text-right"
-  >
-              <div className="text-center lg:text-right">
-                <div className="flex items-center justify-center lg:justify-end -space-x-2 mb-3 sm:mb-4" aria-label="User avatars">
-                  <Avatar className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 border-2 border-white">
-                    <AvatarImage src={img6.src} alt="Paymeo user" />
-                    
-                  </Avatar>
-                  <Avatar className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 border-2 border-white">
-                    <AvatarImage src={img4.src} alt="Paymeo user" />
-                    
-                  </Avatar>
-                  <Avatar className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 border-2 border-white">
-                    <AvatarImage src={img2.src} alt="Paymeo user" />
-                   
-                  </Avatar>
-                  <Avatar className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 border-2 border-white">
-                    <AvatarImage src={img1.src} alt="Paymeo user" />
-                    
-                  </Avatar>
-                </div>
-                {activeTab === "personal" ? (
-      <p className="text-white text-xs sm:text-sm md:text-base backdrop-blur-sm bg-black/20 rounded-lg px-3 py-1 sm:px-4 sm:py-2 inline-block">
-        50+ explorers have already joined!
-      </p>
-    ) : (
-      <p className="text-white text-xs sm:text-sm md:text-base backdrop-blur-sm bg-black/20 rounded-lg px-3 py-1 sm:px-4 sm:py-2 inline-block">
-        100+ businesses now use Paymeo to supercharge their sales.
-      </p>
-    )}
-              </div>
-               </motion.div>
-
-              {/* This button is hidden on mobile but still triggers the same dialog */}
-               {activeTab === "personal" ? (
+          {/* CTA Buttons */}
+          <div className="mt-auto flex flex-col sm:flex-row gap-3 sm:gap-4">
+            {activeTab === "personal" ? (
               <Dialog open={isOpen} onOpenChange={setIsOpen}>
                 <DialogTrigger asChild>
-                  <Button
-                    variant="outline"
-                    className="hidden lg:flex border-2 border-white text-white hover:bg-white hover:text-[#1e5aff] rounded-[15px] h-16 sm:h-[76px] px-6 sm:px-8 text-lg sm:text-xl backdrop-blur-sm bg-transparent group transition-all"
-                    onClick={openWaitlist}
-                  >
+                  <Button className="bg-[#1e5aff] hover:bg-[#1e5aff]/90 text-white rounded-[20px] h-12 px-4 sm:px-6 group text-sm sm:text-base mt-4 sm:mt-6 mb-2 sm:mb-0" onClick={() => {
+                    openWaitlist()
+                  }}>
                     Join The Waitlist
-                    <ArrowUp className="w-5 h-5 sm:w-7 sm:h-7 ml-2 sm:ml-3 rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5 ml-2 rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </Button>
                 </DialogTrigger>
               </Dialog>
-              ) : (
+            ) : (
+              <>
+                <Link href="https://web.paymeo.co">
+                  <Button className="bg-[#1e5aff] hover:bg-[#1e5aff]/90 text-white rounded-[20px] h-12 px-4 sm:px-6 group text-sm sm:text-base mt-4 sm:mt-6 mb-2 sm:mb-0">
+                    Get Started for Free
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
+                  </Button>
+                </Link>
                 <Button
-      asChild
-      variant="outline"
-      className="hidden lg:flex border-2 border-white text-white hover:bg-white hover:text-[#1e5aff] rounded-[15px] h-16 sm:h-[76px] px-6 sm:px-8 text-lg sm:text-xl backdrop-blur-sm bg-transparent group transition-all"
-    >
-      <a href="https://web.paymeo.co">
-        Get Started Now
-        <ArrowUp className="w-5 h-5 sm:w-7 sm:h-7 ml-2 sm:ml-3 rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-      </a>
-    </Button>
-  )}
-            </div>
-
-           <WaitlistDialog isOpen={waitlistOpen} setIsOpen={setWaitlistOpen} />
+                  className="border border-[#c4d4ff] bg-white text-[#1e5aff] rounded-[20px] h-12 px-4 sm:px-6 group transition-colors duration-200 hover:bg-black hover:text-white text-sm sm:text-base"
+                  onClick={() => setIsProfileOpen(true)}
+                >
+                  <span className="flex items-center">
+                    Sign in
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
+                  </span>
+                </Button>
+              </>
+            )}
           </div>
-        </div>
+        </CardContent>
+      </Card>
 
-      {/* Scroll Indicator - Absolutely positioned */}
-<div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-10 flex items-center justify-center space-x-2">
-  {/* How It Works Button */}
-  <button
-    onClick={scrollToSection}
-    className="xl:flex bg-black/70 hover:bg-black/80 backdrop-blur-sm text-white text-xs sm:text-sm md:text-base px-3 sm:px-5 py-2 sm:py-3 rounded-[25px] flex items-center gap-2 transition-all group whitespace-nowrap"
-    aria-label="Scroll to how it works section"
-  >
-    How it works
-    <ArrowDown className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-y-1 transition-transform" />
-  </button>
+      {/* Right Column - Waitlist Info */}
+      <div className="flex flex-col items-center lg:items-end gap-5 sm:gap-6 mt-10 sm:mt-0">
+        <motion.div
+          key={activeTab}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.6 }}
+          className="text-center lg:text-right"
+        >
+          <div className="flex items-center justify-center lg:justify-end -space-x-2 mb-3 sm:mb-4">
+            <Avatar className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-white">
+              <AvatarImage src={img6.src} alt="Paymeo user" />
+            </Avatar>
+            <Avatar className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-white">
+              <AvatarImage src={img4.src} alt="Paymeo user" />
+            </Avatar>
+            <Avatar className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-white">
+              <AvatarImage src={img2.src} alt="Paymeo user" />
+            </Avatar>
+            <Avatar className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-white">
+              <AvatarImage src={img1.src} alt="Paymeo user" />
+            </Avatar>
+          </div>
+          <p className="text-white text-xs sm:text-sm md:text-base backdrop-blur-sm bg-black/20 rounded-lg px-3 py-1 sm:px-4 sm:py-2 inline-block">
+            {activeTab === "personal"
+              ? "50+ explorers have already joined!"
+              : "100+ businesses now use Paymeo to supercharge their sales."}
+          </p>
+        </motion.div>
 
-  {/* Pricing Button (only for Business mode) */}
-  {activeTab === 'business' && (
+        {/* Desktop Button */}
+        {activeTab === "personal" ? (
+          <Dialog open={isOpen} onOpenChange={setIsOpen}>
+            <DialogTrigger asChild>
+              <Button
+                variant="outline"
+                className="hidden lg:flex border-2 border-white text-white hover:bg-white hover:text-[#1e5aff] rounded-[15px] h-16 sm:h-[76px] px-6 sm:px-8 text-lg sm:text-xl backdrop-blur-sm bg-transparent group transition-all"
+                onClick={() => {
+                    openWaitlist()
+                  }}
+              >
+                Join The Waitlist
+                <ArrowUp className="w-5 h-5 sm:w-7 sm:h-7 ml-2 rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </Button>
+            </DialogTrigger>
+          </Dialog>
+        ) : (
+          <Button
+            asChild
+            variant="outline"
+            className="hidden lg:flex border-2 border-white text-white hover:bg-white hover:text-[#1e5aff] rounded-[15px] h-16 sm:h-[76px] px-6 sm:px-8 text-lg sm:text-xl backdrop-blur-sm bg-transparent group transition-all"
+          >
+            <a href="https://web.paymeo.co">
+              Get Started Now
+              <ArrowUp className="w-5 h-5 sm:w-7 sm:h-7 ml-2 rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </a>
+          </Button>
+        )}
+      </div>
+
+      <WaitlistDialog isOpen={waitlistOpen} setIsOpen={setWaitlistOpen} />
+    </div>
+  </div>
+
+  {/* Scroll Indicator */}
+  <div className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 z-10 flex sm:flex-row items-center justify-center gap-3 sm:gap-4">
     <button
-      onClick={() => router.push('/pricing')} // replace with your pricing route
-      className="bg-black/70 hover:bg-black/70 text-white text-xs sm:text-sm md:text-base px-3 sm:px-5 py-2 sm:py-3 rounded-[25px] flex items-center gap-2 transition-all shadow-md animate-fadeIn whitespace-nowrap"
-      aria-label="View pricing"
+      onClick={scrollToSection}
+      className="bg-black/70 hover:bg-black/80 backdrop-blur-sm text-white text-xs sm:text-sm md:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-[25px] flex items-center gap-2 transition-all group whitespace-nowrap"
     >
-      Pricing
+      How it works
+      <ArrowDown className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-y-1 transition-transform" />
     </button>
-  )}
-</div>
 
+    {activeTab === "business" && (
+      <button
+        onClick={() => router.push('/pricing')}
+        className="bg-black/70 hover:bg-black/70 text-white text-xs sm:text-sm md:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-[25px] flex items-center gap-2 transition-all shadow-md animate-fadeIn whitespace-nowrap"
+      >
+        Pricing
+      </button>
+    )}
+  </div>
+</section>
 
-
-
-      </section>
 
       {/* How It Works Section */}
 <section
