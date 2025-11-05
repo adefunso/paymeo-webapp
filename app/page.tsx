@@ -190,7 +190,7 @@ function ProfileSlideIn({
       <motion.aside
         className={`
           fixed top-5 xl:right-5 bottom-5 z-60
-          w-[100%] sm:w-[70%] md:w-[65%] lg:w-[60%] xl:w-[50%]
+          w-[95%] mx-auto sm:w-[85%] md:w-[75%] lg:w-[60%] xl:w-[50%]
           bg-white rounded-[40px] shadow-2xl overflow-hidden flex flex-col
         `}
         initial={{ x: "100%" }}
@@ -214,8 +214,8 @@ function ProfileSlideIn({
         )}
          {/* Mobile App Badge */}
          <div className="flex justify-between">
-<div className="mt-10 flex justify-center md:justify-start ml-6">
-    <span className="bg-black/70 text-[12px] text-white hover:bg-black/70 px-3 py-2 rounded-[20px] border-0">
+<div className="mt-6 sm:mt-10 flex justify-center md:justify-start ml-4 sm:ml-6">
+    <span className="bg-black/70 text-[10px] sm:text-[12px] text-white hover:bg-black/70 px-2 sm:px-3 py-1 sm:py-2 rounded-[20px] border-0">
       MOBILE APP COMING SOON!
     </span>
   </div>
@@ -223,24 +223,24 @@ function ProfileSlideIn({
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-7 right-7 z-20 p-2 rounded-full hover:bg-gray-100 transition"
+          className="absolute top-4 sm:top-7 right-4 sm:right-7 z-20 p-2 rounded-full hover:bg-gray-100 transition"
           aria-label="Close"
         >
-          <X className="w-6 h-6 text-gray-800" />
+          <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-800" />
         </button>
 
          </div>
   
 
         {/* Content */}
-        <div className="relative z-10 flex-1 p-10 overflow-y-auto flex flex-col justify-center items-center text-center">
+        <div className="relative z-10 flex-1 p-4 sm:p-6 md:p-10 overflow-y-auto flex flex-col justify-center items-center text-center">
           {/* Header */}
-          <div className="flex flex-col items-center mb-8">
-            <div className="w-12 h-12 bg-[#1e5aff] rounded-[14px] flex items-center justify-center mb-4">
+          <div className="flex flex-col items-center mb-6 sm:mb-8">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#1e5aff] rounded-[14px] flex items-center justify-center mb-3 sm:mb-4">
               <Image
                 src={imgPaymeoLogoWhite2}
                 alt="Paymeo"
-                className="w-10 h-10 object-contain"
+                className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
               />
             </div>
           </div>
@@ -248,15 +248,15 @@ function ProfileSlideIn({
           {/* PERSONAL TAB */}
           {activeTab === "personal" ? (
             <>
-              <h4 className="text-2xl font-semibold mb-3">
+              <h4 className="text-xl sm:text-2xl font-semibold mb-3">
                 Be the first to experience Paymeo Personal
               </h4>
-              <p className="text-gray-600 mb-8 max-w-md">
+              <p className="text-gray-600 text-sm sm:text-base mb-6 sm:mb-8 max-w-md">
                 &quot;We&apos;re shipping the personal web & mobile experience soon. Join the waitlist and get early access.&quot;
               </p>
-              <div className="space-y-3 w-full sm:w-[60%]">
+              <div className="space-y-3 w-full sm:w-[80%] md:w-[60%]">
                 <button
-                  className="w-full h-12 rounded-[14px] bg-[#1e5aff] text-white flex items-center justify-center gap-2 font-medium shadow-md hover:bg-[#1746cc] transition-colors"
+                  className="w-full h-10 sm:h-12 rounded-[14px] bg-[#1e5aff] text-white flex items-center justify-center gap-2 font-medium shadow-md hover:bg-[#1746cc] transition-colors text-sm sm:text-base"
                   onClick={() => {
                     openWaitlist();
                     onClose();
@@ -264,29 +264,29 @@ function ProfileSlideIn({
                   
                 >
                   Join the Waitlist
-                  <ArrowUp className="w-4 h-4 rotate-45" />
+                  <ArrowUp className="w-3 h-3 sm:w-4 sm:h-4 rotate-45" />
                 </button>
               </div>
             </>
           ) : (
             /* BUSINESS TAB */
             <>
-              <h4 className="text-2xl font-semibold mb-3">
+              <h4 className="text-xl sm:text-2xl font-semibold mb-3">
                 Log in to your Paymeo Business Account
               </h4>
-              <p className="text-gray-600 mb-8 max-w-md">
+              <p className="text-gray-600 text-sm sm:text-base mb-6 sm:mb-8 max-w-md">
                 &quot;Sell across your existing channels with 24/7 Sales AI Agents — never lose a sale, even while you sleep. Manage payments, inventory, and shipments all in one place. Unlock demand-driven social commerce and 10x your sales process — right from your pocket.&quot;
               </p>
 
-              <div className="flex flex-col gap-3 w-full sm:w-[60%]">
+              <div className="flex flex-col gap-3 w-full sm:w-[80%] md:w-[60%]">
                 <Link href="https://web.paymeo.co" className="w-full">
-                  <div className="block w-full text-center h-12 rounded-[14px] bg-[#1e5aff] text-white leading-[48px] hover:bg-[#1746cc] transition-colors">
+                  <div className="block w-full text-center h-10 sm:h-12 rounded-[14px] bg-[#1e5aff] text-white leading-[40px] sm:leading-[48px] hover:bg-[#1746cc] transition-colors text-sm sm:text-base">
                     Get started for free
                   </div>
                 </Link>
 
                 <Link href="https://web.paymeo.co" className="w-full">
-                  <div className="block w-full text-center h-12 rounded-[14px] border border-[#1e5aff] text-[#1e5aff] leading-[48px] hover:bg-[#1e5aff]/10 transition-colors">
+                  <div className="block w-full text-center h-10 sm:h-12 rounded-[14px] border border-[#1e5aff] text-[#1e5aff] leading-[40px] sm:leading-[48px] hover:bg-[#1e5aff]/10 transition-colors text-sm sm:text-base">
                     Log In
                   </div>
                 </Link>
@@ -296,7 +296,7 @@ function ProfileSlideIn({
         </div>
 
         {/* Footer */}
-        <div className="p-4 text-center text-sm text-gray-400 border-t border-gray-100">
+        <div className="p-3 sm:p-4 text-center text-xs sm:text-sm text-gray-400 border-t border-gray-100">
           &copy; 2025 Paymeo. All rights reserved.
         </div>
       </motion.aside>
@@ -379,7 +379,7 @@ useEffect(() => {
       />
 
       {/* Hero Section */}
-      <section className="relative h-screen xl:h-screen flex flex-col overflow-hidden">
+      <section className="relative min-h-screen flex flex-col overflow-hidden">
         {/* Background Phone Image */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b  from-[#1e5aff]-100/80 via-[#1e5aff]-50/50 to-[#1e5aff]/90 z-10">
@@ -407,14 +407,14 @@ useEffect(() => {
 
 
         {/* Main Content */}
-        <div className="relative z-10 flex-1 flex items-center px-4 sm:px-6 lg:px-10 pb-16 pt-8 mt-20">
-          <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-end">
+        <div className="relative z-10 flex-1 flex items-center px-4 sm:px-6 lg:px-10 pb-16 pt-20 sm:pt-8 mt-16 sm:mt-20">
+          <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-end">
             
       
             {/* Left Column - Hero Card */}
-            <Card className="bg-white border border-[#c4d4ff] rounded-[30px] p-8 md:p-10 shadow-lg">
+            <Card className="bg-white border border-[#c4d4ff] rounded-[30px] p-6 sm:p-8 md:p-10 shadow-lg">
               <CardContent className="p-0">
-                <Badge className="bg-[#e6dbff] text-violet-500 hover:bg-[#e6dbff] border border-violet-500 mb-6">
+                <Badge className="bg-[#e6dbff] text-violet-500 hover:bg-[#e6dbff] border border-violet-500 mb-4 sm:mb-6 text-xs sm:text-sm">
                   <span className="font-normal">
                     {activeTab === "personal" ? "We're now in" : "For"}
                   </span>
@@ -423,21 +423,21 @@ useEffect(() => {
 
                 {activeTab === "personal" ? (
                   <>
-                   <h1 className="text-4xl sm:text-5xl lg:text-[50px] leading-tight mb-6 text-black font-extrabold">
+                   <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[50px] leading-tight mb-4 sm:mb-6 text-black font-extrabold">
   The Intent-Driven Social Commerce
 </h1>
 
-                    <p className="text-base text-black/80 leading-relaxed mb-8">
+                    <p className="text-sm sm:text-base text-black/80 leading-relaxed mb-6 sm:mb-8">
                       Discover, shop with confidence, pay friends and connect over the things you love, powered by your requests.
                     </p>
 
                     {/* CTA Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-4">
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                       <Dialog open={isOpen} onOpenChange={setIsOpen}>
                         <DialogTrigger asChild>
-                          <Button className="bg-[#1e5aff] hover:bg-[#1e5aff]/90 text-white rounded-[20px] h-12 px-6 group" onClick={openWaitlist}>
+                          <Button className="bg-[#1e5aff] hover:bg-[#1e5aff]/90 text-white rounded-[20px] h-10 sm:h-12 px-4 sm:px-6 group text-sm sm:text-base">
                             Join The Waitlist
-                            <ArrowUp className="w-5 h-5 ml-2 rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                            <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5 ml-2 rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                           </Button>
                         </DialogTrigger>
                       </Dialog>
@@ -445,30 +445,30 @@ useEffect(() => {
                   </>
                 ) : (
                   <>
-                    <h1 className="text-4xl sm:text-5xl lg:text-[50px] leading-tight mb-6 text-black font-extrabold">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[50px] leading-tight mb-4 sm:mb-6 text-black font-extrabold">
                       Grow with Intent-Driven Commerce
                     </h1>
-                    <p className="text-base text-black/80 leading-relaxed mb-8">
+                    <p className="text-sm sm:text-base text-black/80 leading-relaxed mb-6 sm:mb-8">
                       Power your sales, manage payments, and connect with customers all in one place.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row gap-4">
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                       <Link href="https://web.paymeo.co">
                       
-                          <Button className="bg-[#1e5aff] hover:bg-[#1e5aff]/90 text-white rounded-[20px] h-12 px-6 group">
+                          <Button className="bg-[#1e5aff] hover:bg-[#1e5aff]/90 text-white rounded-[20px] h-10 sm:h-12 px-4 sm:px-6 group text-sm sm:text-base">
                             Get Started for Free
-                            <ArrowRight className="w-5 h-5 ml-2" />
+                            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
                           </Button>
                         
                       </Link>
                     <Button
-  className="border border-[#c4d4ff] bg-white text-[#1e5aff] rounded-[20px] h-12 px-6 
-             group transition-colors duration-200 hover:bg-black"
+  className="border border-[#c4d4ff] bg-white text-[#1e5aff] rounded-[20px] h-10 sm:h-12 px-4 sm:px-6 
+             group transition-colors duration-200 hover:bg-black text-sm sm:text-base"
   onClick={() => setIsProfileOpen(true)}
 >
   <span className="group-hover:text-white flex items-center">
     Sign in
-    <ArrowRight className="w-5 h-5 ml-2 transition-colors group-hover:text-white" />
+    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-colors group-hover:text-white" />
   </span>
 </Button>
                     </div>
@@ -478,7 +478,7 @@ useEffect(() => {
             </Card>
 
             {/* Right Column - Waitlist Info (avatars + join button) */}
-            <div className="flex flex-col items-center lg:items-end gap-6">
+            <div className="flex flex-col items-center lg:items-end gap-4 sm:gap-6">
               <motion.div
     key={activeTab}
     initial={{ opacity: 0, y: 10 }}
@@ -488,30 +488,30 @@ useEffect(() => {
     className="text-center lg:text-right"
   >
               <div className="text-center lg:text-right">
-                <div className="flex items-center justify-center lg:justify-end -space-x-2 mb-4" aria-label="User avatars">
-                  <Avatar className="w-14 h-14 border-2 border-white">
+                <div className="flex items-center justify-center lg:justify-end -space-x-2 mb-3 sm:mb-4" aria-label="User avatars">
+                  <Avatar className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 border-2 border-white">
                     <AvatarImage src={img6.src} alt="Paymeo user" />
                     
                   </Avatar>
-                  <Avatar className="w-14 h-14 border-2 border-white">
+                  <Avatar className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 border-2 border-white">
                     <AvatarImage src={img4.src} alt="Paymeo user" />
                     
                   </Avatar>
-                  <Avatar className="w-14 h-14 border-2 border-white">
+                  <Avatar className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 border-2 border-white">
                     <AvatarImage src={img2.src} alt="Paymeo user" />
                    
                   </Avatar>
-                  <Avatar className="w-14 h-14 border-2 border-white">
+                  <Avatar className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 border-2 border-white">
                     <AvatarImage src={img1.src} alt="Paymeo user" />
                     
                   </Avatar>
                 </div>
                 {activeTab === "personal" ? (
-      <p className="text-white text-base backdrop-blur-sm bg-black/20 rounded-lg px-4 py-2 inline-block">
+      <p className="text-white text-xs sm:text-sm md:text-base backdrop-blur-sm bg-black/20 rounded-lg px-3 py-1 sm:px-4 sm:py-2 inline-block">
         50+ explorers have already joined!
       </p>
     ) : (
-      <p className="text-white text-base backdrop-blur-sm bg-black/20 rounded-lg px-4 py-2 inline-block">
+      <p className="text-white text-xs sm:text-sm md:text-base backdrop-blur-sm bg-black/20 rounded-lg px-3 py-1 sm:px-4 sm:py-2 inline-block">
         100+ businesses now use Paymeo to supercharge their sales.
       </p>
     )}
@@ -524,10 +524,11 @@ useEffect(() => {
                 <DialogTrigger asChild>
                   <Button
                     variant="outline"
-                    className="hidden lg:flex border-2 border-white text-white hover:bg-white hover:text-[#1e5aff] rounded-[15px] h-[76px] px-8 text-xl backdrop-blur-sm bg-transparent group transition-all" onClick={openWaitlist}
+                    className="hidden lg:flex border-2 border-white text-white hover:bg-white hover:text-[#1e5aff] rounded-[15px] h-16 sm:h-[76px] px-6 sm:px-8 text-lg sm:text-xl backdrop-blur-sm bg-transparent group transition-all"
+                    onClick={openWaitlist}
                   >
                     Join The Waitlist
-                    <ArrowUp className="w-7 h-7 ml-3 rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    <ArrowUp className="w-5 h-5 sm:w-7 sm:h-7 ml-2 sm:ml-3 rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </Button>
                 </DialogTrigger>
               </Dialog>
@@ -535,11 +536,11 @@ useEffect(() => {
                 <Button
       asChild
       variant="outline"
-      className="hidden lg:flex border-2 border-white text-white hover:bg-white hover:text-[#1e5aff] rounded-[15px] h-[76px] px-8 text-xl backdrop-blur-sm bg-transparent group transition-all"
+      className="hidden lg:flex border-2 border-white text-white hover:bg-white hover:text-[#1e5aff] rounded-[15px] h-16 sm:h-[76px] px-6 sm:px-8 text-lg sm:text-xl backdrop-blur-sm bg-transparent group transition-all"
     >
       <a href="https://web.paymeo.co">
         Get Started Now
-        <ArrowUp className="w-7 h-7 ml-3 rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+        <ArrowUp className="w-5 h-5 sm:w-7 sm:h-7 ml-2 sm:ml-3 rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
       </a>
     </Button>
   )}
@@ -550,22 +551,22 @@ useEffect(() => {
         </div>
 
       {/* Scroll Indicator - Absolutely positioned */}
-<div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex items-center justify-center space-x-2">
+<div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-10 flex items-center justify-center space-x-2">
   {/* How It Works Button */}
   <button
     onClick={scrollToSection}
-    className="hidden xl:flex bg-black/70 hover:bg-black/80 backdrop-blur-sm text-white text-sm sm:text-base px-5 py-3 rounded-[25px] flex items-center gap-2 transition-all group whitespace-nowrap"
+    className="xl:flex bg-black/70 hover:bg-black/80 backdrop-blur-sm text-white text-xs sm:text-sm md:text-base px-3 sm:px-5 py-2 sm:py-3 rounded-[25px] flex items-center gap-2 transition-all group whitespace-nowrap"
     aria-label="Scroll to how it works section"
   >
     How it works
-    <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
+    <ArrowDown className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-y-1 transition-transform" />
   </button>
 
   {/* Pricing Button (only for Business mode) */}
   {activeTab === 'business' && (
     <button
       onClick={() => router.push('/pricing')} // replace with your pricing route
-      className="bg-black/70 hover:bg-black/70 text-white text-sm sm:text-base px-5 py-3 rounded-[25px] flex items-center gap-2 transition-all shadow-md animate-fadeIn whitespace-nowrap"
+      className="bg-black/70 hover:bg-black/70 text-white text-xs sm:text-sm md:text-base px-3 sm:px-5 py-2 sm:py-3 rounded-[25px] flex items-center gap-2 transition-all shadow-md animate-fadeIn whitespace-nowrap"
       aria-label="View pricing"
     >
       Pricing
@@ -582,12 +583,12 @@ useEffect(() => {
 <section
   id="how-it-works"
   ref={howItWorksRef}
-  className="relative py-10 px-4 sm:px-6 lg:px-10 bg-white overflow-hidden"
+  className="relative py-8 sm:py-10 px-4 sm:px-6 lg:px-10 bg-white overflow-hidden"
 >
   {/* Background Image */}
-  <div className="absolute inset-x-0 top-0 h-[50%] sm:h-[50%] md:h-[50%] lg:h-[105%] overflow pointer-events-none">
+  <div className="absolute inset-x-0 top-0 h-[40%] sm:h-[50%] md:h-[50%] lg:h-[105%] overflow pointer-events-none">
     <Image
-      src={culture} // ← replace with your Cloudinary or local path
+      src={culture}
       alt="Background pattern"
       fill
       priority
@@ -599,12 +600,12 @@ useEffect(() => {
   <div className="relative max-w-7xl mx-auto">
     
 
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
       
 
      {/* Animated Feature Card */}
-<Card className="relative bg-gradient-to-br from-blue-50 to-blue-50 border-2 border-[#c4d4ff] rounded-[30px] overflow-hidden h-screen shadow-lg">
-  <CardContent className="relative h-full flex items-center justify-center overflow-hidden">
+<Card className="relative bg-gradient-to-br from-blue-50 to-blue-50 border-2 border-[#c4d4ff] rounded-[30px] overflow-hidden h-[80vh] sm:h-screen shadow-lg">
+  <CardContent className="relative h-full flex items-center justify-center overflow-hidden p-4 sm:p-6">
 
     {/* Animation Container - Only animate when in view */}
     <AnimatePresence mode="wait">
@@ -615,14 +616,14 @@ useEffect(() => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -100 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="absolute inset-0 flex flex-col items-center justify-center"
+          className="absolute inset-0 flex flex-col items-center justify-center p-4"
         >
           {/* Caption */}
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 text-center px-10"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-800 mb-4 sm:mb-6 text-center px-4 sm:px-10 xl:px-0"
           >
             Use <i className="text-[#1e5aff]">&quot;Ask&quot;</i> to find products/services & get recommendations!
           </motion.h3>
@@ -631,14 +632,14 @@ useEffect(() => {
           <motion.img
             src="https://res.cloudinary.com/diml8ljwa/image/upload/v1761884644/ask1_v0i2re.svg"
             alt="Paymeo Chat Screen"
-            className="w-[100%] md:w-[300px] lg:w-[300px] xl:w-[300px] "
+            className="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[300px] lg:max-w-[300px]"
           />
 
           {/* Mini Overlays */}
           <motion.img
             src="https://res.cloudinary.com/diml8ljwa/image/upload/v1761885291/ask2_aijwma.svg"
             alt="Overlay 1"
-            className="absolute top-[45%] w-[100%] md:w-[300px] lg:w-[300px] xl:w-[300px]  z-10"
+            className="absolute top-[40%] sm:top-[45%] w-full max-w-[250px] sm:max-w-[300px] md:max-w-[300px] lg:max-w-[300px] z-10"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1 }}
@@ -646,7 +647,7 @@ useEffect(() => {
           <motion.img
             src="https://res.cloudinary.com/diml8ljwa/image/upload/v1761885291/ask3_sql6ll.svg"
             alt="Overlay 2"
-            className="absolute top-[65%] w-[100%] md:w-[300px] lg:w-[300px] xl:w-[300px] z-10"
+            className="absolute top-[55%] sm:top-[65%] w-full max-w-[250px] sm:max-w-[300px] md:max-w-[300px] lg:max-w-[300px] z-10"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.4 }}
@@ -661,13 +662,13 @@ useEffect(() => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -100 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="absolute inset-0 flex flex-col items-center justify-center"
+          className="absolute inset-0 flex flex-col items-center justify-center p-4"
         >
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 text-center px-10"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-800 mb-4 sm:mb-6 text-center px-4 sm:px-10"
           >
             <i className="text-[#1e5aff]">Swipe</i> real-time offers for your product/service requests
           </motion.h3>
@@ -675,13 +676,13 @@ useEffect(() => {
           <motion.img
             src="https://res.cloudinary.com/diml8ljwa/image/upload/v1762341472/paymeoswipe_1_wq0dgo.webp"
             alt="Sales Dashboard"
-            className="w-[350%] md:w-[600px] lg:w-[600px] xl:w-[600px]"
+            className="w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px]"
           />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-l md:text-3l font-semibold text-gray-600 mt-10 text-center px-10"
+            className="text-sm sm:text-base md:text-lg font-semibold text-gray-600 mt-6 sm:mt-10 text-center px-4 sm:px-10"
           >
              Using <i><strong>&quot;Shop Ask&quot;</strong></i>, get real-time offers from businesses around you. Swipe. Shortlist. Negotiate. Shop!
           </motion.p>
@@ -695,13 +696,13 @@ useEffect(() => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -100 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="absolute inset-0 flex flex-col items-center justify-center"
+          className="absolute inset-0 flex flex-col items-center justify-center p-4"
         >
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 text-center px-10"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-800 mb-4 sm:mb-6 text-center px-4 sm:px-10"
           >
             Form communities, organize life-events, schedule & pay gradually for items using <i className="text-[#1e5aff]">Co-pay</i>
           </motion.h3>
@@ -710,7 +711,7 @@ useEffect(() => {
           <motion.img
             src="https://res.cloudinary.com/diml8ljwa/image/upload/v1761906469/TransactionChats_ajel9w.svg"
             alt="Chat Interface"
-            className="w-[80%] md:w-[250px] lg:w-[250px] xl:w-[250px] rounded-3xl shadow-lg"
+            className="w-full max-w-[180px] sm:max-w-[250px] md:max-w-[250px] lg:max-w-[250px] rounded-3xl shadow-lg"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
@@ -722,15 +723,8 @@ useEffect(() => {
   alt="Pinned Transactions"
   className="
     absolute 
-          /* default for mobile */
-    sm:top-[20%]        /* slightly higher on small screens */
-    md:top-[25%]        /* medium screens */
-    lg:top-[25%]        /* larger screens */
-    xl:top-[22%]        /* extra large screens */
-    w-[80%] 
-    md:w-[250px] 
-    lg:w-[250px]
-    xl:w-[250px]
+    top-[35%] sm:top-[20%] md:top-[27%] lg:top-[25%] xl:top[40%]
+    w-full max-w-[180px] sm:max-w-[250px] md:max-w-[250px] lg:max-w-[250px]
     z-10 
     rounded-3xl 
     shadow-5xl 
@@ -749,13 +743,13 @@ useEffect(() => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -100 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="absolute inset-0 flex flex-col items-center justify-center"
+          className="absolute inset-0 flex flex-col items-center justify-center p-4"
         >
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 text-center px-10"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-800 mb-4 sm:mb-6 text-center px-4 sm:px-10"
           >
              Shop and collaborate with friends & businesses through <i className="text-[#1e5aff]">Chat Flows</i>
           </motion.h3>
@@ -764,7 +758,7 @@ useEffect(() => {
           <motion.img
             src="https://res.cloudinary.com/diml8ljwa/image/upload/v1761906908/businesstransactionchats_fgaaid.svg"
             alt="Chat Interface"
-            className="w-[80%] md:w-[250px] lg:w-[250px] xl:[w-250px] rounded-3xl shadow-lg"
+            className="w-full max-w-[200px] sm:max-w-[250px] md:max-w-[250px] lg:max-w-[250px] rounded-3xl shadow-lg"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
@@ -778,7 +772,7 @@ useEffect(() => {
 </Card>
 
 {/* Card 1 - Video Feature */}
-<Card className="relative bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-[#c4d4ff] rounded-[30px] overflow-hidden h-screen shadow-lg">
+<Card className="relative bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-[#c4d4ff] rounded-[30px] overflow-hidden h-[80vh] sm:h-screen shadow-lg">
   <CardContent className="relative h-full p-0 overflow-hidden">
 
     {/* Background Video - Only plays when in view */}
@@ -791,22 +785,21 @@ useEffect(() => {
     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10" />
 
     {/* Overlay Content */}
-    <div className="relative z-20 h-full flex flex-col justify-end items-center text-center p-8 md:p-12">
+    <div className="relative z-20 h-full flex flex-col justify-end items-center text-center p-6 sm:p-8 md:p-12">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={howItWorksInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <div className="flex items-center justify-center mb-4">
-          <div className="w-16 h-16 bg-[#1e5aff] rounded-[23px] flex items-center justify-center">
-            {/* <Sparkles className="w-8 h-8 text-white" /> */}
-            <Image src={imgPaymeoLogoWhite2} alt="Paymeo" className="w-10 h-10" />
+        <div className="flex items-center justify-center mb-3 sm:mb-4">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#1e5aff] rounded-[23px] flex items-center justify-center">
+            <Image src={imgPaymeoLogoWhite2} alt="Paymeo" className="w-8 h-8 sm:w-10 sm:h-10" />
           </div>
         </div>
-        <h3 className="text-3xl md:text-4xl font-semibold text-white mb-3">
+        <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-white mb-2 sm:mb-3">
           Express Your Intent
         </h3>
-        <p className="text-base md:text-lg text-gray-200 max-w-md mx-auto">
+        <p className="text-sm sm:text-base md:text-lg text-gray-200 max-w-md mx-auto">
           From shopping, collaborating & sending cash to friends, seeking recommendations, to selling. Paymeo understands what you&apos;re looking for and connects you with the right opportunities — instantly.
         </p>
       </motion.div>
@@ -817,20 +810,20 @@ useEffect(() => {
     </div>
 
     {/* Navigation */}
-    <div className="flex justify-center gap-4 mt-12 relative z-10">
+    <div className="flex justify-center gap-3 sm:gap-4 mt-8 sm:mt-12 relative z-10">
       <button
-        className="bg-black/70 hover:bg-black/80 backdrop-blur-sm text-white px-4 py-3 rounded-[25px] flex items-center gap-2 transition-all"
+        className="bg-black/70 hover:bg-black/80 backdrop-blur-sm text-white px-3 sm:px-4 py-2 sm:py-3 rounded-[25px] flex items-center gap-2 transition-all text-sm"
         aria-label="Scroll up"
       >
-        <ArrowDown className="w-4 h-4 rotate-180" />
+        <ArrowDown className="w-3 h-3 sm:w-4 sm:h-4 rotate-180" />
       </button>
       <button
         onClick={() => document.getElementById('more-features')?.scrollIntoView({ behavior: 'smooth' })}
-        className="bg-black/70 hover:bg-black/80 backdrop-blur-sm text-white px-6 py-3 rounded-[25px] flex items-center gap-2 transition-all group"
+        className="bg-black/70 hover:bg-black/80 backdrop-blur-sm text-white px-4 sm:px-6 py-2 sm:py-3 rounded-[25px] flex items-center gap-2 transition-all group text-sm"
         aria-label="View more features"
       >
         More
-        <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
+        <ArrowDown className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-y-1 transition-transform" />
       </button>
     </div>
   </div>
@@ -849,25 +842,25 @@ useEffect(() => {
   <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-white/10 z-0" />
 
   {/* Content container */}
-  <div className="relative z-10 max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:px-20">
+  <div className="relative z-10 max-w-7xl mx-auto py-12 sm:py-20 px-4 sm:px-6 lg:px-20">
     {/* Heading */}
-    <div className="text-center mb-12">
+    <div className="text-center mb-8 sm:mb-12">
       
-      <p className="bg-black/20 backdrop-blur-md rounded-lg px-6 py-4 text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
+      <p className="bg-black/20 backdrop-blur-md rounded-lg px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
         Paymeo combines social networking with commerce — every interaction can turn into a trusted sale or meaningful connection.
       </p>
     </div>
 
     {/* Feature cards grid */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
       {/* Card — Verified Community */}
       <Card className="bg-white/60 backdrop-blur-md border border-white/8 rounded-2xl shadow-2xl overflow-hidden transform transition hover:-translate-y-2">
-        <CardContent className="p-8">
-          <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-4 bg-white/8">
-            <CheckCircle2 className="w-8 h-8 text-black" />
+        <CardContent className="p-4 sm:p-6 md:p-8">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center mb-3 sm:mb-4 bg-white/8">
+            <CheckCircle2 className="w-6 h-6 sm:w-8 sm:h-8 text-black" />
           </div>
-          <h3 className="text-2xl text-black mb-3">Verified Community</h3>
-          <p className="text-black/80">
+          <h3 className="text-lg sm:text-xl md:text-2xl text-black mb-2 sm:mb-3">Verified Community</h3>
+          <p className="text-black/80 text-sm sm:text-base">
             Every member is verified so you can trade and connect with confidence in a trusted environment.
           </p>
         </CardContent>
@@ -875,12 +868,12 @@ useEffect(() => {
 
       {/* Card — Smart Matching */}
       <Card className="bg-white/60 backdrop-blur-md border border-white/8 rounded-2xl shadow-2xl overflow-hidden transform transition hover:-translate-y-2">
-        <CardContent className="p-8">
-          <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-4 bg-white/8">
-            <Network className="w-8 h-8 text-black" />
+        <CardContent className="p-4 sm:p-6 md:p-8">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center mb-3 sm:mb-4 bg-white/8">
+            <Network className="w-6 h-6 sm:w-8 sm:h-8 text-black" />
           </div>
-          <h3 className="text-2xl text-black mb-3">Smart Matching</h3>
-          <p className="text-black/80">
+          <h3 className="text-lg sm:text-xl md:text-2xl text-black mb-2 sm:mb-3">Smart Matching</h3>
+          <p className="text-black/80 text-sm sm:text-base">
             Intent-powered matching connects you to the right people, offers, and buyers at the right time.
           </p>
         </CardContent>
@@ -888,12 +881,12 @@ useEffect(() => {
 
       {/* Card — Seamless Payments */}
       <Card className="bg-white/60 backdrop-blur-md border border-white/8 rounded-2xl shadow-2xl overflow-hidden transform transition hover:-translate-y-2">
-        <CardContent className="p-8">
-          <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-4 bg-white/8">
-            <Sparkles className="w-8 h-8 text-black" />
+        <CardContent className="p-4 sm:p-6 md:p-8">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center mb-3 sm:mb-4 bg-white/8">
+            <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-black" />
           </div>
-          <h3 className="text-2xl text-black mb-3">Seamless Payments</h3>
-          <p className="text-black/80">
+          <h3 className="text-lg sm:text-xl md:text-2xl text-black mb-2 sm:mb-3">Seamless Payments</h3>
+          <p className="text-black/80 text-sm sm:text-base">
             Pay friends, accept purchases, send tips, and reconcile transactions — all with clean UX and powerful controls.
           </p>
         </CardContent>
@@ -901,29 +894,29 @@ useEffect(() => {
     </div>
 
     {/* Subtext row */}
-    <div className="mt-12 flex items-center justify-center">
-      <div className="bg-black/20 backdrop-blur-md rounded-lg px-6 py-4 text-white text-lg text-center">
+    <div className="mt-8 sm:mt-12 flex items-center justify-center">
+      <div className="bg-black/20 backdrop-blur-md rounded-lg px-4 sm:px-6 py-2 sm:py-4 text-white text-sm sm:text-lg text-center">
         Secure • Fast • Built for community
       </div>
     </div>
 
     {/* Navigation buttons — fixed positioning */}
-    <div className="relative z-20 flex justify-center gap-4 mt-10 sm:mt-14">
+    <div className="relative z-20 flex justify-center gap-3 sm:gap-4 mt-8 sm:mt-10 md:mt-14">
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="bg-black/70 hover:bg-black/80 backdrop-blur-sm text-white px-4 py-3 rounded-[25px] flex items-center gap-2 transition-all"
+        className="bg-black/70 hover:bg-black/80 backdrop-blur-sm text-white px-3 sm:px-4 py-2 sm:py-3 rounded-[25px] flex items-center gap-2 transition-all text-sm"
         aria-label="Scroll up"
       >
-        <ArrowDown className="w-4 h-4 rotate-180" />
+        <ArrowDown className="w-3 h-3 sm:w-4 sm:h-4 rotate-180" />
       </button>
 
       <button
         onClick={() => document.getElementById('meo')?.scrollIntoView({ behavior: 'smooth' })}
-        className="bg-black/70 hover:bg-black/80 backdrop-blur-sm text-white px-6 py-3 rounded-[25px] flex items-center gap-2 transition-all group"
+        className="bg-black/70 hover:bg-black/80 backdrop-blur-sm text-white px-4 sm:px-6 py-2 sm:py-3 rounded-[25px] flex items-center gap-2 transition-all group text-sm"
         aria-label="Go to Meo section"
       >
         Meo AI
-        <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
+        <ArrowDown className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-y-1 transition-transform" />
       </button>
     </div>
   </div>
@@ -933,7 +926,7 @@ useEffect(() => {
 
       {/* Final CTA — full-bleed video background with glass CTA */}
 {/* MEO Section — Fully Responsive Cinematic Hero */}
-<section className="relative overflow-hidden h-screen flex flex-col justify-between" id="meo" ref={meoRef}>
+<section className="relative overflow-hidden min-h-screen flex flex-col justify-between" id="meo" ref={meoRef}>
   {/* Video background - Only plays when in view */}
   <LazyVideo
     className="absolute inset-0 w-full h-full object-cover pointer-events-none"
@@ -945,18 +938,18 @@ useEffect(() => {
   <div className="absolute inset-0 bg-gradient-to-r from-[#0d3bb8]/40 via-transparent to-[#1e5aff]/30 z-0 mix-blend-multiply" />
 
   {/* Top-centered Meo capsule */}
-  <div className="relative z-10 flex justify-center pt-6 sm:pt-30 ">
-    <div className="inline-flex items-center gap-1 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 mt-[20%] xl:mt-[6%]">
-      <Image src={imgPaymeoLogoWhite2} alt="Meo" width={24} height={24} />
-      <span className="text-white font-medium text-base sm:text-lg">Meo</span>
+  <div className="relative z-10 flex justify-center pt-4 sm:pt-6 md:pt-30">
+    <div className="inline-flex items-center gap-1 bg-white/10 backdrop-blur-md px-3 sm:px-4 py-1 sm:py-2 rounded-full border border-white/10 mt-[10%] sm:mt-[15%] xl:mt-[6%]">
+      <Image src={imgPaymeoLogoWhite2} alt="Meo" width={20} height={20} className="w-4 h-4 sm:w-6 sm:h-6" />
+      <span className="text-white font-medium text-sm sm:text-base md:text-lg">Meo</span>
     </div>
   </div>
 
   {/* Bottom section: responsive grid */}
-  <div className="relative z-10 w-full px-6 sm:px-10 md:px-20 pb-10 sm:pb-12 flex flex-col sm:flex-row items-end justify-between gap=8 sm:gap-0">
+  <div className="relative z-10 w-full px-4 sm:px-6 md:px-10 lg:px-20 pb-6 sm:pb-8 md:pb-10 lg:pb-12 flex flex-col sm:flex-row items-end justify-between gap-4 sm:gap-6 md:gap-8">
     {/* Left — Button */}
    <div className="flex justify-center sm:justify-start w-full sm:w-auto">
-  <button className=" lg:flex items-center justify-center border-2 border-white text-white hover:bg-white hover:text-[#1e5aff] rounded-[15px] h-[46px] xl:h-[76px] px-8 text-xl backdrop-blur-sm bg-transparent group transition-all">
+  <button className="flex items-center justify-center border-2 border-white text-white hover:bg-white hover:text-[#1e5aff] rounded-[15px] h-10 sm:h-12 md:h-[46px] xl:h-[76px] px-4 sm:px-6 md:px-8 text-sm sm:text-base md:text-xl backdrop-blur-sm bg-transparent group transition-all">
     Coming Soon
   </button>
 </div>
@@ -964,12 +957,11 @@ useEffect(() => {
 
     {/* Right — Text block */}
     <div className="max-w-lg text-center sm:text-left mx-auto sm:mx-0">
-     <h5 className="text-l sm:text-2xl md:text-4xl font-medium text-white leading-snug sm:leading-tight mb-6">
-  UNDERSTANDS YOUR CUSTOMERS
-  LIKE YOU DO
+     <h5 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-4xl font-medium text-white leading-snug sm:leading-tight mb-4 sm:mb-6">
+  UNDERSTANDS YOUR CUSTOMERS LIKE YOU DO
 </h5>
-      <p className="text-white/90 text-[13px] sm:text-base md:text-lg leading-relaxed">
-        Meo is your dedicated <span className="text-[#1e5aff]">24/7</span> Sales AI Agent built to understand, engage, and convert intent into sales like you.<br/>
+      <p className="text-white/90 text-xs sm:text-sm md:text-base leading-relaxed">
+        Meo is your dedicated <span className="text-[#1e5aff]">24/7</span> Sales AI Agent built to understand, engage, and convert intent into sales like you.<br className="hidden sm:block"/>
         Allowing you make more sales even while you sleep!
       </p>
     </div>
