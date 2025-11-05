@@ -412,8 +412,8 @@ useEffect(() => {
             
       
             {/* Left Column - Hero Card */}
-            <Card className="bg-white border border-[#c4d4ff] rounded-[30px] p-6 sm:p-8 md:p-10 shadow-lg">
-              <CardContent className="p-0">
+            <Card className="bg-white border border-[#c4d4ff] rounded-[30px] p-6 sm:p-8 md:p-10 shadow-lg h-[120%] xl:h-[100%]">
+              <CardContent className="p-0 h-[100%]">
                 <Badge className="bg-[#e6dbff] text-violet-500 hover:bg-[#e6dbff] border border-violet-500 mb-4 sm:mb-6 text-xs sm:text-sm">
                   <span className="font-normal">
                     {activeTab === "personal" ? "We're now in" : "For"}
