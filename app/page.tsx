@@ -49,6 +49,7 @@ import router from "next/router";
 import WaitlistDialog from "@/components/WaitlistDialog";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import SplashScreen from "@/components/SplashScreen";
 
 // Type definitions for our custom hooks
 interface UseInViewportReturn {
@@ -190,7 +191,7 @@ function ProfileSlideIn({
       <motion.aside
         className={`
           fixed top-5 xl:right-5 bottom-5 z-60
-          w-[95%] mx-auto sm:w-[85%] md:w-[75%] lg:w-[60%] xl:w-[50%]
+          w-[100%] mx-auto sm:w-[85%] md:w-[75%] lg:w-[60%] xl:w-[50%]
           bg-white rounded-[40px] shadow-2xl overflow-hidden flex flex-col
         `}
         initial={{ x: "100%" }}
@@ -370,6 +371,7 @@ useEffect(() => {
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
+      <SplashScreen />
       {/* Profile slide-in */}
       <ProfileSlideIn
         open={isProfileOpen}
@@ -463,7 +465,7 @@ useEffect(() => {
                   </Button>
                 </Link>
                 <Button
-                  className="border border-[#c4d4ff] bg-white text-[#1e5aff] rounded-[20px] h-12 px-4 sm:px-6 group transition-colors duration-200 hover:bg-black hover:text-white text-sm sm:text-base"
+                  className="border border-[#c4d4ff] bg-white text-[#1e5aff] rounded-[20px] h-12 px-4 sm:px-6 group transition-colors duration-200 hover:bg-black hover:text-white text-sm sm:text-base mt-6"
                   onClick={() => setIsProfileOpen(true)}
                 >
                   <span className="flex items-center">
@@ -478,7 +480,7 @@ useEffect(() => {
       </Card>
 
       {/* Right Column - Waitlist Info */}
-      <div className="flex flex-col items-center lg:items-end gap-5 sm:gap-6 mt-10 sm:mt-0">
+      <div className="flex flex-col items-center lg:items-end gap-5 sm:gap-6 mt-0 mb-6 xl:mt-10 sm:mt-0">
         <motion.div
           key={activeTab}
           initial={{ opacity: 0, y: 10 }}
@@ -543,7 +545,7 @@ useEffect(() => {
   </div>
 
   {/* Scroll Indicator */}
-  <div className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 z-10 flex sm:flex-row items-center justify-center gap-3 sm:gap-4">
+  <div className="absolute bottom-12 xl:bottom-6 md:bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 z-10 flex sm:flex-row items-center justify-center gap-3 sm:gap-4">
     <button
       onClick={scrollToSection}
       className="bg-black/70 hover:bg-black/80 backdrop-blur-sm text-white text-xs sm:text-sm md:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-[25px] flex items-center gap-2 transition-all group whitespace-nowrap"
@@ -551,6 +553,14 @@ useEffect(() => {
       How it works
       <ArrowDown className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-y-1 transition-transform" />
     </button>
+    {activeTab === "personal" && (
+      <button
+        onClick={() => router.push('/marketplace')}
+        className="bg-black/70 hover:bg-black/70 text-white text-xs sm:text-sm md:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-[25px] flex items-center gap-2 transition-all shadow-md animate-fadeIn whitespace-nowrap"
+      >
+        Marketplace
+      </button>
+    )}
 
     {activeTab === "business" && (
       <button
