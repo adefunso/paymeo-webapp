@@ -548,7 +548,7 @@ useEffect(() => {
   <div className="absolute bottom-12 xl:bottom-6 md:bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 z-10 flex sm:flex-row items-center justify-center gap-3 sm:gap-4">
     <button
       onClick={scrollToSection}
-      className="bg-black/70 hover:bg-black/80 backdrop-blur-sm text-white text-xs sm:text-sm md:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-[25px] flex items-center gap-2 transition-all group whitespace-nowrap"
+      className="bg-black/70 hover:bg-black/80 backdrop-blur-sm text-white text-xs sm:text-sm md:text-base px-4 sm:px-6 py-3 sm:py-3 rounded-[25px] flex items-center gap-2 transition-all group whitespace-nowrap"
     >
       How it works
       <ArrowDown className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-y-1 transition-transform" />
@@ -556,7 +556,7 @@ useEffect(() => {
     {activeTab === "personal" && (
       <button
         onClick={() => router.push('/marketplace')}
-        className="bg-black/70 hover:bg-black/70 text-white text-xs sm:text-sm md:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-[25px] flex items-center gap-2 transition-all shadow-md animate-fadeIn whitespace-nowrap"
+        className="bg-black/70 hover:bg-black/70 text-white text-xs sm:text-sm md:text-base px-4 sm:px-6 py-3 sm:py-3 rounded-[25px] flex items-center gap-2 transition-all shadow-md animate-fadeIn whitespace-nowrap"
       >
         Marketplace
       </button>
