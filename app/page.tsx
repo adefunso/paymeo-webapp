@@ -565,7 +565,7 @@ useEffect(() => {
     {activeTab === "business" && (
       <button
         onClick={() => router.push('/pricing')}
-        className="bg-black/70 hover:bg-black/70 text-white text-xs sm:text-sm md:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-[25px] flex items-center gap-2 transition-all shadow-md animate-fadeIn whitespace-nowrap"
+        className="bg-black/70 hover:bg-black/70 text-white text-xs sm:text-sm md:text-base px-4 sm:px-6 py-3 sm:py-3 rounded-[25px] flex items-center gap-2 transition-all shadow-md animate-fadeIn whitespace-nowrap"
       >
         Pricing
       </button>
