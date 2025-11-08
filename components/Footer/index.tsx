@@ -114,7 +114,7 @@ export default function Footer() {
                 <RiTiktokFill className="text-2xl" />
               </a>
               <a
-                href="https://www.linkedin.com/company/usepaymeo"
+                href="https://www.linkedin.com/company/paymeo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#1e5aff] hover:text-[#1e5aff] transition"
