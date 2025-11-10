@@ -273,7 +273,7 @@ function ProfileSlideIn({
             /* BUSINESS TAB */
             <>
               <h4 className="text-xl sm:text-2xl font-semibold mb-3">
-                Log in to your Paymeo Business Account
+                Get your Paymeo Business Account
               </h4>
               <p className="text-gray-600 text-sm sm:text-base mb-6 sm:mb-8 max-w-md">
                 &quot;Sell across your existing channels with 24/7 Sales AI Agents — never lose a sale, even while you sleep. Manage payments, inventory, and shipments all in one place. Unlock demand-driven social commerce and 10x your sales process — right from your pocket.&quot;
