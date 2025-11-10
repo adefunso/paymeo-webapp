@@ -282,7 +282,7 @@ function ProfileSlideIn({
               <div className="flex flex-col gap-3 w-full sm:w-[80%] md:w-[60%]">
                 <Link href="https://web.paymeo.co" className="w-full">
                   <div className="block w-full text-center h-10 sm:h-12 rounded-[14px] bg-[#1e5aff] text-white leading-[40px] sm:leading-[48px] hover:bg-[#1746cc] transition-colors text-sm sm:text-base">
-                    Get started for free
+                    Create an Account
                   </div>
                 </Link>
 
@@ -458,21 +458,22 @@ useEffect(() => {
               </Dialog>
             ) : (
               <>
-                <Link href="https://web.paymeo.co">
-                  <Button className="bg-[#1e5aff] hover:bg-[#1e5aff]/90 text-white rounded-[20px] h-12 px-4 sm:px-6 group text-sm sm:text-base mt-4 sm:mt-6 mb-2 sm:mb-0">
+               
+                  <Button className="bg-[#1e5aff] hover:bg-[#1e5aff]/90 text-white rounded-[20px] h-12 px-4 sm:px-6 group text-sm sm:text-base mt-4 sm:mt-6 mb-2 sm:mb-0" onClick={() => setIsProfileOpen(true)}>
                     Get Started for Free
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
                   </Button>
-                </Link>
+                
+                <Link href="https://web.paymeo.co">
                 <Button
                   className="border border-[#c4d4ff] bg-white text-[#1e5aff] rounded-[20px] h-12 px-4 sm:px-6 group transition-colors duration-200 hover:bg-black hover:text-white text-sm sm:text-base mt-6"
-                  onClick={() => setIsProfileOpen(true)}
                 >
                   <span className="flex items-center">
                     Sign in
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
                   </span>
                 </Button>
+                </Link>
               </>
             )}
           </div>
