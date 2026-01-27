@@ -11,6 +11,8 @@ import Nav from "@/components/Nav";
 import Link from "next/link";
 import { ArrowUp, X } from "lucide-react";
 import { useRouter } from "next/navigation";
+import api from "@/utils/api";
+import axios from "axios";
 
 // Types for API response
 interface ProductImage {
@@ -232,50 +234,59 @@ export default function MarketplacePage({ imgPaymeoLogoWhite2 }: { imgPaymeoLogo
   const router = useRouter();
 
   // Fetch products from API using GET method
-  const fetchProducts = useCallback(async (page: number = 1, limit: number = 12) => {
-    try {
-      setLoading(true);
-      setError(null);
-      
-      const url = `${API_BASE_URL}?page=${page}&limit=${limit}`;
-      console.log(`Fetching products from: ${url}`);
+const fetchProducts = useCallback(async (page: number = 1, limit: number = 12) => {
+  try {
+    setLoading(true);
+    setError(null);
+    
+    const apiKey = process.env.NEXT_PUBLIC_PAYMEO_API_KEY || "D5NN602kTIoOFAbhicH6oovHUxzqYVZg";
+    const baseUrl = "https://api.paymeo.co/mango/manig/product-list";
+    const url = `${baseUrl}?page=${page}&limit=${limit}`;
+    
+    console.log(`Fetching products from: ${url}`);
 
-      const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-          'x-api-key': PAYMEO_API_KEY,
-          'Content-Type': 'application/json',
-        },
-      });
-
-      console.log('Response status:', response.status);
-
-      if (!response.ok) {
-        throw new Error(`API request failed with status ${response.status}`);
+    const response = await axios.get(url, {
+      headers: {
+        'x-api-key': apiKey,
+        'Content-Type': 'application/json',
+      },
+    });
+    
+    console.log('Response:', response);
+    
+    // Check different possible response structures
+    const responseData = response.data;
+    
+    if (Array.isArray(responseData)) {
+      // Direct array response
+      setProducts(responseData);
+    } else if (responseData.products && Array.isArray(responseData.products)) {
+      // Nested products array
+      setProducts(responseData.products);
+      if (responseData.pagination) {
+        setPagination(responseData.pagination);
       }
-
-      const data: ApiResponse = await response.json();
-      console.log('API response data:', data);
-
-      if (data.success && Array.isArray(data.products)) {
-        setProducts(prevProducts => 
-          page === 1 ? data.products : [...prevProducts, ...data.products]
-        );
-        setPagination(data.pagination);
-        setHasFetched(true);
-      } else {
-        throw new Error('Invalid response format from API: Missing products array');
+    } else if (responseData.data && Array.isArray(responseData.data)) {
+      // Data field contains array
+      setProducts(responseData.data);
+      if (responseData.meta) {
+        setPagination(responseData.meta);
       }
-    } catch (err) {
-      console.error('Error fetching products:', err);
-      const errorMessage = err instanceof Error ? err.message : 'Failed to fetch products from API';
-      setError(errorMessage);
-      setProducts([]);
-    } finally {
-      setLoading(false);
+    } else {
+      console.error('Unknown response structure:', responseData);
+      throw new Error('Invalid response format');
     }
-  }, []);
-
+    
+    setHasFetched(true);
+    
+  } catch (err) {
+    console.error('Fetch error:', err);
+    setError(err instanceof Error ? err.message : 'Failed to fetch products');
+    setProducts([]);
+  } finally {
+    setLoading(false);
+  }
+}, []);
   // Load more products
   const loadMore = () => {
     if (pagination?.has_next && !loading) {
