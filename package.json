@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-   "overrides": {
-  "react-day-picker": {
-    "react": "$react"
-  }
-},
+  "overrides": {
+    "react-day-picker": {
+      "react": "$react"
+    }
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -43,6 +43,7 @@
     "@radix-ui/react-toggle-group": "^1.1.2",
     "@radix-ui/react-tooltip": "^1.1.8",
     "autoprefixer": "^10.4.21",
+    "axios": "^1.13.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "*",
     "cmdk": "^1.1.1",
