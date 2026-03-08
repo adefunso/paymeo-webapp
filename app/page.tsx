@@ -418,26 +418,26 @@ useEffect(() => {
               <span className="font-normal">
                 {activeTab === "personal" ? "We're now in" : "For"}
               </span>
-              <span>{activeTab === "personal" ? "Beta! 🍲🔥" : "Businesses 💼"}</span>
+              <span>{activeTab === "personal" ? "Beta! 🚀" : "Businesses 💼"}</span>
             </Badge>
 
             {activeTab === "personal" ? (
               <>
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[50px] leading-tight mb-4 sm:mb-6 text-black font-extrabold">
-                  The Intent-Driven Social Commerce
+                  Find what you need. At the best price.
                 </h1>
 
                 <p className="text-sm sm:text-base text-black/80 leading-relaxed mb-6 sm:mb-8">
-                  Discover, shop with confidence, pay friends and connect over the things you love, powered by your requests.
+                 Tell us what you&apos;re looking for. Sellers send their best offers. Compare, choose, and pick up—all without walking through the entire market.
                 </p>
               </>
             ) : (
               <>
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[50px] leading-tight mb-4 sm:mb-6 text-black font-extrabold">
-                  Grow with Intent-Driven Commerce
+                  Sell even when you&apos;re busy.
                 </h1>
                 <p className="text-sm sm:text-base text-black/80 leading-relaxed mb-6 sm:mb-8">
-                  Power your sales, manage payments, and connect with customers all in one place.
+                  Power your sales 24/7. Manage payments securely. Connect with customers automatically. All in one place.
                 </p>
               </>
             )}
@@ -506,7 +506,7 @@ useEffect(() => {
           </div>
           <p className="text-white text-xs sm:text-sm md:text-base backdrop-blur-sm bg-black/20 rounded-lg px-3 py-1 sm:px-4 sm:py-2 inline-block">
             {activeTab === "personal"
-              ? "50+ explorers have already joined!"
+              ? "80+ shoppers have already joined!"
               : "100+ businesses now use Paymeo to supercharge their sales."}
           </p>
         </motion.div>
