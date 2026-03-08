@@ -237,7 +237,7 @@ export default function Footer() {
 
         {/* Bottom copyright */}
         <div className="border-t border-gray-200 mt-12 pt-6 text-sm text-gray-500 flex flex-col sm:flex-row items-center justify-between">
-          <p>&copy; 2025 Paymeo. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Paymeo. All rights reserved.</p>
           <div className="flex gap-6 mt-3 sm:mt-0">
             <a href="#" className="hover:text-gray-800 transition">
               Terms

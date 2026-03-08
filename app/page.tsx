@@ -297,9 +297,9 @@ function ProfileSlideIn({
         </div>
 
         {/* Footer */}
-        <div className="p-3 sm:p-4 text-center text-xs sm:text-sm text-gray-400 border-t border-gray-100">
-          &copy; 2025 Paymeo. All rights reserved.
-        </div>
+       <div className="p-3 sm:p-4 text-center text-xs sm:text-sm text-gray-400 border-t border-gray-100">
+  &copy; {new Date().getFullYear()} Paymeo. All rights reserved.
+</div>
       </motion.aside>
     </>
   )}

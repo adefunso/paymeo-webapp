@@ -264,6 +264,6 @@ Target by End of Year 1:
 
 ---
 
-**Last Updated**: October 2025  
+**Last Updated**: March 2026  
 **Next Review**: Monthly  
 **Owner**: SEO Team
