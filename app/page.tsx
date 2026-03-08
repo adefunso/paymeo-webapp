@@ -1313,7 +1313,7 @@ useEffect(() => {
   </div>
 
   {/* Top left circle - only visible on business mode */}
-  {activeTab === "business" && (
+  
     <div className="absolute top-0 left-0 opacity-25 pointer-events-none">
       <svg
         width="180"
@@ -1328,7 +1328,6 @@ useEffect(() => {
         />
       </svg>
     </div>
-  )}
 
   <div className="relative z-10 max-w-7xl mx-auto">
     <div className="text-center mb-12">
@@ -1487,14 +1486,7 @@ useEffect(() => {
         <ArrowDown className="w-3 h-3 sm:w-4 sm:h-4 rotate-180" />
       </button>
 
-      <button
-        onClick={() => document.getElementById('meo')?.scrollIntoView({ behavior: 'smooth' })}
-        className="bg-black/70 hover:bg-black/80 backdrop-blur-sm text-white px-4 sm:px-6 py-2 sm:py-3 rounded-[25px] flex items-center gap-2 transition-all group text-sm"
-        aria-label="Go to Meo section"
-      >
-        Meo AI
-        <ArrowDown className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-y-1 transition-transform" />
-      </button>
+      
     </div>
   </div>
 </section>
