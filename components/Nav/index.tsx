@@ -115,7 +115,7 @@ export default function SmartNav({
                 : "text-white/70 hover:text-white"
             }`}
           >
-            Personal
+            For Shoppers
           </button>
 
           {/* Business Tab */}
@@ -130,7 +130,7 @@ export default function SmartNav({
                 : "text-white/70 hover:text-white"
             }`}
           >
-            Business
+            For Sellers
           </button>
         </div>
 
