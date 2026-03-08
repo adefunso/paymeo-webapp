@@ -12,7 +12,7 @@ export default function FaqSection() {
   {
     question: "What is Paymeo?",
     answer:
-      "Paymeo is an intent-driven social commerce platform that bridges conversations and commerce. It lets users express what they need (intent) and connects them directly to the people or businesses that can fulfill those needs — all while enabling seamless, secure payments.",
+      "Paymeo is an AI-powered marketplace for local sellers and shoppers that bridges conversations and commerce. It lets users express what they need (intent) and connects them directly to the people or businesses that can fulfill those needs — all while enabling seamless, secure payments.",
   },
   {
     question: "What makes Paymeo different?",

@@ -111,10 +111,11 @@ This guide outlines the comprehensive SEO strategy implemented for Paymeo to dom
 ## 📊 Target Keywords
 
 ### Primary Keywords
-1. "intent-driven social commerce"
+1. "The AI-powered marketplace for local sellers and shoppers"
 2. "social commerce platform"
 3. "peer-to-peer marketplace"
 4. "social shopping platform"
+5. "intent-driven social commerce"
 
 ### Secondary Keywords
 1. "buy and sell online"
@@ -205,7 +206,7 @@ This guide outlines the comprehensive SEO strategy implemented for Paymeo to dom
 ## 📝 Content Strategy
 
 ### Homepage
-- Focus on primary keyword: "intent-driven social commerce"
+- Focus on primary keyword: ""The AI-powered marketplace for local sellers and shoppers""
 - Clear value proposition above the fold
 - Trust signals (user count, testimonials)
 - Strong CTAs throughout

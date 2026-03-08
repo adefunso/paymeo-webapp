@@ -2,9 +2,9 @@ import { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Paymeo - Intent-Driven Social Commerce',
+    name: 'Paymeo - Sell more. Find better. Together.',
     short_name: 'Paymeo',
-    description: 'Discover, shop with confidence, pay friends and connect over the things you love, powered by your requests.',
+    description: 'The AI-powered marketplace for local sellers and shoppers.',
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',

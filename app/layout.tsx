@@ -36,7 +36,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL('https://paymeo.co'),
   title: {
-    default: 'Paymeo - Intent-Driven Social Commerce Platform',
+    default: 'Paymeo - AI-powered marketplace for local sellers and shoppers',
     template: '%s | Paymeo'
   },
   description: 'Discover, shop with confidence, pay friends and connect over the things you love. Paymeo is the intent-driven social commerce platform that turns your requests into meaningful connections.',
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://paymeo.co',
-    title: 'Paymeo - Intent-Driven Social Commerce Platform',
+    title: 'Paymeo - AI-powered marketplace for local sellers and shoppers',
     description: 'Discover, shop with confidence, pay friends and connect over the things you love, powered by your requests.',
     siteName: 'Paymeo',
     images: [
@@ -72,13 +72,13 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Paymeo - Intent-Driven Social Commerce',
+        alt: 'Paymeo - AI-powered marketplace for local sellers and shoppers',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Paymeo - Intent-Driven Social Commerce Platform',
+    title: 'Paymeo - AI-powered marketplace for local sellers and shoppers',
     description: 'Discover, shop with confidence, pay friends and connect over the things you love, powered by your requests.',
     images: ['/og-image.png'],
     creator: '@paymeo',

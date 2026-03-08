@@ -684,7 +684,7 @@ function TestimonialsSection({ activeTab }: { activeTab: "personal" | "business"
   } else {
     const testimonials = [
       {
-        name: "Musa",
+        name: "Ekenne",
         role: "Electronics Seller, Computer Village",
         content: "I was serving a customer when my AI sold ₦15,000 worth of goods to someone online. I didn't even know it happened until I got the notification."
       },

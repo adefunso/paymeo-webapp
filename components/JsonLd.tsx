@@ -5,7 +5,7 @@ export default function JsonLd() {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Paymeo",
-    "description": "Intent-driven social commerce platform that helps you discover anything, shop with confidence, pay friends and connect over the things you love.",
+    "description": "The AI-powered marketplace for local sellers and shoppers that helps you discover anything, shop with confidence, pay friends and connect over the things you love.",
     "url": "https://paymeo.co",
     "applicationCategory": "BusinessApplication",
     "offers": {
