@@ -73,24 +73,24 @@ export default function SmartNav({
       role="navigation"
       aria-label="Main navigation"
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between relative">
+      <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
         {/* --- Logo --- */}
-        <div className="flex items-center gap-2">
-          <div className="w-9 h-9 bg-[#1e5aff] rounded-[14px] flex items-center justify-center">
+        <div className="flex items-center gap-2 flex-shrink-0">
+          <div className="w-8 h-8 sm:w-9 sm:h-9 bg-[#1e5aff] rounded-[14px] flex items-center justify-center">
             <Image
               src={imgPaymeoLogoWhite2}
               alt="Paymeo logo"
-              className="w-8 h-8"
+              className="w-7 h-7 sm:w-8 sm:h-8"
             />
           </div>
-          <span className="hidden sm:inline text-white text-2xl mb-1">
+          <span className="hidden sm:inline text-white text-xl sm:text-2xl mb-1">
             paymeo
           </span>
         </div>
 
-        {/* --- Centered Tab Switcher --- */}
+        {/* --- Tab Switcher - Now with flex-shrink to prevent wrapping --- */}
         <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center bg-black/10 backdrop-blur-md rounded-full p-1 shadow-lg border border-white/10"
+          className="flex items-center bg-black/10 backdrop-blur-md rounded-full p-1 shadow-lg border border-white/10 flex-shrink min-w-0"
           role="tablist"
           aria-label="Account type"
         >
@@ -109,7 +109,7 @@ export default function SmartNav({
             role="tab"
             aria-selected={activeTab === "personal"}
             onClick={() => setActiveTab("personal")}
-            className={`relative z-10 px-4 sm:px-6 py-2 text-sm sm:text-base rounded-full font-medium transition-all ${
+            className={`relative z-10 px-3 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-base rounded-full font-medium whitespace-nowrap transition-all ${
               activeTab === "personal"
                 ? "text-white"
                 : "text-white/70 hover:text-white"
@@ -124,7 +124,7 @@ export default function SmartNav({
             role="tab"
             aria-selected={activeTab === "business"}
             onClick={() => setActiveTab("business")}
-            className={`relative z-10 px-4 sm:px-6 py-2 text-sm sm:text-base rounded-full font-medium transition-all ${
+            className={`relative z-10 px-3 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-base rounded-full font-medium whitespace-nowrap transition-all ${
               activeTab === "business"
                 ? "text-white"
                 : "text-white/70 hover:text-white"
@@ -136,11 +136,11 @@ export default function SmartNav({
 
         {/* --- Profile Icon --- */}
         <button
-          className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all"
+          className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all flex-shrink-0"
           aria-label="User profile"
           onClick={() => setIsProfileOpen(true)}
         >
-          <User className="w-5 h-5 text-white" />
+          <User className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
         </button>
       </div>
     </nav>
