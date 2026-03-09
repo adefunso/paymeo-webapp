@@ -69,6 +69,7 @@ import WaitlistDialog from "@/components/WaitlistDialog";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import SplashScreen from "@/components/SplashScreen";
+import LandingGate from "@/components/LandingGate";
 
 // Type definitions for our custom hooks
 interface UseInViewportReturn {
@@ -985,8 +986,10 @@ export default function HomePage() {
   const { ref: howItWorksRef, isInView: howItWorksInView } = useInViewport();
   const { ref: featuresRef, isInView: featuresInView } = useInViewport();
   const { ref: meoRef, isInView: meoInView } = useInViewport();
+  const [hasSelectedTab, setHasSelectedTab] = useState(false);
 
   const openWaitlist = () => setWaitlistOpen(true);
+
 
   useEffect(() => {
     // Only run the animation interval if the section is in view
@@ -1032,6 +1035,33 @@ export default function HomePage() {
     <div className="min-h-screen bg-white overflow-x-hidden">
       <SplashScreen />
       {/* Profile slide-in */}
+
+      {/* ── LANDING GATE — shown until user picks a tab ── */}
+    <AnimatePresence>
+      {!hasSelectedTab && (
+        <motion.div
+          key="gate"
+          className="fixed inset-0 z-[100]"
+          exit={{ opacity: 0, y: -50 }}
+          transition={{ duration: 0.55, ease: "easeInOut" }}
+        >
+          <LandingGate
+            imgPaymeoLogoWhite2={imgPaymeoLogoWhite2}
+            onSelect={(tab) => {
+              setActiveTab(tab);
+              setHasSelectedTab(true);
+            }}
+          />
+        </motion.div>
+      )}
+    </AnimatePresence>
+
+     <motion.div
+      animate={{ opacity: hasSelectedTab ? 1 : 0 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      style={{ pointerEvents: hasSelectedTab ? "auto" : "none" }}
+    >
+
       <ProfileSlideIn
         open={isProfileOpen}
         onClose={() => setIsProfileOpen(false)}
@@ -1803,6 +1833,7 @@ export default function HomePage() {
       <FaqSection />
 
       <Footer />
+      </motion.div>
     </div>
   );
 }
