@@ -778,7 +778,7 @@ function ShopperHowItWorks() {
             <div>
               <p className="text-sm text-gray-500">Your Paymeo Wallet</p>
               <p className="text-lg font-semibold">
-                Send, receive, tip, and request—all from one balance.
+                Send, receive, tip, and request—all from one wallet.
               </p>
             </div>
           </div>
