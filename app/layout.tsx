@@ -36,13 +36,14 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL('https://paymeo.co'),
   title: {
-    default: 'Paymeo - AI-powered marketplace for local sellers and shoppers',
+    default: 'Paymeo | AI-Powered Marketplace for Local Sellers and Shoppers',
     template: '%s | Paymeo'
   },
-  description: 'Discover, shop with confidence, pay friends and connect over the things you love. Paymeo is the intent-driven social commerce platform that turns your requests into meaningful connections.',
+  description: 'Sell 24/7 with AI, find what you need, pay friends, tip helpful people, and get paid for what you deliver.',
   keywords: [
     'social commerce',
     'intent-driven commerce',
+    'AI-Powered Marketplace',
     'online marketplace',
     'social networking',
     'peer-to-peer payments',
@@ -64,22 +65,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://paymeo.co',
-    title: 'Paymeo - AI-powered marketplace for local sellers and shoppers',
-    description: 'Discover, shop with confidence, pay friends and connect over the things you love, powered by your requests.',
+    title: 'Paymeo | AI-Powered Marketplace for Local Sellers and Shoppers',
+    description: 'Sell 24/7 with AI. Find what you need, pay friends, tip helpful people, and get paid for what you deliver.',
     siteName: 'Paymeo',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Paymeo - AI-powered marketplace for local sellers and shoppers',
+        alt: 'Paymeo | AI-Powered Marketplace for Local Sellers and Shoppers',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Paymeo - AI-powered marketplace for local sellers and shoppers',
-    description: 'Discover, shop with confidence, pay friends and connect over the things you love, powered by your requests.',
+    title: 'Paymeo - AI-powered Marketplace for Local Sellers and Shoppers',
+    description: 'Sell 24/7 with AI, find what you need, pay friends, tip helpful people, and get paid for what you deliver.',
     images: ['/og-image.png'],
     creator: '@paymeo',
   },

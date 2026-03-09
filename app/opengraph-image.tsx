@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-export const alt = 'Paymeo - AI-powered marketplace for local sellers and shoppers.'
+export const alt = 'Paymeo | AI-Powered Marketplace for Local Sellers and Shoppers.'
 export const size = {
   width: 1200,
   height: 630,
@@ -110,35 +110,9 @@ export default async function Image() {
               textShadow: '0 2px 10px rgba(0,0,0,0.2)',
             }}
           >
-            Sell more. Find better. Together.
+            Shop, Sell, and Get Paid.
           </div>
 
-          {/* Sub-line */}
-          <div
-            style={{
-              fontSize: '28px',
-              textAlign: 'center',
-              maxWidth: '800px',
-              lineHeight: 1.4,
-              opacity: 0.9,
-              fontWeight: 400,
-            }}
-          >
-            The AI-powered marketplace for local sellers and shoppers
-          </div>
-
-          {/* Small URL at bottom */}
-          <div
-            style={{
-              position: 'absolute',
-              bottom: '30px',
-              fontSize: '18px',
-              opacity: 0.7,
-              color: 'white',
-            }}
-          >
-            paymeo.co
-          </div>
         </div>
       </div>
     ),

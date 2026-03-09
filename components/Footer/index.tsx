@@ -77,7 +77,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-gray-500 mb-4">
-              The AI-powered marketplace for local sellers and shoppers
+              The AI-powered Marketplace for Local Sellers and Shoppers. Shop, Sell, Tip, and Get Paid. 
             </p>
 
             <div className="flex items-center gap-4 text-white/70 mt-2">

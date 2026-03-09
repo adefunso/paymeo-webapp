@@ -116,6 +116,7 @@ This guide outlines the comprehensive SEO strategy implemented for Paymeo to dom
 3. "peer-to-peer marketplace"
 4. "social shopping platform"
 5. "intent-driven social commerce"
+6. "peer-to-peer payments"
 
 ### Secondary Keywords
 1. "buy and sell online"

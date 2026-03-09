@@ -5,14 +5,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Paymeo Marketplace – Discover and Shop from Growing Businesses",
   description:
-    "Explore listings from Paymeo-powered businesses. Discover unique products and services before we launch the personal side of our platform.",
+    "Explore listings from Paymeo-powered businesses. Discover unique products and services from verified sellers, pay securely.",
   alternates: {
     canonical: "https://paymeo.co/marketplace",
   },
   openGraph: {
     title: "Paymeo Marketplace – Discover and Shop from Growing Businesses",
     description:
-      "Explore listings from Paymeo-powered businesses. Discover unique products and services before we launch the personal side of our platform.",
+      "Explore listings from Paymeo-powered businesses. Discover unique products and services from verified sellers, pay securely.",
     url: "https://paymeo.co/marketplace",
     siteName: "Paymeo",
     images: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Paymeo Marketplace – Discover and Shop from Growing Businesses",
     description:
-      "Explore listings from Paymeo-powered businesses. Discover unique products and services before we launch the personal side of our platform.",
+      "Explore listings from Paymeo-powered businesses. Discover unique products and services from verified sellers, pay securely",
     images: [
       "https://res.cloudinary.com/diml8ljwa/image/upload/v1762613401/paymeomarketplace-min_wymdfp.png",
     ],
