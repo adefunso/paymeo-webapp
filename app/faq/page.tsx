@@ -279,7 +279,7 @@ export default function FAQPage() {
                   animate={{ opacity: 1 }}
                   className="text-center py-12"
                 >
-                  <p className="text-gray-500">No results found for "{searchQuery}"</p>
+                  <p className="text-gray-500">No results found for &quot;{searchQuery}&quot;</p>
                 </motion.div>
               )}
             </motion.div>
@@ -294,7 +294,7 @@ export default function FAQPage() {
             Still have questions?
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            Can't find the answer you're looking for? Please reach out to our friendly team.
+            Can&apos;t find the answer you&apos;re looking for? Please reach out to our friendly team.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 

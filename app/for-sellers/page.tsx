@@ -39,7 +39,6 @@ import {
   SellerFeatures, 
   SellerHowItWorks, 
   SellerTestimonials,
-  HowItWorksAnimated 
 } from "@/components/seller-components";
 
 // Type for useInViewport

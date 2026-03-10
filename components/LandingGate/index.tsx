@@ -56,8 +56,8 @@ const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
            {/* SVG in bottom right corner - partially off-screen */}
       <div className="absolute bottom-0 right-0 opacity-25 pointer-events-none z-0 translate-x-1/4 translate-y-1/4">
         <svg
-          width="200"
-          height="200"
+          width="400"
+          height="400"
           viewBox="0 0 160 160"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +98,7 @@ const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   {/* Right Actions */}
   <div className="flex items-center gap-2">
     <a
-      href="https://web.paymeo.co"
+      href="/seller"
       className="text-white/90 text-sm hidden md:block mr-3"
     >
       Become a Seller
@@ -192,7 +192,7 @@ const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
                      
                       <div className="border-t border-gray-200 my-2" />
                       <a
-                        href="https://web.paymeo.co"
+                        href="/seller"
                         className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >

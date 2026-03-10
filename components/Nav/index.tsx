@@ -133,7 +133,7 @@ export default function SmartNav({
         <div className="flex items-center gap-2">
           {/* Desktop Action Links */}
           <a
-            href="https://web.paymeo.co"
+            href="/seller"
             className={`text-sm hidden md:block mr-3 transition-colors ${
               shouldShowBlueBg ? "text-white/90 hover:text-white" : "text-white/90 hover:text-white"
             }`}
@@ -243,7 +243,7 @@ export default function SmartNav({
                       </a>
                       <div className="border-t border-gray-200 my-2" />
                       <a
-                        href="https://web.paymeo.co"
+                        href="/seller"
                         className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >

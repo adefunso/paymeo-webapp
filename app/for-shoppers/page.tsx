@@ -191,7 +191,7 @@ export default function ForShoppersPage() {
                 <CardContent className="p-0">
                   <div>
                     <div className="bg-[#e6dbff] text-violet-500 border border-violet-500 mb-3 text-xs inline-block px-2 py-0.5 rounded-full">
-                      <span className="font-normal">We're now in</span>
+                      <span className="font-normal">We&apos;re now in</span>
                       <span>Beta! 🚀</span>
                     </div>
 
@@ -201,7 +201,7 @@ export default function ForShoppersPage() {
                     </h1>
 
                     <p className="text-xs sm:text-sm md:text-base text-black/80 leading-relaxed mb-3 font-small">
-                      Tell us what you're looking for. Sellers send their
+                      Tell us what you&apos;re looking for. Sellers send their
                       best offers. Compare, choose, and pay securely without
                       walking through the entire market. Tip people who help
                       you, or request money from friends.
@@ -502,7 +502,7 @@ export default function ForShoppersPage() {
                     <p className="text-sm sm:text-base md:text-lg text-gray-200 max-w-md mx-auto">
                       From shopping, collaborating & sending cash to friends,
                       seeking recommendations, to selling. Paymeo understands
-                      what you're looking for and connects you with the
+                      what you&apos;re looking for and connects you with the
                       right opportunities — instantly.
                     </p>
                   </motion.div>

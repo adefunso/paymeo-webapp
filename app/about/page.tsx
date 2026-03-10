@@ -185,92 +185,87 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section - Stripe Style Cards */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto mb-16"
-          >
-            <div className="inline-flex items-center gap-2 bg-[#1e5aff]/10 rounded-full px-4 py-2 mb-6">
-              <Award className="w-4 h-4 text-[#1e5aff]" />
-              <span className="text-sm font-medium text-[#1e5aff]">Our Values</span>
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              What drives us
-            </h2>
-            <p className="text-xl text-gray-600">
-              Every decision we make is guided by these principles.
-            </p>
-          </motion.div>
+<section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+  <div className="max-w-7xl mx-auto">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="text-center max-w-3xl mx-auto mb-16"
+    >
+      <div className="inline-flex items-center gap-2 bg-[#1e5aff]/10 rounded-full px-4 py-2 mb-6">
+        <Award className="w-4 h-4 text-[#1e5aff]" />
+        <span className="text-sm font-medium text-[#1e5aff]">Our Values</span>
+      </div>
+      <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+        What drives us
+      </h2>
+      <p className="text-xl text-gray-600">
+        Every decision we make is guided by these principles.
+      </p>
+    </motion.div>
 
-          <motion.div 
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true, amount: 0.2 }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            {[
-              {
-                icon: <Heart className="w-6 h-6" />,
-                title: "Value for Value",
-                description: "Everyone who delivers value deserves to be compensated. No exceptions."
-              },
-              {
-                icon: <Shield className="w-6 h-6" />,
-                title: "Trust First",
-                description: "Every seller is verified. Every payment is secured in escrow. No shortcuts."
-              },
-              {
-                icon: <Zap className="w-6 h-6" />,
-                title: "AI That Works",
-                description: "Technology should make selling easier, not harder. Our AI sells while you sleep."
-              },
-              {
-                icon: <Users className="w-6 h-6" />,
-                title: "Community Powered",
-                description: "From scouts to shoppers, everyone plays a part in the marketplace."
-              },
-              {
-                icon: <Globe className="w-6 h-6" />,
-                title: "Local First",
-                description: "We start with physical markets because that's where real connections happen."
-              },
-              {
-                icon: <Clock className="w-6 h-6" />,
-                title: "24/7 Commerce",
-                description: "Your stall never closes. Your AI never sleeps. You never stop selling."
-              }
-            ].map((value, index) => (
-              <motion.div
-                key={index}
-                variants={{
-                  initial: { opacity: 0, y: 30 },
-                  animate: { opacity: 1, y: 0 }
-                }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover="hover"
-                initial="rest"
-                animate="rest"
-                variants={cardHover}
-              >
-                <Card className="h-full bg-white border border-gray-200 hover:border-[#1e5aff]/20 transition-all">
-                  <CardContent className="p-8">
-                    <div className="w-12 h-12 bg-[#1e5aff]/10 rounded-xl flex items-center justify-center text-[#1e5aff] mb-6">
-                      {value.icon}
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">{value.title}</h3>
-                    <p className="text-gray-600">{value.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {[
+        {
+          icon: <Heart className="w-6 h-6" />,
+          title: "Value for Value",
+          description: "Everyone who delivers value deserves to be compensated. No exceptions."
+        },
+        {
+          icon: <Shield className="w-6 h-6" />,
+          title: "Trust First",
+          description: "Every seller is verified. Every payment is secured in escrow. No shortcuts."
+        },
+        {
+          icon: <Zap className="w-6 h-6" />,
+          title: "AI That Works",
+          description: "Technology should make selling easier, not harder. Our AI sells while you sleep."
+        },
+        {
+          icon: <Users className="w-6 h-6" />,
+          title: "Community Powered",
+          description: "From scouts to shoppers, everyone plays a part in the marketplace."
+        },
+        {
+          icon: <Globe className="w-6 h-6" />,
+          title: "Local First",
+          description: "We start with physical markets because that's where real connections happen."
+        },
+        {
+          icon: <Clock className="w-6 h-6" />,
+          title: "24/7 Commerce",
+          description: "Your stall never closes. Your AI never sleeps. You never stop selling."
+        }
+      ].map((value, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          whileHover={{ 
+            scale: 1.02, 
+            y: -8,
+            transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] }
+          }}
+          className="h-full"
+        >
+          <Card className="h-full bg-white border border-gray-200 hover:border-[#1e5aff]/20 transition-all">
+            <CardContent className="p-8">
+              <div className="w-12 h-12 bg-[#1e5aff]/10 rounded-xl flex items-center justify-center text-[#1e5aff] mb-6">
+                {value.icon}
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">{value.title}</h3>
+              <p className="text-gray-600">{value.description}</p>
+            </CardContent>
+          </Card>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Team Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
