@@ -505,7 +505,7 @@ const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
             animate={{ opacity: 1, y: 0 }}
           >
             <h1 className="text-3xl lg:text-5xl font-extrabold text-white leading-tight mb-3">
-             Find What You Need. Get Paid for What You Deliver. 
+             Find What You Need. Get Paid For What You Deliver. 
             </h1>
 
             <p className="text-white/80 text-sm lg:text-base mb-6">

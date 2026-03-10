@@ -36,10 +36,10 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL('https://paymeo.co'),
   title: {
-    default: 'Paymeo - Find What You Need. Get Paid for What You Deliver.',
+    default: 'Paymeo - Find What You Need. Get Paid For What You Deliver.',
     template: '%s | Paymeo'
   },
-  description: 'Sell 24/7 with AI. Find what you need. Pay Securely. Tip people, and get paid for what you deliver.',
+  description: 'Sell 24/7 with AI. Find what you need. Pay Securely. Tip people, and get Paid For what you deliver.',
   keywords: [
     'social commerce',
     'intent-driven commerce',
@@ -65,22 +65,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://paymeo.co',
-    title: 'Paymeo - Find What You Need. Get Paid for What You Deliver.',
-    description: 'Sell 24/7 with AI. Find what you need. Pay securely. Tip people, and get paid for what you deliver.',
+    title: 'Paymeo - Find What You Need. Get Paid For What You Deliver.',
+    description: 'Sell 24/7 with AI. Find what you need. Pay securely. Tip people, and get Paid For what you deliver.',
     siteName: 'Paymeo',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Paymeo - Find What You Need. Get Paid for What You Deliver.',
+        alt: 'Paymeo - Find What You Need. Get Paid For What You Deliver.',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Paymeo - Find What You Need. Get Paid for What You Deliver.',
-    description: 'Sell 24/7 with AI, Find what you need. Pay securely. Tip people, and get paid for what you deliver.',
+    title: 'Paymeo - Find What You Need. Get Paid For What You Deliver.',
+    description: 'Sell 24/7 with AI, Find what you need. Pay securely. Tip people, and get Paid For what you deliver.',
     images: ['/og-image.png'],
     creator: '@paymeo',
   },
