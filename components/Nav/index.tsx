@@ -111,7 +111,7 @@ export default function SmartNav({
         </Link>
 
         {/* Desktop Menu Button - Centered */}
-        <div className="hidden md:flex justify-center flex-1 ml-37">
+        <div className="hidden md:flex justify-center flex-1 ml-33">
           <button
             onClick={() => setIsDesktopMenuOpen(!isDesktopMenuOpen)}
             className={`flex items-center gap-1 backdrop-blur-md border border-white/20 text-white px-4 py-2.5 rounded-full transition-colors ${

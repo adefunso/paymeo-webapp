@@ -1,7 +1,7 @@
 import { GoogleGenAI, Modality } from "@google/genai";
 import { SYSTEM_PROMPT } from "../constants";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
+const ai = new GoogleGenAI({ apiKey: process.env.NEXT_PUBLIC_GEMINI_KEY || "" });
 
 export async function getAgentResponse(message: string, imageBase64?: string) {
   const parts: any[] = [{ text: message }];
@@ -16,7 +16,7 @@ export async function getAgentResponse(message: string, imageBase64?: string) {
   }
 
   const response = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-2.5-flash",
     contents: [{ role: "user", parts }],
     config: {
       systemInstruction: SYSTEM_PROMPT,
