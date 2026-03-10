@@ -4,8 +4,8 @@ export default function JsonLd() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Paymeo",
-    "description": "The AI-powered local marketplace where you can sell 24/7, find what you need, pay friends, tip helpful people, and get paid for what you deliver.",
+    "name": "Paymeo - Paymeo - Find What You Need. Get Paid for What You Deliver.",
+    "description": 'Sell with AI. Find what you need. Pay friends, Tip people, and get paid for what you deliver.',
     "url": "https://paymeo.co",
     "applicationCategory": "BusinessApplication",
     "offers": {

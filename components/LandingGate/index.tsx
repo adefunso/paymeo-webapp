@@ -2,21 +2,25 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Link } from "lucide-react";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { useState, useEffect } from "react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import { AnimatePresence } from "framer-motion";
+
 
 interface LandingGateProps {
-  onSelect: (tab: "personal" | "business") => void;
   imgPaymeoLogoWhite2: StaticImport;
 }
 
 export default function LandingGate({
-  onSelect,
   imgPaymeoLogoWhite2,
 }: LandingGateProps) {
   const [selected, setSelected] = useState<"personal" | "business">("personal");
   const [viewportHeight, setViewportHeight] = useState("100vh");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false);
+const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     // Fix for mobile viewport height issues
@@ -65,38 +69,354 @@ export default function LandingGate({
         </svg>
       </div>
 
-      {/* NAV - Increased logo and button sizes */}
-      <nav className="relative z-10 flex items-center justify-between px-6 lg:px-12 py-4 flex-shrink-0">
-        <div className="flex items-center gap-2">
-          <div className="w-9 h-9 bg-white/20 rounded-[15px] flex items-center justify-center">
-            <Image src={imgPaymeoLogoWhite2} alt="Paymeo" className="w-8 h-8" />
+{/* NAV */}
+<nav className="relative z-50 flex items-center justify-between px-6 lg:px-12 py-4 flex-shrink-0">
+  {/* Logo */}
+  <div className="flex items-center gap-2">
+    <div className="w-9 h-9 bg-white/20 rounded-[15px] flex items-center justify-center">
+      <Image src={imgPaymeoLogoWhite2} alt="Paymeo" className="w-8 h-8" />
+    </div>
+    <span className="text-white font-extrabold text-[30px] mb-2">paymeo</span>
+  </div>
+  
+
+  {/* Desktop Menu Button - Centered */}
+  <div className="hidden md:flex justify-center flex-1 ml-37">
+    <button
+      onClick={() => setIsDesktopMenuOpen(!isDesktopMenuOpen)}
+      className="flex items-center gap-1 bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2.5 rounded-full hover:bg-white/20 transition-colors"
+    >
+      <span className="text-sm font-medium">Menu</span>
+      <ChevronDown
+        className={`w-4 h-4 transition-transform ${
+          isDesktopMenuOpen ? "rotate-180" : ""
+        }`}
+      />
+    </button>
+  </div>
+
+  {/* Right Actions */}
+  <div className="flex items-center gap-2">
+    <a
+      href="https://web.paymeo.co"
+      className="text-white/90 text-sm hidden md:block mr-3"
+    >
+      Become a Seller
+    </a>
+
+    <a
+      href="https://my.paymeo.co"
+      className="bg-white text-[#1e5aff] text-sm px-4.5 py-2.5 rounded-full font-semibold hidden md:block"
+    >
+      Log in
+    </a>
+
+    <a
+      href="https://my.paymeo.co"
+      className="border border-white/20 text-white text-sm px-4.5 py-2.5 rounded-full hidden md:block bg-white/10 backdrop-blur-md hover:bg-white/20 transition-colors"
+    >
+      Sign up
+    </a>
+
+    {/* Mobile Menu - Unchanged */}
+    <div className="relative md:hidden">
+      <button
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        className="flex items-center gap-1 bg-white/10 backdrop-blur-md border border-white/20 text-white px-3 py-2 rounded-full"
+      >
+        <span className="text-sm font-medium">Menu</span>
+        <ChevronDown
+          className={`w-4 h-4 transition-transform ${
+            isMobileMenuOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+
+      <AnimatePresence>
+              {isMobileMenuOpen && (
+                <>
+                  <div
+                    className="fixed inset-0 z-40"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  />
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute right-0 mt-2 w-56 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 z-50 overflow-hidden"
+                  >
+                    <div className="py-2">
+                      <a
+                        href="/for-shoppers"
+                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        For Shoppers
+                      </a>
+                      <a
+                        href="/for-sellers"
+                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        For Sellers
+                      </a>
+                       <a
+                        href="/marketplace"
+                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        Pricing
+                      </a>
+                      <a
+                        href="/about"
+                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        About
+                      </a>
+                       <a
+                        href="/marketplace"
+                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        Marketplace
+                      </a>
+                       <a
+                        href="/faq"
+                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        FAQ
+                      </a>
+                     
+                      <div className="border-t border-gray-200 my-2" />
+                      <a
+                        href="https://web.paymeo.co"
+                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        Become a Seller
+                      </a>
+                      <a
+                        href="https://my.paymeo.co"
+                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        Log in
+                      </a>
+                      <a
+                        href="https://my.paymeo.co"
+                        className="block px-4 py-3 text-sm bg-[#1e5aff] text-white font-medium hover:bg-[#0d3bb8] mx-3 my-2 rounded-full text-center transition-colors"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        Sign up
+                      </a>
+                    </div>
+                  </motion.div>
+                </>
+              )}
+            </AnimatePresence>
+    </div>
+  </div>
+
+  {/* Desktop Dropdown - Full Width, Properly Styled & Responsive */}
+ {/* Desktop Dropdown - Stripe-style Slide Down */}
+<AnimatePresence>
+  {isDesktopMenuOpen && (
+    <>
+      {/* Backdrop with fade */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+        className="fixed inset-0 z-40 bg-black/40"
+        onClick={() => setIsDesktopMenuOpen(false)}
+      />
+
+      {/* Mega-menu with slide down */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ 
+          duration: 0.3, 
+          ease: [0.4, 0, 0.2, 1] // Custom easing for Stripe-like feel
+        }}
+        className="fixed left-0 right-0 top-[80px] w-full bg-white shadow-2xl z-50 border-t border-gray-200 max-h-[calc(100vh-80px)] overflow-y-auto"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          {/* Responsive Grid - 1 col on mobile, 2 on tablet, 4 on desktop */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Column 1 - For Users */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+            >
+              <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">
+                For Users
+              </h3>
+              <div className="space-y-3">
+                <a
+                  href="/for-shoppers"
+                  className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors font-medium"
+                  onClick={() => setIsDesktopMenuOpen(false)}
+                >
+                  For Shoppers
+                </a>
+                <a
+                  href="/for-sellers"
+                  className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors font-medium"
+                  onClick={() => setIsDesktopMenuOpen(false)}
+                >
+                  For Sellers
+                </a>
+                <a
+                        href="/pricing"
+                        className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors font-medium"
+                        onClick={() => setIsDesktopMenuOpen(false)}
+                      >
+                        Pricing
+                      </a>
+              </div>
+            </motion.div>
+
+            {/* Column 2 - Company */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15 }}
+            >
+              <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">
+                Company
+              </h3>
+              <div className="space-y-3">
+                <a
+                  href="/about"
+                  className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                  onClick={() => setIsDesktopMenuOpen(false)}
+                >
+                  About Us
+                </a>
+                <a
+                  href=""
+                  className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                  onClick={() => setIsDesktopMenuOpen(false)}
+                >
+                  Careers
+                </a>
+                <a
+                  href=""
+                  className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                  onClick={() => setIsDesktopMenuOpen(false)}
+                >
+                  Blog
+                </a>
+                <a
+                  href=""
+                  className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                  onClick={() => setIsDesktopMenuOpen(false)}
+                >
+                  Press
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Column 3 - Marketplace */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">
+                Platform
+              </h3>
+              <div className="space-y-3">
+                <a
+                  href="/marketplace"
+                  className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                  onClick={() => setIsDesktopMenuOpen(false)}
+                >
+                  Browse Marketplace
+                </a>
+                <a
+                  href="/faq"
+                  className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                  onClick={() => setIsDesktopMenuOpen(false)}
+                >
+                  FAQ
+                </a>
+                <a
+                  href=""
+                  className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                  onClick={() => setIsDesktopMenuOpen(false)}
+                >
+                  Support
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Column 4 - Community */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25 }}
+            >
+              <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">
+                Community
+              </h3>
+              <div className="space-y-3">
+                <a
+                  href=""
+                  className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                  onClick={() => setIsDesktopMenuOpen(false)}
+                >
+                  Scouts Program
+                </a>
+                <a
+                  href=""
+                  className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                  onClick={() => setIsDesktopMenuOpen(false)}
+                >
+                  Bounties
+                </a>
+                <a
+                  href=""
+                  className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                  onClick={() => setIsDesktopMenuOpen(false)}
+                >
+                  Community Guidelines
+                </a>
+              </div>
+            </motion.div>
           </div>
-          <span className="text-white font-extrabold text-[30px] mb-2">paymeo</span>
+
+          {/* Bottom CTA with staggered animation */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="mt-8 pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4"
+          >
+            <p className="text-sm text-gray-600 text-center sm:text-left">
+              Join thousands of sellers and shoppers already using Paymeo
+            </p>
+            <a
+              href="https://web.paymeo.co"
+              className="bg-[#1e5aff] text-white text-sm px-6 py-3 rounded-full font-medium hover:bg-[#0d3bb8] transition-colors whitespace-nowrap"
+              onClick={() => setIsDesktopMenuOpen(false)}
+            >
+              Get Started
+            </a>
+          </motion.div>
         </div>
-
-        <div className="flex items-center gap-2">
-          <a
-            href="https://web.paymeo.co"
-            className="text-white/90 text-sm hidden sm:block mr-3"
-          >
-            Become a Seller
-          </a>
-
-          <a
-            href="https://web.paymeo.co"
-            className="bg-white text-[#1e5aff] text-sm px-4.5 py-2.5 rounded-full font-semibold"
-          >
-            Log in
-          </a>
-
-          <a
-            href="https://web.paymeo.co"
-            className="border border-white/20 text-white text-sm px-4.5 py-2.5 rounded-full hidden sm:block bg-white/10 backdrop-blur-md hover:bg-white/20 transition-colors"
-          >
-            Sign up
-          </a>
-        </div>
-      </nav>
+      </motion.div>
+    </>
+  )}
+</AnimatePresence>
+</nav>
 
       {/* HERO - Adjusted for proper spacing */}
       <div className="flex-1 flex items-start lg:items-center justify-center px-6 lg:px-12 pt-2 lg:pt-0 min-h-0 relative z-10">
@@ -185,7 +505,7 @@ export default function LandingGate({
             animate={{ opacity: 1, y: 0 }}
           >
             <h1 className="text-3xl lg:text-5xl font-extrabold text-white leading-tight mb-3">
-              The AI-Powered Local Marketplace
+             Find What You Need. Get Paid for What You Deliver. 
             </h1>
 
             <p className="text-white/80 text-sm lg:text-base mb-6">
@@ -220,29 +540,24 @@ export default function LandingGate({
 
         <div className="relative flex items-center gap-4 p-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
           {/* SHOP */}
-          <button
-            onClick={() => {
-              setSelected("personal");
-              onSelect("personal");
-            }}
-            className={`flex items-center gap-2 px-5 py-2 text-sm font-bold rounded-full transition-colors cursor-pointer ${
-              selected === "personal"
-                ? "text-white hover:bg-white/10"
-                : "text-white hover:bg-white/10"
-            }`}
-          >
-            Shop
-          </button>
+         <a href="https://my.paymeo.co">
+  <button
+    className={`flex items-center gap-2 px-5 py-2 text-sm font-bold rounded-full transition-colors cursor-pointer ${
+      selected === "personal"
+        ? "text-white hover:bg-white/10"
+        : "text-white hover:bg-white/10"
+    }`}
+  >
+    Shop
+  </button>
+</a>
 
           {/* Separator */}
           <div className="w-px h-6 bg-white/30"></div>
 
           {/* SELL */}
+           <a href="https://web.paymeo.co">
           <button
-            onClick={() => {
-              setSelected("business");
-              onSelect("business");
-            }}
             className={`flex items-center gap-2 px-5 py-2 text-sm font-bold rounded-full transition-colors cursor-pointer ${
               selected === "business"
                 ? "text-white hover:bg-white/10"
@@ -251,6 +566,7 @@ export default function LandingGate({
           >
             Sell
           </button>
+          </a>
         </div>
 
         <p className="text-white/85 text-[11px]">

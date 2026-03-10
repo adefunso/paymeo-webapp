@@ -19,7 +19,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-white text-gray-600 border-t border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 lg:px-2 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Newsletter Signup */}
         <div className="mb-16">
           <h3 className="text-lg md:text-xl font-medium text-gray-800 mb-4">
@@ -77,7 +77,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-gray-500 mb-4">
-              The AI-powered Marketplace for Local Sellers and Shoppers. Shop, Sell, Tip, and Get Paid. 
+              The local marketplace that works 24/7 — with AI that sells for you, and payments that arrive instantly. 
             </p>
 
             <div className="flex items-center gap-4 text-white/70 mt-2">
@@ -123,7 +123,8 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          {/* Logo + Socials */}
+          
+          {/* Community */}
           <div>
             <div className="flex items-center gap-3 mb-4">
               <span className="text-l font-semibold text-gray-800">
@@ -136,7 +137,7 @@ export default function Footer() {
 
             <div className="flex items-center gap-4 text-white/70 mt-2">
               <a
-                href="https://facebook.com/usepaymeo"
+                href="https://discord.gg/paymeo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#1e5aff] hover:text-[#1e5aff] transition"
@@ -144,7 +145,7 @@ export default function Footer() {
                 <RiDiscordFill className="text-2xl" />
               </a>
               <a
-                href="https://instagram.com/usepaymeo"
+                href="https://t.me/paymeo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#1e5aff] hover:text-[#1e5aff] transition"
@@ -152,7 +153,7 @@ export default function Footer() {
                 <RiTelegram2Fill className="text-2xl" />
               </a>
               <a
-                href="https://twitter.com/usepaymeo"
+                href="https://wa.me/paymeo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#1e5aff] hover:text-[#1e5aff] transition"
@@ -167,25 +168,21 @@ export default function Footer() {
             <h4 className="text-gray-800 font-medium mb-4">Platform</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/#how-it-works" className="hover:text-gray-800 transition">
-                  How It Works
+                <Link href="/marketplace" className="hover:text-gray-800 transition">
+                  Marketplace
                 </Link>
               </li>
               <li>
-                <Link href="/#more-features" className="hover:text-gray-800 transition">
-                  Features
+                <Link href="/faq" className="hover:text-gray-800 transition">
+                  FAQ
                 </Link>
               </li>
               <li>
-                <Link href="/" className="hover:text-gray-800 transition">
-                  Mobile App
+                <Link href="" className="hover:text-gray-800 transition">
+                  Support
                 </Link>
               </li>
-              <li>
-                <Link href="/#meo" className="hover:text-gray-800 transition">
-                  Meo AI
-                </Link>
-              </li>
+             
             </ul>
           </div>
 
@@ -194,18 +191,19 @@ export default function Footer() {
             <h4 className="text-gray-800 font-medium mb-4">Company</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="hover:text-gray-800 transition">
+                <a href="/about" className="hover:text-gray-800 transition">
                   About
                 </a>
               </li>
+              
               <li>
-                <a href="#" className="hover:text-gray-800 transition">
-                  Blog
+                <a href="" className="hover:text-gray-800 transition">
+                  Careers
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-gray-800 transition">
-                  Careers
+                <a href="" className="hover:text-gray-800 transition">
+                  Press
                 </a>
               </li>
             </ul>
@@ -215,19 +213,18 @@ export default function Footer() {
           <div>
             <h4 className="text-gray-800 font-medium mb-4">Support</h4>
             <ul className="space-y-2 text-sm">
-
               <li>
-                <a href="#" className="hover:text-gray-800 transition">
+                <a href="/help" className="hover:text-gray-800 transition">
                   Help Center
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-gray-800 transition">
+                <a href="/contact" className="hover:text-gray-800 transition">
                   Contact
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-gray-800 transition">
+                <a href="/privacy" className="hover:text-gray-800 transition">
                   Privacy
                 </a>
               </li>
@@ -239,13 +236,13 @@ export default function Footer() {
         <div className="border-t border-gray-200 mt-12 pt-6 text-sm text-gray-500 flex flex-col sm:flex-row items-center justify-between">
           <p>&copy; {new Date().getFullYear()} Paymeo. All rights reserved.</p>
           <div className="flex gap-6 mt-3 sm:mt-0">
-            <a href="#" className="hover:text-gray-800 transition">
+            <a href="/terms" className="hover:text-gray-800 transition">
               Terms
             </a>
-            <a href="#" className="hover:text-gray-800 transition">
+            <a href="/privacy" className="hover:text-gray-800 transition">
               Privacy
             </a>
-            <a href="#" className="hover:text-gray-800 transition">
+            <a href="/cookies" className="hover:text-gray-800 transition">
               Cookies
             </a>
           </div>
