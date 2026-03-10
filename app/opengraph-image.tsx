@@ -22,7 +22,7 @@ export default async function Image() {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://wwwpaymeo.co/og-image.png" // Replace with your actual URL
+          src="https://www.paymeo.co/og-image.png" // Replace with your actual URL
           alt="Paymeo"
           style={{
             width: '100%',
