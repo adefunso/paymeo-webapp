@@ -420,7 +420,7 @@ const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
       {/* HERO - Adjusted for proper spacing */}
       <div className="flex-1 flex items-start lg:items-center justify-center px-6 lg:px-12 pt-2 lg:pt-0 min-h-0 relative z-10">
-        <div className="w-full max-w-6xl grid lg:grid-cols-2 gap-2 items-center mt-[-60px] lg:mt-10 xl:mt-10">
+        <div className="w-full max-w-6xl grid lg:grid-cols-2 gap-2 items-center mt-[-90px] lg:mt-10 xl:mt-10">
 
           {/* PHONES - much smaller on mobile */}
           <div className="relative flex justify-center items-center scale-[0.45] sm:scale-100 -mb-8 sm:mb-0 mt-[-40px] lg:mt-0">
