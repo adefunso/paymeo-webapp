@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { useState, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, QrCode } from "lucide-react";
 import { AnimatePresence } from "framer-motion";
 
 interface LandingGateProps {
@@ -18,6 +18,19 @@ export default function LandingGate({
   const [viewportHeight, setViewportHeight] = useState("100vh");
   const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  // Rotating text animation state
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  
+  const rotatingTexts = [
+     { text: "Post what you need, and let sellers come to you.", highlight: ["Post what you need", "sellers come to you."] },
+      { text: "Turn product requests into sales — local markets, real connections.", highlight: ["Turn product requests into sales", "local markets"] },
+       { text: "Shop socially and smartly, tip people and connect over the things you love.", highlight: ["socially and smartly", "connect"] },
+    { text: "Shoppers who want what you're selling find you — instantly.", highlight: ["Shoppers who want", "find you", "instantly."] },
+    { text: "Create your AI-powered digital storefront in seconds.", highlight: ["AI-powered", "in seconds."] },
+    { text: "Your 24/7 AI Sales Agent handles negotiations while you sleep.", highlight: ["24/7 AI Sales Agent", "while you sleep."] },
+    { text: "Get paid faster with automated, AI-driven transactions.", highlight: ["Get paid faster", "AI-driven transactions."] },
+  ];
 
   useEffect(() => {
     const setVH = () => {
@@ -27,6 +40,28 @@ export default function LandingGate({
     window.addEventListener("resize", setVH);
     return () => window.removeEventListener("resize", setVH);
   }, []);
+
+  // Rotating text interval - slower (5 seconds)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTextIndex((prev) => (prev + 1) % rotatingTexts.length);
+    }, 5000); // Changed from 4000ms to 5000ms for slower transitions
+
+    return () => clearInterval(interval);
+  }, [rotatingTexts.length]);
+
+  // Helper function to render text with highlighted backgrounds
+  const renderHighlightedText = (text: string, highlights: string[]) => {
+    if (!highlights.length) return text;
+    
+    let result = text;
+    highlights.forEach(highlight => {
+      const regex = new RegExp(`(${highlight})`, 'gi');
+      result = result.replace(regex, `<span class="bg-gradient-to-r from-yellow-400/30 to-amber-500/30 backdrop-blur-sm px-1.5 py-0.5 rounded-md font-extrabold text-white shadow-sm inline-block">$1</span>`);
+    });
+    
+    return <span dangerouslySetInnerHTML={{ __html: result }} />;
+  };
 
   return (
     <motion.section
@@ -294,10 +329,10 @@ export default function LandingGate({
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/10 pointer-events-none" />
 
       {/* SVG corner decoration */}
-      <div className="absolute bottom-0 right-0 opacity-25 pointer-events-none z-0 translate-x-1/4 translate-y-1/4">
+      <div className="absolute bottom-0 right-0 opacity-15 pointer-events-none z-0 translate-x-1/4 translate-y-1/4">
         <svg
-          width="400"
-          height="400"
+          width="450"
+          height="450"
           viewBox="0 0 160 160"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -388,6 +423,13 @@ export default function LandingGate({
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         Marketplace
+                      </a>
+                      <a
+                        href="/scan"
+                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        Scan QR Code
                       </a>
                       <a
                         href="/for-shoppers"
@@ -565,6 +607,13 @@ export default function LandingGate({
                           Browse Marketplace
                         </a>
                         <a
+                          href="/scan"
+                          className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                          onClick={() => setIsDesktopMenuOpen(false)}
+                        >
+                          Scan QR Code
+                        </a>
+                        <a
                           href="/faq"
                           className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
                           onClick={() => setIsDesktopMenuOpen(false)}
@@ -720,9 +769,20 @@ export default function LandingGate({
             <h1 className="text-3xl lg:text-5xl font-extrabold text-white leading-tight mb-3">
               Find What You Need. Get Paid For What You Deliver.
             </h1>
-            <p className="text-white/90 text-sm lg:text-base mb-6 font-semibold">
-              Shop, sell 24/7 with AI, and get paid.
-            </p>
+            <div className="min-h-[90px]">
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={currentTextIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                  className="text-white text-[15px] lg:text-[17px] font-semibold leading-relaxed"
+                >
+                  {renderHighlightedText(rotatingTexts[currentTextIndex].text, rotatingTexts[currentTextIndex].highlight)}
+                </motion.p>
+              </AnimatePresence>
+            </div>
             <div className="flex items-center justify-center lg:justify-start gap-4">
               <div className="bg-white p-2 rounded-lg hidden sm:block">
                 <img
@@ -730,11 +790,6 @@ export default function LandingGate({
                   className="w-[80px] h-[80px]"
                 />
               </div>
-              <a href="/scan">
-                <button className="bg-white text-[#1e5aff] text-sm px-4 py-2 rounded-full font-semibold">
-                  Scan QR Code
-                </button>
-              </a>
             </div>
           </motion.div>
         </div>
