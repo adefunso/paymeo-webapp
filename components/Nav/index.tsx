@@ -198,6 +198,14 @@ export default function SmartNav({
                   >
                     <div className="py-2">
                       <a
+                        href="/marketplace"
+                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors font-bold"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        Marketplace
+                      </a>
+                      
+                      <a
                         href="/for-shoppers"
                         className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
                         onClick={() => setIsMobileMenuOpen(false)}
@@ -224,13 +232,6 @@ export default function SmartNav({
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         About
-                      </a>
-                      <a
-                        href="/marketplace"
-                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        Marketplace
                       </a>
                       
                      
