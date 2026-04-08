@@ -329,7 +329,7 @@ export default function LandingGate({
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/10 pointer-events-none" />
 
       {/* SVG corner decoration */}
-      <div className="absolute bottom-0 right-0 opacity-15 pointer-events-none z-0 translate-x-1/4 translate-y-1/4">
+      <div className="absolute bottom-0 right-0 opacity-10 pointer-events-none z-0 translate-x-1/4 translate-y-1/4">
         <svg
           width="450"
           height="450"
