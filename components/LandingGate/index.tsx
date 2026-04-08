@@ -77,33 +77,7 @@ export default function LandingGate({
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         
         {/* Lava Blob 1 - Large, moves across full screen */}
-        <motion.div
-          className="absolute rounded-full"
-          style={{
-            width: "280px",
-            height: "280px",
-            background: "radial-gradient(circle at 30% 30%, #FFD166, #FCA311, #FF8C00)",
-            filter: "blur(40px)",
-            opacity: 0.6,
-          }}
-          animate={{
-            y: ["100vh", "-20vh", "100vh"],
-            x: ["-10vw", "110vw", "-10vw"],
-            scale: [0.8, 1.3, 0.9, 1.2, 0.8],
-            borderRadius: [
-              "50% 50% 50% 50%",
-              "55% 45% 60% 40%",
-              "45% 55% 40% 60%",
-              "50% 50% 50% 50%",
-            ],
-          }}
-          transition={{
-            duration: 18,
-            ease: [0.45, 0.05, 0.55, 0.95],
-            repeat: Infinity,
-            times: [0, 0.3, 0.6, 0.8, 1],
-          }}
-        />
+       
 
         {/* Lava Blob 2 - Medium, different speed, full screen */}
         <motion.div
@@ -226,34 +200,7 @@ export default function LandingGate({
         />
 
         {/* Lava Blob 6 - Slow, massive, full screen */}
-        <motion.div
-          className="absolute rounded-full"
-          style={{
-            width: "400px",
-            height: "350px",
-            background: "radial-gradient(circle at 35% 45%, #FFE174, #FCA311, #FF8C00)",
-            filter: "blur(70px)",
-            opacity: 0.35,
-          }}
-          animate={{
-            y: ["-15vh", "115vh", "-15vh"],
-            x: ["-15vw", "115vw", "-15vw"],
-            scale: [0.7, 1.4, 0.9, 1.2, 0.7],
-            borderRadius: [
-              "50% 50% 50% 50%",
-              "45% 55% 35% 65%",
-              "55% 45% 65% 35%",
-              "50% 50% 50% 50%",
-            ],
-          }}
-          transition={{
-            duration: 30,
-            ease: [0.4, 0.05, 0.6, 0.95],
-            repeat: Infinity,
-            delay: 12,
-            times: [0, 0.22, 0.48, 0.72, 1],
-          }}
-        />
+       
 
         {/* Lava Blob 7 - Quick riser, full width */}
         <motion.div
@@ -286,35 +233,7 @@ export default function LandingGate({
         />
 
         {/* Lava Blob 8 - Extra blob for more coverage */}
-        <motion.div
-          className="absolute rounded-full"
-          style={{
-            width: "250px",
-            height: "250px",
-            background: "radial-gradient(circle at 50% 50%, #FFD166, #FCA311, #FF8C00)",
-            filter: "blur(45px)",
-            opacity: 0.4,
-          }}
-          animate={{
-            y: ["-25vh", "125vh", "-25vh"],
-            x: ["-5vw", "105vw", "-5vw"],
-            scale: [1, 1.3, 0.8, 1.1, 1],
-            borderRadius: [
-              "50% 50% 50% 50%",
-              "50% 50% 50% 50%",
-              "60% 40% 55% 45%",
-              "40% 60% 45% 55%",
-              "50% 50% 50% 50%",
-            ],
-          }}
-          transition={{
-            duration: 20,
-            ease: [0.45, 0.05, 0.55, 0.95],
-            repeat: Infinity,
-            delay: 6,
-            times: [0, 0.26, 0.52, 0.74, 1],
-          }}
-        />
+        
       </div>
 
       {/* Noise texture for depth */}
