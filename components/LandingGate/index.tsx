@@ -25,7 +25,7 @@ export default function LandingGate({
   const rotatingTexts = [
      { text: "Post what you need, and let sellers come to you.", highlight: ["Post what you need", "sellers come to you."] },
       { text: "Turn product requests into sales — local markets, real connections.", highlight: ["Turn product requests into sales", "local markets"] },
-       { text: "Shop socially and smartly, tip people and connect over the things you love.", highlight: ["socially and smartly", "connect"] },
+       { text: "Shop smartly, tip people and connect over the things you love.", highlight: ["socially smartly", "connect"] },
     { text: "Shoppers who want what you're selling find you — instantly.", highlight: ["Shoppers who want", "find you", "instantly."] },
     { text: "Create your AI-powered digital storefront in seconds.", highlight: ["AI-powered", "in seconds."] },
     { text: "Your 24/7 AI Sales Agent handles negotiations while you sleep.", highlight: ["24/7 AI Sales Agent", "while you sleep."] },
