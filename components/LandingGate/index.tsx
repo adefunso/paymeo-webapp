@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { useState, useEffect } from "react";
-import { ChevronDown, QrCode } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { AnimatePresence } from "framer-motion";
 
 interface LandingGateProps {
@@ -23,9 +23,9 @@ export default function LandingGate({
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   
   const rotatingTexts = [
-     { text: "Post what you need, and let sellers come to you.", highlight: ["Post what you need", "sellers come to you."] },
-      { text: "Turn product requests into sales — local markets, real connections.", highlight: ["Turn product requests into sales", "local markets"] },
-       { text: "Shop smartly, tip people and connect over the things you love.", highlight: ["socially smartly", "connect"] },
+    { text: "Post what you need, and let sellers come to you.", highlight: ["Post what you need", "sellers come to you."] },
+    { text: "Turn product requests into sales — local markets, real connections.", highlight: ["Turn product requests into sales", "local markets"] },
+    { text: "Shop smartly, tip people and connect over the things you love.", highlight: ["smartly", "connect"] },
     { text: "Shoppers who want what you're selling find you — instantly.", highlight: ["Shoppers who want", "find you", "instantly."] },
     { text: "Create your AI-powered digital storefront in seconds.", highlight: ["AI-powered", "in seconds."] },
     { text: "Your 24/7 AI Sales Agent handles negotiations while you sleep.", highlight: ["24/7 AI Sales Agent", "while you sleep."] },
@@ -45,23 +45,27 @@ export default function LandingGate({
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTextIndex((prev) => (prev + 1) % rotatingTexts.length);
-    }, 5000); // Changed from 4000ms to 5000ms for slower transitions
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [rotatingTexts.length]);
 
-  // Helper function to render text with highlighted backgrounds
-  const renderHighlightedText = (text: string, highlights: string[]) => {
-    if (!highlights.length) return text;
-    
-    let result = text;
-    highlights.forEach(highlight => {
-      const regex = new RegExp(`(${highlight})`, 'gi');
-      result = result.replace(regex, `<span class="bg-gradient-to-r from-yellow-400/30 to-amber-500/30 backdrop-blur-sm px-1.5 py-0.5 rounded-md font-extrabold text-white shadow-sm inline-block">$1</span>`);
-    });
-    
-    return <span dangerouslySetInnerHTML={{ __html: result }} />;
-  };
+  // Helper function to render text with bounty-style yellow highlights
+// Helper function to render text with bounty-style yellow highlights
+const renderHighlightedText = (text: string, highlights: string[]) => {
+  if (!highlights.length) return text;
+  
+  let result = text;
+  highlights.forEach(highlight => {
+    // Escape special regex characters in the highlight string
+    const escapedHighlight = highlight.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`(${escapedHighlight})`, 'gi');
+    // Yellow styling with opacity and better line spacing
+    result = result.replace(regex, `<span class="inline-block px-1.5 py-0.5 mx-0.5 my-0.5 rounded-md bg-amber-300 border border-amber-400 text-amber-950 font-extrabold shadow-sm leading-relaxed">$1</span>`);
+  });
+  
+  return <span dangerouslySetInnerHTML={{ __html: result }} />;
+};
 
   return (
     <motion.section
@@ -73,168 +77,6 @@ export default function LandingGate({
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      {/* LAVA LAMP BACKGROUND - Full screen organic blobs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        
-        {/* Lava Blob 1 - Large, moves across full screen */}
-       
-
-        {/* Lava Blob 2 - Medium, different speed, full screen */}
-        <motion.div
-          className="absolute rounded-full"
-          style={{
-            width: "200px",
-            height: "200px",
-            background: "radial-gradient(circle at 40% 60%, #FFE174, #FFB347, #FF8C00)",
-            filter: "blur(50px)",
-            opacity: 0.55,
-          }}
-          animate={{
-            y: ["120vh", "-30vh", "120vh"],
-            x: ["-20vw", "120vw", "-20vw"],
-            scale: [1, 1.4, 0.8, 1.2, 1],
-            borderRadius: [
-              "50% 50% 50% 50%",
-              "40% 60% 45% 55%",
-              "60% 40% 55% 45%",
-              "50% 50% 50% 50%",
-            ],
-          }}
-          transition={{
-            duration: 22,
-            ease: [0.4, 0.1, 0.6, 0.9],
-            repeat: Infinity,
-            delay: 2,
-            times: [0, 0.25, 0.5, 0.75, 1],
-          }}
-        />
-
-        {/* Lava Blob 3 - Small, fast, full screen */}
-        <motion.div
-          className="absolute rounded-full"
-          style={{
-            width: "140px",
-            height: "140px",
-            background: "radial-gradient(circle at 50% 50%, #FFD166, #FCA311)",
-            filter: "blur(35px)",
-            opacity: 0.5,
-          }}
-          animate={{
-            y: ["80vh", "-40vh", "80vh"],
-            x: ["-30vw", "130vw", "-30vw"],
-            scale: [0.7, 1.5, 0.9, 1.3, 0.7],
-            borderRadius: [
-              "50% 50% 50% 50%",
-              "65% 35% 45% 55%",
-              "35% 65% 55% 45%",
-              "50% 50% 50% 50%",
-            ],
-          }}
-          transition={{
-            duration: 14,
-            ease: [0.5, 0.05, 0.5, 0.95],
-            repeat: Infinity,
-            delay: 5,
-            times: [0, 0.2, 0.5, 0.7, 1],
-          }}
-        />
-
-        {/* Lava Blob 4 - Wide, horizontal full screen mover */}
-        <motion.div
-          className="absolute rounded-full"
-          style={{
-            width: "320px",
-            height: "180px",
-            background: "radial-gradient(circle at 60% 40%, #FFE174, #FFB347, #FF9500)",
-            filter: "blur(55px)",
-            opacity: 0.45,
-          }}
-          animate={{
-            y: ["-20vh", "120vh", "-20vh"],
-            x: ["-10vw", "110vw", "-10vw"],
-            scale: [0.9, 1.2, 0.8, 1.3, 0.9],
-            borderRadius: [
-              "50% 50% 50% 50%",
-              "30% 70% 70% 30%",
-              "70% 30% 30% 70%",
-              "50% 50% 50% 50%",
-            ],
-          }}
-          transition={{
-            duration: 25,
-            ease: [0.4, 0.05, 0.6, 0.95],
-            repeat: Infinity,
-            delay: 8,
-            times: [0, 0.3, 0.55, 0.8, 1],
-          }}
-        />
-
-        {/* Lava Blob 5 - Tiny accent, full screen diagonal */}
-        <motion.div
-          className="absolute rounded-full"
-          style={{
-            width: "90px",
-            height: "90px",
-            background: "radial-gradient(circle at 40% 50%, #FFD166, #FFC107)",
-            filter: "blur(25px)",
-            opacity: 0.6,
-          }}
-          animate={{
-            y: ["130vh", "-30vh", "130vh"],
-            x: ["-40vw", "140vw", "-40vw"],
-            scale: [0.6, 1.6, 0.8, 1.4, 0.6],
-            borderRadius: [
-              "50% 50% 50% 50%",
-              "55% 45% 40% 60%",
-              "45% 55% 60% 40%",
-              "50% 50% 50% 50%",
-            ],
-          }}
-          transition={{
-            duration: 16,
-            ease: [0.45, 0.05, 0.55, 0.95],
-            repeat: Infinity,
-            delay: 3,
-            times: [0, 0.28, 0.52, 0.75, 1],
-          }}
-        />
-
-        {/* Lava Blob 6 - Slow, massive, full screen */}
-       
-
-        {/* Lava Blob 7 - Quick riser, full width */}
-        <motion.div
-          className="absolute rounded-full"
-          style={{
-            width: "120px",
-            height: "160px",
-            background: "radial-gradient(circle at 50% 30%, #FFD166, #FFB347)",
-            filter: "blur(30px)",
-            opacity: 0.55,
-          }}
-          animate={{
-            y: ["90vh", "-35vh", "90vh"],
-            x: ["-25vw", "125vw", "-25vw"],
-            scale: [0.8, 1.4, 0.7, 1.3, 0.8],
-            borderRadius: [
-              "50% 50% 50% 50%",
-              "35% 65% 55% 45%",
-              "65% 35% 45% 55%",
-              "50% 50% 50% 50%",
-            ],
-          }}
-          transition={{
-            duration: 12,
-            ease: [0.5, 0.1, 0.5, 0.9],
-            repeat: Infinity,
-            delay: 1,
-            times: [0, 0.24, 0.48, 0.72, 1],
-          }}
-        />
-
-        {/* Lava Blob 8 - Extra blob for more coverage */}
-        
-      </div>
 
       {/* Noise texture for depth */}
       <div
