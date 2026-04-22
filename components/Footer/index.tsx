@@ -77,7 +77,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-gray-500 mb-4">
-              The local marketplace that works 24/7 — with AI that sells for you, and payments that arrive instantly. 
+              Intent-driven Social Commerce connecting shoppers with local sellers — with AI that sells for you, and payments that arrive instantly. 
             </p>
 
             <div className="flex items-center gap-4 text-white/70 mt-2">
