@@ -1,14 +1,12 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
+import { motion, useScroll, useTransform, AnimatePresence, MotionValue } from "framer-motion";
+import Image, { StaticImageData } from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { 
   ArrowRight, 
-  ArrowUp,
   Camera,
   Zap,
   Bell,
@@ -23,33 +21,73 @@ import {
   Shield,
   CheckCircle2,
   Sparkles,
-  DollarSign,
-  Clock,
   Headphones,
   Store,
   Target,
   Heart,
-  Package,
-  Wifi,
   Smartphone,
   MapPin,
   Navigation
 } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import FaqSection from "@/components/FaqSection";
 import imgPaymeoLogoWhite2 from "@/public/assets/paymeologowhite.png";
 import img1 from "@/public/assets/1358c3ba35bdc98636a5ef3762c21e31cbb88101.png";
 import img2 from "@/public/assets/c84cb53a7a4ab50359323f283c7dd65e84d3da6a.png";
 import img4 from "@/public/assets/5aa1fa68211c63081166829f4977597c21ba8a26.png";
 import img6 from "@/public/assets/435b9331e24bd7e0d6eaba49dc951f5f0ebdac7f.png";
 
-// Pinterest Hero Component
-const PinterestHero = ({ heroOpacity, heroScale, img1, img2, img4, img6, scrollToSection }) => {
-  const [index, setIndex] = useState(0);
+// Types for Pinterest Hero Component
+interface PinterestHeroProps {
+  heroOpacity: MotionValue<number>;
+  heroScale: MotionValue<number>;
+  img1: StaticImageData;
+  img2: StaticImageData;
+  img4: StaticImageData;
+  img6: StaticImageData;
+  scrollToSection: (id: string) => void;
+}
 
-  // Content for the animated right side - each stat now has its own Cloudinary image companion
-  const rotatingStats = [
+interface RotatingStat {
+  title: string;
+  label: string;
+  image: StaticImageData;
+  cloudinaryImage: string;
+  color: string;
+}
+
+// Types for features
+interface Feature {
+  icon: JSX.Element;
+  title: string;
+  description: string;
+}
+
+interface Step {
+  number: string;
+  title: string;
+  description: string;
+  tags: string[];
+}
+
+interface Testimonial {
+  name: string;
+  role: string;
+  content: string;
+  image: StaticImageData;
+}
+
+interface FAQ {
+  q: string;
+  a: string;
+}
+
+// Pinterest Hero Component
+const PinterestHero = ({ heroOpacity, heroScale, img1, img2, img4, img6, scrollToSection }: PinterestHeroProps) => {
+  const [index, setIndex] = useState<number>(0);
+
+  // Create the stats array inside the component - it won't change after initial render
+  const rotatingStats: RotatingStat[] = [
     {
       title: "₦10M+",
       label: "Sales Processed",
@@ -78,7 +116,7 @@ const PinterestHero = ({ heroOpacity, heroScale, img1, img2, img4, img6, scrollT
       setIndex((prev) => (prev + 1) % rotatingStats.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [rotatingStats.length]);
 
   return (
     <motion.section
@@ -184,20 +222,20 @@ const PinterestHero = ({ heroOpacity, heroScale, img1, img2, img4, img6, scrollT
                   <CheckCircle2 className="text-white w-6 h-6" />
                 </motion.div>
 
-                {/* Cloudinary Image Card - Tilts left, animates with the main card, stays in front */}
+                {/* Cloudinary Image Card */}
                 <motion.div
                   initial={{ opacity: 0, x: 80, y: -40, rotate: 15 }}
                   animate={{ opacity: 1, x: -30, y: -50, rotate: -12 }}
                   exit={{ opacity: 0, x: -60, y: -80, rotate: -20 }}
                   transition={{ duration: 0.7, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
-                  className="absolute w-40 h-53 sm:w-40 sm:h-53 bg-white rounded-3xl overflow-hidden  border-7 border-white z-30 mt-10"
+                  className="absolute w-40 bg-white rounded-3xl overflow-hidden border-4 border-white z-30 mt-10"
                 >
                   <Image 
                     src={rotatingStats[index].cloudinaryImage} 
                     alt="Market scene"
-                    width={112}
-                    height={128}
-                    className="w-full h-full object-cover"
+                    width={160}
+                    height={160}
+                    className="w-full h-auto object-cover"
                   />
                 </motion.div>
               </motion.div>
@@ -218,7 +256,7 @@ const PinterestHero = ({ heroOpacity, heroScale, img1, img2, img4, img6, scrollT
 
 export default function BecomeSellerPage() {
   const [activeTab, setActiveTab] = useState<"personal" | "business">("business");
-  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState<boolean>(false);
   
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -230,10 +268,13 @@ export default function BecomeSellerPage() {
   const heroScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
 
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
-  const features = [
+  const features: Feature[] = [
     {
       icon: <Camera className="w-6 h-6 sm:w-8 sm:h-8" />,
       title: "Snap to List",
@@ -306,7 +347,7 @@ export default function BecomeSellerPage() {
     }
   ];
 
-  const steps = [
+  const steps: Step[] = [
     {
       number: "1",
       title: "Snap & Set Up",
@@ -333,7 +374,7 @@ export default function BecomeSellerPage() {
     }
   ];
 
-  const testimonials = [
+  const testimonials: Testimonial[] = [
     {
       name: "Ekenne",
       role: "Electronics Seller, Computer Village",
@@ -351,6 +392,37 @@ export default function BecomeSellerPage() {
       role: "Grocer, Alaba",
       content: "I get requests on WhatsApp. I reply once and my AI handles the rest. It's like having an extra staff for free.",
       image: img2
+    }
+  ];
+
+  const faqs: FAQ[] = [
+    {
+      q: "How do I start selling?",
+      a: "Download the app, snap photos of your products, set your prices, and your AI storefront is ready in minutes. Add your bank details to your wallet and you're good to go."
+    },
+    {
+      q: "What are the fees?",
+      a: "Paymeo offers two ways to sell: Pay-as-you-go with a small transaction fee (1.5% - 3.5%) per sale, or subscribe to one of our monthly plans and pay zero transaction fees. Choose what works best for your business."
+    },
+    {
+      q: "How does the AI agent work?",
+      a: "Your AI agent handles customer requests 24/7. It negotiates within your price rules, answers questions, and closes sales—even while you sleep."
+    },
+    {
+      q: "When do I get paid?",
+      a: "Funds go into escrow when a customer pays. Once they confirm pickup, money releases to your wallet. You can withdraw to your bank anytime."
+    },
+    {
+      q: "Do I need a smartphone?",
+      a: "Yes, any Android or iPhone works. The app is designed to be simple—snap photos, set prices, and let the AI do the rest."
+    },
+    {
+      q: "How does location sharing work in busy markets?",
+      a: "You share your exact stall location once. Shoppers get real-time directions using GPS and market landmarks. The map guides them right to your stall—even in complex markets like Computer Village or Balogun."
+    },
+    {
+      q: "Can I use Paymeo without WhatsApp?",
+      a: "Yes! While WhatsApp integration is a key feature, you can also receive requests and manage sales directly in the Paymeo app."
     }
   ];
 
@@ -375,9 +447,7 @@ export default function BecomeSellerPage() {
         scrollToSection={scrollToSection}
       />
 
-      {/* =========================================================
-          WHY SELLERS CHOOSE PAYMEO - NEW SECTION (Whatnot Style)
-      ========================================================= */}
+      {/* WHY SELLERS CHOOSE PAYMEO SECTION */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -579,7 +649,7 @@ export default function BecomeSellerPage() {
         </div>
       </section>
 
-      {/* New Section: How Channel Matching Works */}
+      {/* How Channel Matching Works */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-50 to-indigo-50">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -597,7 +667,7 @@ export default function BecomeSellerPage() {
                 Sell where you already chat
               </h2>
               <p className="text-lg text-gray-700 mb-6">
-                Paymeo allows sellers to receive shopping requests in their existing channels like WhatsApp. Respond with your offers and get instantly matched with a shopper who's ready to buy.
+                Paymeo allows sellers to receive shopping requests in their existing channels like WhatsApp. Respond with your offers and get instantly matched with a shopper who&apos;s ready to buy.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
@@ -648,7 +718,7 @@ export default function BecomeSellerPage() {
         </div>
       </section>
 
-      {/* New Section: Location Sharing Feature */}
+      {/* Location Sharing Feature */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -668,7 +738,7 @@ export default function BecomeSellerPage() {
                   <div className="bg-gray-700 rounded-lg h-48 flex items-center justify-center">
                     <div className="text-center">
                       <MapPin className="w-12 h-12 text-[#1e5aff] mx-auto mb-2" />
-                      <p className="text-gray-300 text-sm">Live map to Funke's Stall</p>
+                      <p className="text-gray-300 text-sm">Live map to Funke&apos;s Stall</p>
                       <p className="text-gray-400 text-xs mt-1">Balogun Market, Lagos</p>
                     </div>
                   </div>
@@ -692,7 +762,7 @@ export default function BecomeSellerPage() {
                 <span className="text-sm font-medium text-[#1e5aff]">Find Me Easily</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                Share your stall's location
+                Share your stall&apos;s location
               </h2>
               <p className="text-lg text-gray-700 mb-6">
                 Let shoppers get real-time directions to your stall. Works perfectly even in busy local markets where finding a specific seller can be challenging.
@@ -794,36 +864,7 @@ export default function BecomeSellerPage() {
           </motion.div>
 
           <div className="space-y-4">
-            {[
-              {
-                q: "How do I start selling?",
-                a: "Download the app, snap photos of your products, set your prices, and your AI storefront is ready in minutes. Add your bank details to your wallet and you're good to go."
-              },
-              {
-                q: "What are the fees?",
-                a: "Paymeo offers two ways to sell: Pay-as-you-go with a small transaction fee (1.5% - 3.5%) per sale, or subscribe to one of our monthly plans and pay zero transaction fees. Choose what works best for your business."
-              },
-              {
-                q: "How does the AI agent work?",
-                a: "Your AI agent handles customer requests 24/7. It negotiates within your price rules, answers questions, and closes sales—even while you sleep."
-              },
-              {
-                q: "When do I get paid?",
-                a: "Funds go into escrow when a customer pays. Once they confirm pickup, money releases to your wallet. You can withdraw to your bank anytime."
-              },
-              {
-                q: "Do I need a smartphone?",
-                a: "Yes, any Android or iPhone works. The app is designed to be simple—snap photos, set prices, and let the AI do the rest."
-              },
-              {
-                q: "How does location sharing work in busy markets?",
-                a: "You share your exact stall location once. Shoppers get real-time directions using GPS and market landmarks. The map guides them right to your stall—even in complex markets like Computer Village or Balogun."
-              },
-              {
-                q: "Can I use Paymeo without WhatsApp?",
-                a: "Yes! While WhatsApp integration is a key feature, you can also receive requests and manage sales directly in the Paymeo app."
-              }
-            ].map((faq, index) => (
+            {faqs.map((faq, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
