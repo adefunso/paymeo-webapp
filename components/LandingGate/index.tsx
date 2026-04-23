@@ -104,20 +104,21 @@ export default function LandingGate({
         </svg>
       </div>
 
-      {/* NEW IMAGE - Bottom right corner, partially out of page (DESKTOP ONLY) */}
-      <div className="absolute bottom-0 right-0 z-20 pointer-events-none hidden lg:block">
-        <img
-          src="https://res.cloudinary.com/diml8ljwa/image/upload/v1776888046/hero-image-fashion_vfbebn.png"
-          alt="Fashion Smartphone"
-          className="w-auto h-auto max-w-none"
-          style={{
-            transform: "translateX(30%) translateY(30%)",
-            maxWidth: "none",
-            width: "500px",
-            height: "auto"
-          }}
-        />
-      </div>
+      {/* IMAGE - Bottom right corner, with opacity, placed backwards (behind content) */}
+      {/* Shows on both desktop and mobile, but hidden behind content and with opacity */}
+      <div className="absolute bottom-0 right-0 z-0 pointer-events-none opacity-20 lg:opacity-100">
+  <img
+    src="https://res.cloudinary.com/diml8ljwa/image/upload/v1776888046/hero-image-fashion_vfbebn.png"
+    alt="Fashion Smartphone"
+    className="w-auto h-auto max-w-none"
+    style={{
+      transform: "translateX(30%) translateY(30%)",
+      maxWidth: "none",
+      width: "min(500px, 90vw)",  // Changed from 70vw to 90vw for larger size on mobile
+      height: "auto"
+    }}
+  />
+</div>
 
       {/* NAV */}
       <nav className="relative z-50 flex items-center justify-between px-6 lg:px-12 py-4 flex-shrink-0">
