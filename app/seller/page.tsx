@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence, MotionValue } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import { Button } from "@/components/ui/button";
@@ -58,7 +58,7 @@ interface RotatingStat {
 
 // Types for features
 interface Feature {
-  icon: JSX.Element;
+  icon: React.ReactNode;
   title: string;
   description: string;
 }
@@ -162,12 +162,12 @@ const PinterestHero = ({ heroOpacity, heroScale, img1, img2, img4, img6, scrollT
               >
                 Join Paymeo for free
               </Button>
-              <button 
+              <Button 
                 onClick={() => scrollToSection('how-it-works')}
-                className="text-gray-900 font-medium hover:underline text-sm"
+                className="text-gray-900 bg-white hover:bg-white underline font-medium hover:underline text-sm"
               >
                 See how it works
-              </button>
+              </Button>
             </motion.div>
           </div>
 
@@ -276,72 +276,72 @@ export default function BecomeSellerPage() {
 
   const features: Feature[] = [
     {
-      icon: <Camera className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: React.createElement(Camera, { className: "w-6 h-6 sm:w-8 sm:h-8" }),
       title: "Snap to List",
       description: "Snap photos of your products. Our AI auto-generates listings instantly. No technical skills needed."
     },
     {
-      icon: <Zap className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: React.createElement(Zap, { className: "w-6 h-6 sm:w-8 sm:h-8" }),
       title: "24/7 AI Agent",
       description: "Your AI assistant negotiates with customers, answers questions, and closes sales—even while you sleep."
     },
     {
-      icon: <Bell className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: React.createElement(Bell, { className: "w-6 h-6 sm:w-8 sm:h-8" }),
       title: "Real-Time Requests",
       description: "Get notified when shoppers post requests for products you sell. Respond first, win the sale."
     },
     {
-      icon: <QrCode className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: React.createElement(QrCode, { className: "w-6 h-6 sm:w-8 sm:h-8" }),
       title: "QR Code Storefront",
       description: "Place QR at your stall. Walk-in customers scan, browse with AI, and buy—even when you're busy."
     },
     {
-      icon: <LinkIcon className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: React.createElement(LinkIcon, { className: "w-6 h-6 sm:w-8 sm:h-8" }),
       title: "Shareable Store Link",
       description: "Get a unique store link to share on social media, WhatsApp, or anywhere customers are."
     },
     {
-      icon: <CreditCard className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: React.createElement(CreditCard, { className: "w-6 h-6 sm:w-8 sm:h-8" }),
       title: "Escrow Payments",
       description: "Funds held securely until customer confirms pickup. No scams. No chargebacks."
     },
     {
-      icon: <MessageCircle className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: React.createElement(MessageCircle, { className: "w-6 h-6 sm:w-8 sm:h-8" }),
       title: "WhatsApp Integration",
       description: "Receive customer requests directly in WhatsApp. Respond where you're already active."
     },
     {
-      icon: <BarChart className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: React.createElement(BarChart, { className: "w-6 h-6 sm:w-8 sm:h-8" }),
       title: "Sales Analytics",
       description: "Track your sales, popular products, and customer activity—all in one simple dashboard."
     },
     {
-      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: React.createElement(Globe, { className: "w-6 h-6 sm:w-8 sm:h-8" }),
       title: "Sell 24/7",
       description: "Your stall never closes. Keep selling even when you're home, sleeping, or restocking."
     },
     {
-      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: React.createElement(Users, { className: "w-6 h-6 sm:w-8 sm:h-8" }),
       title: "Group Sales",
       description: "When shoppers create Co-Pay groups, you sell more at once. Bulk orders = bigger revenue."
     },
     {
-      icon: <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: React.createElement(TrendingUp, { className: "w-6 h-6 sm:w-8 sm:h-8" }),
       title: "Bounty Scouts",
       description: "Scouts earn bounties finding items for shoppers. They'll bring customers to your stall."
     },
     {
-      icon: <Shield className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: React.createElement(Shield, { className: "w-6 h-6 sm:w-8 sm:h-8" }),
       title: "Verified Badge",
       description: "Get verified as a real stall. Build trust with shoppers who can visit you in person."
     },
     {
-      icon: <MessageCircle className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: React.createElement(MessageCircle, { className: "w-6 h-6 sm:w-8 sm:h-8" }),
       title: "Multi-Channel Requests",
       description: "Receive shopping requests in your existing channels like WhatsApp. Respond with offers and get matched with ready-to-buy shoppers instantly."
     },
     {
-      icon: <Navigation className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: React.createElement(Navigation, { className: "w-6 h-6 sm:w-8 sm:h-8" }),
       title: "Live Location Sharing",
       description: "Share your stall's location so shoppers get real-time directions maps—works perfectly even in busy local markets."
     }
