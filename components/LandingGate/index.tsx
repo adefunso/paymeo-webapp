@@ -463,27 +463,24 @@ export default function LandingGate({
           )}
         </AnimatePresence>
       </nav>
-
-     {/* HERO */}
+{/* HERO */}
 <div className="flex-1 flex items-start lg:items-center justify-center px-6 lg:px-12 pt-2 lg:pt-0 min-h-0 relative z-10">
-  <div className="w-full max-w-6xl grid lg:grid-cols-2 gap-2 lg:gap-0 items-center mt-[-90px] lg:mt-0 xl:mt-0">
-    {/* DESKTOP: Reduced card sizes and adjusted layout */}
-    <div className="relative flex justify-center items-center scale-[0.45] sm:scale-100 lg:scale-90 -mb-8 sm:mb-0 mt-[-40px] lg:mt-0">
+  <div className="w-full max-w-6xl grid lg:grid-cols-2 gap-2 lg:gap-0 items-center mt-0 lg:mt-0 xl:mt-0">
+
+    {/* ========== MOBILE CARDS (hidden on lg+) ========== */}
+    <div className="relative flex justify-center items-center mb-0 mt-[40px] lg:hidden">
       <motion.div
-        className="absolute bottom-0 mb-[50px] mr-[150px] lg:mr-[120px]"
+        className="absolute bottom-0 mb-[23px] mr-[68px]"
         initial={{ x: -200, rotate: -25, opacity: 0 }}
         animate={{ x: "-55%", rotate: -10, opacity: 1 }}
         transition={{ duration: 0.9, ease: "easeOut" }}
       >
         <div
           className="overflow-hidden rounded-2xl border-4 border-white/20 shadow-xl"
-          style={{
-            height: "clamp(210px,40vh,480px)",
-            aspectRatio: "9/19",
-          }}
+          style={{ height: "190px", aspectRatio: "9/19" }}
         >
           <img
-            src="https://res.cloudinary.com/diml8ljwa/image/upload/v1762341472/paymeoswipe_1_wq0dgo.webp"
+            src="https://res.cloudinary.com/diml8ljwa/image/upload/w_800,q_auto/v1762341472/paymeoswipe_1_wq0dgo.webp"
             className="w-full h-full object-cover"
           />
         </div>
@@ -497,18 +494,9 @@ export default function LandingGate({
       >
         <div
           className="overflow-hidden rounded-4xl border-4 border-white/30 shadow-2xl"
-          style={{
-            height: "clamp(280px,70vh,650px)",
-            aspectRatio: "9/19",
-          }}
+          style={{ height: "260px", aspectRatio: "9/19" }}
         >
-          <video
-            className="w-full h-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-          >
+          <video className="w-full h-full object-cover" autoPlay muted loop playsInline>
             <source
               src="https://res.cloudinary.com/diml8ljwa/video/upload/q_70,f_webm,vc_vp9,w_1200,ac_none,du_8/v1762294237/paymeohero_1_tq8bao"
               type="video/webm"
@@ -518,36 +506,89 @@ export default function LandingGate({
       </motion.div>
 
       <motion.div
-        className="absolute bottom-0 mb-[50px] ml-[150px] lg:ml-[120px]"
+        className="absolute bottom-0 mb-[23px] ml-[68px]"
         initial={{ x: 200, rotate: 25, opacity: 0 }}
         animate={{ x: "55%", rotate: 10, opacity: 1 }}
         transition={{ duration: 0.9, ease: "easeOut" }}
       >
         <div
           className="overflow-hidden rounded-2xl border-4 border-white/20 shadow-xl"
-          style={{
-            height: "clamp(210px,40vh,480px)",
-            aspectRatio: "9/19",
-          }}
+          style={{ height: "190px", aspectRatio: "9/19" }}
         >
           <img
-            src="https://res.cloudinary.com/diml8ljwa/image/upload/v1761906469/TransactionChats_ajel9w.svg"
+            src="https://res.cloudinary.com/diml8ljwa/image/upload/w_800,q_auto/v1777020892/IMG_20260424_094658.jpg_nwdcql.jpg"
             className="w-full h-full object-cover"
           />
         </div>
       </motion.div>
     </div>
 
-    {/* DESKTOP: Reduced text sizes and moved closer */}
+    {/* ========== DESKTOP CARDS (hidden below lg) ========== */}
+    <div className="relative flex justify-center items-center mb-0 mt-0 hidden lg:flex lg:ml-[-40px]">
+      <motion.div
+        className="absolute bottom-0 mb-[50px] mr-[120px]"
+        initial={{ x: -200, rotate: -25, opacity: 0 }}
+        animate={{ x: "-55%", rotate: -10, opacity: 1 }}
+        transition={{ duration: 0.9, ease: "easeOut" }}
+      >
+        <div
+          className="overflow-hidden rounded-2xl border-4 border-white/20 shadow-xl"
+          style={{ height: "clamp(210px, 40vh, 432px)", aspectRatio: "9/19" }}
+        >
+          <img
+            src="https://res.cloudinary.com/diml8ljwa/image/upload/w_800,q_auto/v1762341472/paymeoswipe_1_wq0dgo.webp"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </motion.div>
+
+      <motion.div
+        className="relative z-20"
+        initial={{ y: 140, opacity: 0, scale: 0.9 }}
+        animate={{ y: 0, opacity: 1, scale: 1 }}
+        transition={{ duration: 0.9, ease: "easeOut" }}
+      >
+        <div
+          className="overflow-hidden rounded-4xl border-4 border-white/30 shadow-2xl"
+          style={{ height: "clamp(280px, 70vh, 585px)", aspectRatio: "9/19" }}
+        >
+          <video className="w-full h-full object-cover" autoPlay muted loop playsInline>
+            <source
+              src="https://res.cloudinary.com/diml8ljwa/video/upload/q_70,f_webm,vc_vp9,w_1200,ac_none,du_8/v1762294237/paymeohero_1_tq8bao"
+              type="video/webm"
+            />
+          </video>
+        </div>
+      </motion.div>
+
+      <motion.div
+        className="absolute bottom-0 mb-[50px] ml-[120px]"
+        initial={{ x: 200, rotate: 25, opacity: 0 }}
+        animate={{ x: "55%", rotate: 10, opacity: 1 }}
+        transition={{ duration: 0.9, ease: "easeOut" }}
+      >
+        <div
+          className="overflow-hidden rounded-2xl border-4 border-white/20 shadow-xl"
+          style={{ height: "clamp(210px, 40vh, 432px)", aspectRatio: "9/19" }}
+        >
+          <img
+            src="https://res.cloudinary.com/diml8ljwa/image/upload/w_800,q_auto/v1777020892/IMG_20260424_094658.jpg_nwdcql.jpg"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </motion.div>
+    </div>
+
+    {/* TEXT CONTENT */}
     <motion.div
-      className="text-center lg:text-left max-w-lg mx-auto lg:mx-0 lg:ml-[-40px] xl:ml-[-60px] -mt-12 sm:mt-0 mt-[-90px] lg:-mt-12"
+      className="text-center lg:text-left max-w-lg mx-auto lg:mx-0 lg:ml-[-40px] xl:ml-[-60px] mt-[10px] sm:mt-0 lg:-mt-12"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
     >
-      <h1 className="text-3xl lg:text-4xl xl:text-5xl font-extrabold text-white leading-tight mb-3">
+      <h1 className="text-2xl lg:text-4xl xl:text-5xl font-extrabold text-white leading-tight mb-2">
         Find What You Need. Get Paid For What You Deliver.
       </h1>
-      <div className="min-h-[80px] lg:min-h-[70px] lg:min-w-[20px]">
+      <div className="min-h-[60px] lg:min-h-[70px]">
         <AnimatePresence mode="wait">
           <motion.p
             key={currentTextIndex}
@@ -555,13 +596,13 @@ export default function LandingGate({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="text-white text-[15px] lg:text-[13px] xl:text-[14px] font-semibold leading-relaxed"
+            className="text-white text-[13px] lg:text-[13px] xl:text-[14px] font-semibold leading-snug"
           >
             {renderHighlightedText(rotatingTexts[currentTextIndex].text, rotatingTexts[currentTextIndex].highlight)}
           </motion.p>
         </AnimatePresence>
       </div>
-      <div className="flex items-center justify-center lg:justify-start gap-4">
+      <div className="flex items-center justify-center lg:justify-start gap-4 mt-1">
         <div className="bg-white p-2 rounded-lg hidden sm:block">
           <img
             src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://paymeo.co"
@@ -570,6 +611,7 @@ export default function LandingGate({
         </div>
       </div>
     </motion.div>
+
   </div>
 </div>
 
