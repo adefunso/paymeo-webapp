@@ -201,22 +201,22 @@ export default function ForShoppersPage() {
                     </h1>
 
                     <p className="text-xs sm:text-sm md:text-base text-black/80 leading-relaxed mb-3 font-small">
-                      Tell us what you&apos;re looking for. Sellers send their
+                      Post what you&apos;re looking for. Sellers send their
                       best offers. Compare, choose, and pay securely without
-                      walking through the entire market. Tip people who help
-                      you, or request money from friends.
+                      walking through the entire market. Attach bounties to your posts and fellow shoppers help you find things faster. Get paid helping other shoppers find things. Tip people who help
+                      you, connect with friends.
                     </p>
                   </div>
 
                   {/* CTA Buttons */}
                   <div className="flex flex-col sm:flex-row gap-2 mt-1">
                     <Button 
-                      className="bg-[#1e5aff] hover:bg-[#1e5aff]/90 text-white rounded-[20px] h-10 px-4 group text-xs sm:text-sm"
-                      onClick={openWaitlist}
-                    >
-                      Join The Waitlist
-                      <ArrowUp className="w-3 h-3 ml-2 rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                    </Button>
+  className="bg-[#1e5aff] hover:bg-[#1e5aff]/90 text-white rounded-[20px] h-10 px-4 group text-xs sm:text-sm"
+  onClick={() => window.location.href = 'https://my.paymeo.co'}
+>
+  Use Paymeo
+  <ArrowUp className="w-3 h-3 ml-2 rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+</Button>
                   </div>
                 </CardContent>
               </Card>
@@ -247,9 +247,9 @@ export default function ForShoppersPage() {
                 <Button
                   variant="outline"
                   className="hidden lg:flex border-2 border-white text-white hover:bg-white hover:text-[#1e5aff] rounded-[15px] h-12 px-5 text-base backdrop-blur-sm bg-transparent group transition-all"
-                  onClick={openWaitlist}
+                  onClick={() => window.location.href = 'https://my.paymeo.co'}
                 >
-                  Join The Waitlist
+                  Use Paymeo
                   <ArrowUp className="w-4 h-4 ml-2 rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </Button>
               </div>

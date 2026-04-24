@@ -49,11 +49,11 @@ export default function Footer() {
             (e.g., email, social, etc.) from Paymeo about our existing and future
             products and services. You can unsubscribe at any time via the link
             in our emails. Your subscription is subject to our{" "}
-            <a href="#" className="text-[#1e5aff] hover:underline">
+            <a href="/terms" className="text-[#1e5aff] hover:underline">
               Terms
             </a>{" "}
             and{" "}
-            <a href="#" className="text-[#1e5aff] hover:underline">
+            <a href="/privacy" className="text-[#1e5aff] hover:underline">
               Privacy Policy
             </a>
             .
@@ -77,7 +77,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-gray-500 mb-4">
-              Intent-driven Social Commerce connecting shoppers with local sellers — with AI that sells for you, and payments that arrive instantly. 
+             Intent-driven social commerce connecting shoppers to local sellers — with AI that sells 24/7, and payments that arrive instantly.
             </p>
 
             <div className="flex items-center gap-4 text-white/70 mt-2">
@@ -214,12 +214,12 @@ export default function Footer() {
             <h4 className="text-gray-800 font-medium mb-4">Support</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/help" className="hover:text-gray-800 transition">
+                <a href="" className="hover:text-gray-800 transition">
                   Help Center
                 </a>
               </li>
               <li>
-                <a href="/contact" className="hover:text-gray-800 transition">
+                <a href="" className="hover:text-gray-800 transition">
                   Contact
                 </a>
               </li>

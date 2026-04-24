@@ -83,13 +83,13 @@ export function ShopperFeatures() {
       icon: <MessageCircle className="w-6 h-6 sm:w-8 sm:h-8" />,
       title: "Post Requests",
       description:
-        "Tell us what you're looking for. Sellers compete to give you their best offers.",
+        "Post what you're looking for. Sellers compete to give you their best offers.",
     },
     {
       icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
       title: "Add Bounties",
       description:
-        "Add a reward to your request. Scouts hunt for hard-to-find items and get paid when you find them.",
+        "Add a reward to your request. Scouts hunt for hard-to-find items and get paid when they find them.",
     },
     {
       icon: <ArrowRight className="w-6 h-6 sm:w-8 sm:h-8" />,
@@ -183,137 +183,159 @@ export function ShopperFeatures() {
 export function ShopperHowItWorks() {
   return (
     <div className="space-y-8">
-      {/* Step 1 */}
-      <div className="flex items-start gap-4">
-        <div className="w-10 h-10 bg-[#1e5aff] rounded-full flex items-center justify-center text-white font-bold shrink-0">
-          1
-        </div>
-        <div>
-          <h3 className="text-lg font-semibold mb-1">Post What You Want</h3>
-          <p className="text-gray-600 mb-2">
-            Tell us what you&apos;re looking for — products, services, or even
-            recommendations. Add a bounty if you want faster results. You can
-            also request money from friends or send tips directly from your
-            wallet.
-          </p>
-          <div className="flex flex-wrap gap-2 mt-2">
-            <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
-              Find better
-            </span>
-            <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
-              Request money
-            </span>
-            <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
-              Send tips
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Step 2 */}
-      <div className="flex items-start gap-4">
-        <div className="w-10 h-10 bg-[#1e5aff] rounded-full flex items-center justify-center text-white font-bold shrink-0">
-          2
-        </div>
-        <div>
-          <h3 className="text-lg font-semibold mb-1">
-            Get Offers & Recommendations
-          </h3>
-          <p className="text-gray-600 mb-2">
-            Sellers send their best prices. Community members reply with
-            recommendations. Compare offers side-by-side, swipe to choose, or
-            accept a tip-worthy recommendation. You can also receive money
-            directly from friends in chat.
-          </p>
-          <div className="flex flex-wrap gap-2 mt-2">
-            <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
-              Compare offers
-            </span>
-            <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
-              Community answers
-            </span>
-            <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
-              Chat payments
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Step 3 */}
-      <div className="flex items-start gap-4">
-        <div className="w-10 h-10 bg-[#1e5aff] rounded-full flex items-center justify-center text-white font-bold shrink-0">
-          3
-        </div>
-        <div>
-          <h3 className="text-lg font-semibold mb-1">
-            Pay, Tip & Transfer Securely
-          </h3>
-          <p className="text-gray-600 mb-2">
-            Money held in escrow. Only released when you confirm pickup. No
-            risk. Tip users who gave great recommendations. Send money to
-            friends directly from your wallet. All secure, all in-app.
-          </p>
-          <div className="flex flex-wrap gap-2 mt-2">
-            <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
-              Escrow protection
-            </span>
-            <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
-              Wallet balance
-            </span>
-            <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
-              Peer-to-peer transfers
-            </span>
-            <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
-              Tip recommendations
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Step 4 */}
-      <div className="flex items-start gap-4">
-        <div className="w-10 h-10 bg-[#1e5aff] rounded-full flex items-center justify-center text-white font-bold shrink-0">
-          4
-        </div>
-        <div>
-          <h3 className="text-lg font-semibold mb-1">Pick Up & Enjoy</h3>
-          <p className="text-gray-600 mb-2">
-            Follow the map to the seller&apos;s stall. Confirm receipt.
-            Confirm delivery for out-of-market orders. Done. Tip exceptional
-            service.
-          </p>
-          <div className="flex flex-wrap gap-2 mt-2">
-            <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
-              Map directions
-            </span>
-            <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
-              Rate & review
-            </span>
-            <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
-              Instant wallet update
-            </span>
-            <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
-              Ready for next
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Wallet Summary Card */}
-      <div className="mt-6 p-4 bg-gradient-to-r from-[#1e5aff]/5 to-[#1e5aff]/10 rounded-xl border border-[#1e5aff]/20">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-[#1e5aff] rounded-full flex items-center justify-center">
-            <span className="text-white font-bold">₦</span>
-          </div>
-          <div>
-            <p className="text-sm text-gray-500">Your Paymeo Wallet</p>
-            <p className="text-lg font-semibold">
-              Send, receive, tip, and request—all from one wallet.
-            </p>
-          </div>
-        </div>
+  {/* Step 1 */}
+  <div className="flex items-start gap-4">
+    <div className="w-10 h-10 bg-[#1e5aff] rounded-full flex items-center justify-center text-white font-bold shrink-0">
+      1
+    </div>
+    <div>
+      <h3 className="text-lg font-semibold mb-1">Post What You Want</h3>
+      <p className="text-gray-600 mb-2">
+        Post what you&apos;re looking for — products, services, or even
+        recommendations. Add a bounty if you want faster results. You can
+        also tip friends your
+        wallet.
+      </p>
+      <div className="flex flex-wrap gap-2 mt-2">
+        <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
+          Find better
+        </span>
+        <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
+          Connect with friends
+        </span>
+        <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
+          Send tips
+        </span>
       </div>
     </div>
+  </div>
+
+  {/* Step 2 */}
+  <div className="flex items-start gap-4">
+    <div className="w-10 h-10 bg-[#1e5aff] rounded-full flex items-center justify-center text-white font-bold shrink-0">
+      2
+    </div>
+    <div>
+      <h3 className="text-lg font-semibold mb-1">
+        Get Offers & Recommendations
+      </h3>
+      <p className="text-gray-600 mb-2">
+        Sellers send their best prices. Community members reply with
+        recommendations. Compare offers side-by-side, swipe to choose, or
+        accept a tip-worthy recommendation. You can also receive tips
+        directly from friends in chat.
+      </p>
+      <div className="flex flex-wrap gap-2 mt-2">
+        <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
+          Compare offers
+        </span>
+        <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
+          Community answers
+        </span>
+        <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
+          Chat payments
+        </span>
+      </div>
+    </div>
+  </div>
+
+  {/* Step 3 */}
+  <div className="flex items-start gap-4">
+    <div className="w-10 h-10 bg-[#1e5aff] rounded-full flex items-center justify-center text-white font-bold shrink-0">
+      3
+    </div>
+    <div>
+      <h3 className="text-lg font-semibold mb-1">
+        Pay, Tip & Transfer Securely
+      </h3>
+      <p className="text-gray-600 mb-2">
+        Money held in escrow. Only released when you confirm pickup. No
+        risk. Tip users who gave great recommendations. Send tips to
+        friends directly from your wallet. All secure, all in-app.
+      </p>
+      <div className="flex flex-wrap gap-2 mt-2">
+        <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
+          Escrow protection
+        </span>
+        <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
+          Wallet balance
+        </span>
+
+        <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
+          Tip recommendations
+        </span>
+      </div>
+    </div>
+  </div>
+
+  {/* Step 4 */}
+  <div className="flex items-start gap-4">
+    <div className="w-10 h-10 bg-[#1e5aff] rounded-full flex items-center justify-center text-white font-bold shrink-0">
+      4
+    </div>
+    <div>
+      <h3 className="text-lg font-semibold mb-1">Pick Up & Enjoy</h3>
+      <p className="text-gray-600 mb-2">
+        Follow the map to the seller&apos;s stall. Confirm receipt.
+        Confirm delivery for out-of-market orders. Done. Tip exceptional
+        service.
+      </p>
+      <div className="flex flex-wrap gap-2 mt-2">
+        <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
+          Map directions
+        </span>
+        <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
+          Rate & review
+        </span>
+        <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
+          Instant wallet update
+        </span>
+        <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
+          Ready for next
+        </span>
+      </div>
+    </div>
+  </div>
+
+  {/* Step 5 */}
+  <div className="flex items-start gap-4">
+    <div className="w-10 h-10 bg-[#1e5aff] rounded-full flex items-center justify-center text-white font-bold shrink-0">
+      5
+    </div>
+    <div>
+      <h3 className="text-lg font-semibold mb-1">Earn as You Help</h3>
+      <p className="text-gray-600 mb-2">
+        Shoppers get paid helping other people with recommendations and finding things.
+      </p>
+      <div className="flex flex-wrap gap-2 mt-2">
+        <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
+          Earn tips
+        </span>
+        <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
+          Get paid for recommendations
+        </span>
+        <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#1e5aff] text-xs rounded-full">
+          Community rewards
+        </span>
+      </div>
+    </div>
+  </div>
+
+  {/* Wallet Summary Card */}
+  <div className="mt-6 p-4 bg-gradient-to-r from-[#1e5aff]/5 to-[#1e5aff]/10 rounded-xl border border-[#1e5aff]/20">
+    <div className="flex items-center gap-3">
+      <div className="w-10 h-10 bg-[#1e5aff] rounded-full flex items-center justify-center">
+        <span className="text-white font-bold">₦</span>
+      </div>
+      <div>
+        <p className="text-sm text-gray-500">Your Paymeo Wallet</p>
+        <p className="text-lg font-semibold">
+          Pay, tip, and receive - all from one wallet
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
   );
 }
 

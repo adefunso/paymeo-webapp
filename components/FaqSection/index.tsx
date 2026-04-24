@@ -12,7 +12,7 @@ export default function FaqSection() {
   {
     question: "What is Paymeo?",
     answer:
-      "Paymeo is an AI-powered marketplace for local sellers and shoppers that bridges conversations and commerce. It lets users express what they need (intent) and connects them directly to the people or businesses that can fulfill those needs — all while enabling seamless, secure payments.",
+      "Paymeo is an AI-powered marketplace that connects shoppers who need things to local sellers that can deliver. It lets users express what they need (intent) and connects them directly to the people or businesses that can fulfill those needs — with AI that sells 24/7 and payments that arrive instantly.",
   },
   {
     question: "What makes Paymeo different?",
@@ -22,7 +22,7 @@ export default function FaqSection() {
   {
     question: "Who can use Paymeo?",
     answer:
-      "Anyone. Whether you’re an individual sending money, a creator selling services, or a business managing customers, Paymeo provides the tools to connect, engage, and grow — all in one place.",
+      "Anyone. Whether you’re an individual looking to shop online or in local markets, a creator selling services, or a business managing customers, Paymeo provides the tools to connect, engage, and grow — all in one place.",
   },
   {
     question: "What currencies does Paymeo support?",
@@ -37,12 +37,12 @@ export default function FaqSection() {
   {
     question: "Can I use Paymeo without a business?",
     answer:
-      "Of course. You don’t need to own a business to use Paymeo. You can send money, request payments, split bills, or simply interact with others who can help you fulfill a need or offer a service.",
+      "Of course. You don’t need to own a business to use Paymeo. You can pay for items, send and receive tips, shop, sell, or simply interact with others who can help you fulfill a need or offer a service.",
   },
   {
   question: "What can I do with Meo?",
   answer:
-    "Meo is your personal and business assistant across the entire Paymeo ecosystem. It helps you perform actions, manage tasks, and interact with people or businesses through simple text or voice commands. For individuals, Meo can help you send or request money, discover sellers or service providers, make purchases, and manage your wallet — all hands-free. For businesses and creators, Meo helps you respond to customers, negotiate and close sales, track payments, generate invoices, and even recommend actions to boost engagement or sales. As Meo evolves, it will become an intelligent intent-recognition AI that powers discovery, support, insights, and automation across the Paymeo and Meo Platforms ecosystem — making every interaction faster, smarter, and more human.",
+    "Meo is your personal and business assistant across the entire Paymeo ecosystem. It helps you perform actions, manage tasks, and interact with people or businesses through simple text or voice commands. For individuals, Meo can help you find things in local markets, discover sellers or service providers, make purchases, and manage your wallet — all hands-free. For businesses and creators, Meo helps you respond to customers, negotiate and close sales, track payments, generate invoices, and even recommend actions to boost engagement or sales. As Meo evolves, it will become an intelligent intent-recognition AI that powers discovery, support, insights, and automation across the Paymeo and Meo Platforms ecosystem — making every interaction faster, smarter, and more human.",
 },
 
   {
