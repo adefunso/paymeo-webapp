@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     url: 'https://paymeo.co',
     title: 'Paymeo: Find, Sell, Get Paid, Shop & Connect',
     description: "Use Paymeo to post what you need. AI connects you to local sellers, handles negotiations. Get recommendations. Shop, Sell, & Pay securely. Tip friends, get paid helping others, and connect around things you love. Use Paymeo today.",
-    siteName: 'Paymeo',
+    siteName: 'Paymeo | AI-Powered Social Commerce Marketplace',
     images: [
       {
         url: 'https://paymeo.co/opengraph-image.jpg',
