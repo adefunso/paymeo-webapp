@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     siteName: 'Paymeo',
     images: [
       {
-        url: 'https://paymeo.co/opengraph-image.png',
+        url: 'https://paymeo.co/opengraph-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Paymeo: Find, Sell, Get Paid, Shop & Connect',
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Paymeo: Find, Sell, Get Paid, Shop & Connect',
     description: "Use Paymeo to post what you need. AI connects you to local sellers, handles negotiations. Get recommendations. Shop, Sell, & Pay securely. Tip friends, get paid helping others, and connect around things you love. Use Paymeo today.",
-    images: ['/og-image.png'],
+    images: ['/og-image.jpg'],
     creator: '@usepaymeo',
   },
   robots: {

@@ -7,7 +7,7 @@ export const metadata = {
   openGraph: {
     title: "Paymeo | Scan to Shop",
     description: "Scan QR codes at local markets. Browse seller products. Pay securely. Get real-time directions to their stall.",
-    images: ["https://paymeo.co/opengraph-image.png"],
+    images: ["https://paymeo.co/opengraph-image.jpg"],
   },
 }
 

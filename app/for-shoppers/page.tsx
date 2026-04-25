@@ -7,7 +7,7 @@ export const metadata = {
   openGraph: {
     title: "Payme | For Shoppers",
     description: "Stop searching. Start finding. Post what you need. Your community sends recommendations. AI connects you to sellers. Pay securely. Get paid helping others.",
-    images: ["https://paymeo.co/opengraph-image.png"],
+    images: ["https://paymeo.co/opengraph-image.jpg"],
   },
 }
 

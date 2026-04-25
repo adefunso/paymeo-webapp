@@ -7,7 +7,7 @@ export const metadata = {
   openGraph: {
     title: "Paymeo | Become a Seller",
     description: "Receive shopping requests. Sell 24/7 with AI. List your products once. AI negotiates while you sleep. Escrow protection. Instant payouts.",
-    images: ["https://paymeo.co/opengraph-image.png"],
+    images: ["https://paymeo.co/opengraph-image.jpg"],
   },
 }
 

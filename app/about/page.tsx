@@ -7,7 +7,7 @@ export const metadata = {
   openGraph: {
     title: "Paymeo | About",
     description: "Learn about Paymeo's mission: connecting shoppers to local sellers through community, AI, and secure payments. Based in Lagos, Nigeria.",
-    images: ["https://paymeo.co/opengraph-image.png"],
+    images: ["https://paymeo.co/opengraph-image.jpg"],
   },
 }
 

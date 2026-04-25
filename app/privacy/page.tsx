@@ -7,7 +7,7 @@ export const metadata = {
   openGraph: {
     title: "Paymeo | Privacy Policy",
     description: "Read Paymeo's Privacy Policy. Learn how we collect, use, and protect your personal information.",
-    images: ["https://paymeo.co/opengraph-image.png"],
+    images: ["https://paymeo.co/opengraph-image.jpg"],
   },
 }
 
