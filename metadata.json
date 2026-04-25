@@ -1,5 +1,5 @@
 {
-  "name": "Paymeo - Find What You Need. Get Paid For What You Deliver.",
-  "description": "Sell 24/7 with AI. Find what you need. Pay Securely. Tip people, and get paid for what you deliver.",
+  "name": "Paymeo: Find, Sell, Get Paid, Shop & Connect",
+  "description": "Use Paymeo to post what you're looking for. Your community sends recommendations. AI connects you to local sellers. Shop & Sell smartly with AI that handles negotiations. Pay securely, tip helpful people, earn when you help others find what they need, and connect around things you love. Use Paymeo today.",
   "requestFramePermissions": ["camera", "microphone"]
 }

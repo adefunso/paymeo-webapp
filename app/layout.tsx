@@ -36,10 +36,10 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL('https://paymeo.co'),
   title: {
-    default: 'Paymeo - Find What You Need. Get Paid For What You Deliver.',
+    default: 'Paymeo: Find, Sell, Get Paid, Shop & Connect',
     template: '%s | Paymeo'
   },
-  description: 'Sell 24/7 with AI. Find what you need. Pay Securely. Tip people, and get Paid For what you deliver.',
+  description: "Use Paymeo to post what you're looking for. Your community sends recommendations. AI connects you to local sellers. Shop & Sell smartly with AI that handles negotiations. Pay securely, tip helpful people, earn when you help others find what they need, and connect around things you love. Use Paymeo today.",
   keywords: [
     'social commerce',
     'intent-driven commerce',
@@ -65,24 +65,24 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://paymeo.co',
-    title: 'Paymeo - Find What You Need. Get Paid For What You Deliver.',
-    description: 'Sell 24/7 with AI. Find what you need. Pay securely. Tip people, and get Paid For what you deliver.',
+    title: 'Paymeo: Find, Sell, Get Paid, Shop & Connect',
+    description: "Use Paymeo to post what you're looking for. Your community sends recommendations. AI connects you to local sellers. Shop & Sell smartly with AI that handles negotiations. Pay securely, tip helpful people, earn when you help others find what they need, and connect around things you love. Use Paymeo today.",
     siteName: 'Paymeo',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Paymeo - Find What You Need. Get Paid For What You Deliver.',
+        alt: 'Paymeo: Find, Sell, Get Paid, Shop & Connect',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Paymeo - Find What You Need. Get Paid For What You Deliver.',
-    description: 'Sell 24/7 with AI, Find what you need. Pay securely. Tip people, and get Paid For what you deliver.',
+    title: 'Paymeo: Find, Sell, Get Paid, Shop & Connect',
+    description: "Use Paymeo to post what you're looking for. Your community sends recommendations. AI connects you to local sellers. Shop & Sell smartly with AI that handles negotiations. Pay securely, tip helpful people, earn when you help others find what they need, and connect around things you love. Use Paymeo today.",
     images: ['/og-image.png'],
-    creator: '@paymeo',
+    creator: '@usepaymeo',
   },
   robots: {
     index: true,

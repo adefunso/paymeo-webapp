@@ -403,6 +403,20 @@ export default function LandingGate({
                         >
                           Support
                         </a>
+                         <a
+                          href="/terms"
+                          className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                          onClick={() => setIsDesktopMenuOpen(false)}
+                        >
+                          Terms of Service
+                        </a>
+                         <a
+                          href="/privacy"
+                          className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                          onClick={() => setIsDesktopMenuOpen(false)}
+                        >
+                          Privacy Policy
+                        </a>
                       </div>
                     </motion.div>
 
@@ -602,14 +616,25 @@ export default function LandingGate({
           </motion.p>
         </AnimatePresence>
       </div>
-      <div className="flex items-center justify-center lg:justify-start gap-4 mt-1">
-        <div className="bg-white p-2 rounded-lg hidden sm:block">
-          <img
-            src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://paymeo.co"
-            className="w-[80px] h-[80px]"
-          />
-        </div>
+     <div className="flex items-center justify-center lg:justify-start gap-4 mt-1">
+  <div className="relative inline-block">
+    {/* QR code block - higher z-index to bring forward */}
+    <div className="bg-white p-2 rounded-lg hidden sm:block shadow-md relative z-10">
+      <img
+        src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://paymeo.co"
+        className="w-[80px] h-[80px]"
+        alt="QR code to download app"
+      />
+    </div>
+    
+    {/* Pill protruding from right side - goes to back */}
+    <div className="hidden sm:block absolute left-full top-1/2 -translate-y-1/2 -ml-3 z-0">
+      <div className="bg-white text-black text-sm font-semibold pl-3 pr-3 py-1 rounded-r-full shadow-md whitespace-nowrap flex items-center gap-2">
+        <span>Scan to download app</span>
       </div>
+    </div>
+  </div>
+</div>
     </motion.div>
 
   </div>

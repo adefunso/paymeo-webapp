@@ -400,6 +400,20 @@ export default function SmartNav({
                       >
                         Support
                       </a>
+                      <a
+                        href="/terms"
+                        className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                        onClick={() => setIsDesktopMenuOpen(false)}
+                      >
+                        Terms of Service
+                      </a>
+                      <a
+                        href="/privacy"
+                        className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                        onClick={() => setIsDesktopMenuOpen(false)}
+                      >
+                        Privacy Policy
+                      </a>
                     </div>
                   </motion.div>
 
