@@ -23,6 +23,15 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import imgPaymeoLogoWhite2 from "@/public/assets/paymeologowhite.png";
 
+export const metadata = {
+  title: "Privacy Policy | Paymeo",
+  description: "Read Paymeo's Privacy Policy. Learn how we collect, use, and protect your personal information in compliance with Nigeria's NDPA.",
+  openGraph: {
+    title: "Privacy Policy | Paymeo",
+    description: "Read Paymeo's Privacy Policy. Learn how we collect, use, and protect your personal information.",
+  },
+}
+
 export default function PrivacyPage() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });

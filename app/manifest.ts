@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Paymeo: Find, Sell, Get Paid, Shop & Connect',
     short_name: 'Paymeo',
-    description: "Use Paymeo to post what you're looking for. Your community sends recommendations. AI connects you to local sellers. Shop & Sell smartly with AI that handles negotiations. Pay securely, tip helpful people, earn when you help others find what they need, and connect around things you love. Use Paymeo today.",
+    description: "Use Paymeo to post what you need. AI connects you to local sellers, handles negotiations. Get recommendations. Shop, Sell, & Pay securely. Tip friends, get paid helping others, and connect around things you love. Use Paymeo today.",
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',

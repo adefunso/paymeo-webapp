@@ -7,6 +7,15 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import imgPaymeoLogoWhite2 from "@/public/assets/paymeologowhite.png";
 
+export const metadata = {
+  title: "Terms of Service | Paymeo",
+  description: "Read Paymeo's Terms of Service. Learn about usage terms, payments, dispute resolution, wallet terms, seller fees, and your rights and obligations.",
+  openGraph: {
+    title: "Terms of Service | Paymeo",
+    description: "Read Paymeo's Terms of Service. Learn about usage terms, payments, dispute resolution, wallet terms, seller fees, and your rights and obligations.",
+  },
+}
+
 export default function TermsPage() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });

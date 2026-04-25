@@ -3,19 +3,19 @@ import imgPaymeoLogoWhite2 from "@/public/assets/paymeologowhite.png";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Paymeo Pricing – Simple, Transparent Plans for Businesses",
-  description: "Start for free, or scale with powerful AI-driven commerce tools for your business.",
+  title: "Paymeo Pricing – Simple, Transparent Plans for Sellers",
+  description: "Sell on Paymeo with zero upfront cost. Choose pay-as-you-go (3-5% commission) or subscription plans (0% commission). Free for shoppers. No hidden fees.",
   alternates: {
     canonical: "https://paymeo.co/pricing",
   },
   openGraph: {
-    title: "Paymeo Pricing – Simple, Transparent Plans for Businesses",
-    description: "Start for free, or scale with powerful AI-driven commerce tools for your business.",
+    title: "Paymeo Pricing – Simple, Transparent Plans for Sellers",
+    description: "Sell on Paymeo with zero upfront cost. Choose pay-as-you-go (3-5% commission) or subscription plans (0% commission). Free for shoppers. No hidden fees.",
     url: "https://paymeo.co/pricing",
     siteName: "Paymeo",
     images: [
       {
-        url: "https://res.cloudinary.com/diml8ljwa/image/upload/v1762045743/Screenshot_394_vkowf7.png", // 👈 replace with your actual OG image
+        url: "https://paymeo.co/opengraph-image.png", // 👈 replace with your actual OG image
         width: 1200,
         height: 630,
         alt: "Paymeo Pricing Overview",
@@ -26,9 +26,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Paymeo Pricing – Simple, Transparent Plans for Businesses",
-    description: "Start for free, or scale with powerful AI-driven commerce tools for your business.",
-    images: ["https://res.cloudinary.com/diml8ljwa/image/upload/v1762045743/Screenshot_394_vkowf7.png"], // same as OG image
+    title: "Paymeo Pricing – Simple, Transparent Plans for Sellers",
+    description: "Sell on Paymeo with zero upfront cost. Choose pay-as-you-go (3-5% commission) or subscription plans (0% commission). Free for shoppers. No hidden fees.",
+    images: ["https://paymeo.co/opengraph-image.png"], // same as OG image
   },
 };
 

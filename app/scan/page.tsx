@@ -11,6 +11,16 @@ import imgPaymeoLogoWhite2 from '@/public/assets/paymeologowhite.png';
 
 type AppState = 'home' | 'scanning' | 'agent';
 
+export const metadata = {
+  title: "Scan to Shop | Paymeo",
+  description: "Scan QR codes at local stalls. Browse products instantly. Pay securely. Get directions to the seller. No app download required for basic scanning.",
+  openGraph: {
+    title: "Scan to Shop | Paymeo",
+    description: "Scan QR codes at local markets. Browse seller products. Pay securely. Get real-time directions to their stall.",
+    images: ["https://paymeo.co/opengraph-image.png"],
+  },
+}
+
 export default function ScanPage() {
   const [activeTab, setActiveTab] = useState<"personal" | "business">("personal");
   const [isProfileOpen, setIsProfileOpen] = useState(false);

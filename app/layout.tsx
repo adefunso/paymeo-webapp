@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     default: 'Paymeo: Find, Sell, Get Paid, Shop & Connect',
     template: '%s | Paymeo'
   },
-  description: "Use Paymeo to post what you're looking for. Your community sends recommendations. AI connects you to local sellers. Shop & Sell smartly with AI that handles negotiations. Pay securely, tip helpful people, earn when you help others find what they need, and connect around things you love. Use Paymeo today.",
+  description: "Use Paymeo to post what you need. AI connects you to local sellers, handles negotiations. Get recommendations. Shop, Sell, & Pay securely. Tip friends, get paid helping others, and connect around things you love. Use Paymeo today.",
   keywords: [
     'social commerce',
     'intent-driven commerce',
@@ -66,11 +66,11 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://paymeo.co',
     title: 'Paymeo: Find, Sell, Get Paid, Shop & Connect',
-    description: "Use Paymeo to post what you're looking for. Your community sends recommendations. AI connects you to local sellers. Shop & Sell smartly with AI that handles negotiations. Pay securely, tip helpful people, earn when you help others find what they need, and connect around things you love. Use Paymeo today.",
+    description: "Use Paymeo to post what you need. AI connects you to local sellers, handles negotiations. Get recommendations. Shop, Sell, & Pay securely. Tip friends, get paid helping others, and connect around things you love. Use Paymeo today.",
     siteName: 'Paymeo',
     images: [
       {
-        url: '/og-image.png',
+        url: 'https://paymeo.co/opengraph-image.png',
         width: 1200,
         height: 630,
         alt: 'Paymeo: Find, Sell, Get Paid, Shop & Connect',
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Paymeo: Find, Sell, Get Paid, Shop & Connect',
-    description: "Use Paymeo to post what you're looking for. Your community sends recommendations. AI connects you to local sellers. Shop & Sell smartly with AI that handles negotiations. Pay securely, tip helpful people, earn when you help others find what they need, and connect around things you love. Use Paymeo today.",
+    description: "Use Paymeo to post what you need. AI connects you to local sellers, handles negotiations. Get recommendations. Shop, Sell, & Pay securely. Tip friends, get paid helping others, and connect around things you love. Use Paymeo today.",
     images: ['/og-image.png'],
     creator: '@usepaymeo',
   },

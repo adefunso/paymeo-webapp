@@ -119,6 +119,16 @@ function LazyVideo({
   );
 }
 
+export const metadata = {
+  title: "For Shoppers | Paymeo",
+  description: "Find exactly what you need. Post requests, get community recommendations, receive AI-matched offers from local sellers, pay securely, get paid helping others, and tip helpful people.",
+  openGraph: {
+    title: "For Shoppers | Paymeo",
+    description: "Stop searching. Start finding. Post what you need. Your community sends recommendations. AI connects you to sellers. Pay securely. Get paid helping others.",
+    images: ["https://paymeo.co/opengraph-image.png"],
+  },
+}
+
 export default function ForShoppersPage() {
   const [activeTab, setActiveTab] = useState<"personal" | "business">("personal");
   const [isProfileOpen, setIsProfileOpen] = useState(false);
