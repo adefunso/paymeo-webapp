@@ -100,7 +100,7 @@ export default function TermsPageClient() {
                 sellers who deliver. The Platform allows:
               </p>
               <ul className="mt-3 space-y-2 text-gray-700">
-                <li className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-[#1e5aff] mt-0.5 shrink-0" />Shoppers to post what they need, receive offers and recommendations, and pay securely</li>
+                <li className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-[#1e5aff] mt-0.5 shrink-0" />Shoppers to find what they need, receive offers and recommendations, and pay securely</li>
                 <li className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-[#1e5aff] mt-0.5 shrink-0" />Sellers to list products, receive AI-negotiated offers, and get paid</li>
                 <li className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-[#1e5aff] mt-0.5 shrink-0" />Users to earn bounties by helping others find items and make recommendations</li>
               </ul>
