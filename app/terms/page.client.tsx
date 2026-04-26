@@ -455,7 +455,7 @@ export default function TermsPageClient() {
             {/* Footer note */}
             <div className="pt-8 text-center text-gray-400 text-xs border-t border-gray-200">
               <p>Paymeo is a product of Meo Technologies Ltd. (RC No. 8967784)</p>
-              <p className="mt-1">Last Updated: April 24, 2026</p>
+              <p className="mt-1">Last Updated: April 26, 2026</p>
             </div>
           </main>
         </div>
