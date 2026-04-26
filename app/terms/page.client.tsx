@@ -2,12 +2,10 @@
 
 import React from "react";
 import Link from "next/link";
-import { ChevronRight, FileText, Shield, Wallet, Users, ShoppingBag, Bot, AlertCircle, Scale, Clock, ArrowUp } from "lucide-react";
+import { ChevronRight, FileText, Shield, Wallet, Users, ShoppingBag, Bot, AlertCircle, Scale, Clock, ArrowUp, MessageCircle, Gavel, Eye, Lock } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import imgPaymeoLogoWhite2 from "@/public/assets/paymeologowhite.png";
-
-
 
 export default function TermsPageClient() {
   const scrollToTop = () => {
@@ -31,7 +29,7 @@ export default function TermsPageClient() {
             <span className="text-sm font-medium text-[#1e5aff]">Legal Document</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Terms of Service</h1>
-          <p className="text-gray-600">Version 1.0 | Effective: April 24, 2026</p>
+          <p className="text-gray-600">Version 2.0 | Last Updated: April 26, 2026</p>
         </div>
 
         {/* Two Column Layout */}
@@ -56,15 +54,19 @@ export default function TermsPageClient() {
                 <NavItem href="#section-10" title="10. AI Features" />
                 <NavItem href="#section-11" title="11. Return & Refund" />
                 <NavItem href="#section-12" title="12. Prohibited Items" />
-                <NavItem href="#section-13" title="13. Fees & Payments" />
-                <NavItem href="#section-14" title="14. User Content" />
-                <NavItem href="#section-15" title="15. Dispute Resolution" />
-                <NavItem href="#section-16" title="16. Limitation of Liability" />
-                <NavItem href="#section-17" title="17. Disclaimer" />
-                <NavItem href="#section-18" title="18. Indemnification" />
-                <NavItem href="#section-19" title="19. Termination" />
-                <NavItem href="#section-20" title="20. General Provisions" />
-                <NavItem href="#section-21" title="21. Contact" />
+                <NavItem href="#section-13" title="13. Community Standards" />
+                <NavItem href="#section-14" title="14. Transaction Chats & Bounty Logistics" />
+                <NavItem href="#section-15" title="15. Shopper-to-Seller Escrow & Disputes" />
+                <NavItem href="#section-16" title="16. Fees & Payments" />
+                <NavItem href="#section-17" title="17. User Content" />
+                <NavItem href="#section-18" title="18. Dispute Resolution" />
+                <NavItem href="#section-19" title="19. Limitation of Liability" />
+                <NavItem href="#section-20" title="20. Disclaimer" />
+                <NavItem href="#section-21" title="21. Indemnification" />
+                <NavItem href="#section-22" title="22. Law Enforcement Cooperation" />
+                <NavItem href="#section-23" title="23. Termination" />
+                <NavItem href="#section-24" title="24. General Provisions" />
+                <NavItem href="#section-25" title="25. Contact" />
               </nav>
               <button
                 onClick={scrollToTop}
@@ -80,7 +82,7 @@ export default function TermsPageClient() {
           <main className="flex-1 space-y-8">
             {/* Section 1 */}
             <Section id="section-1" title="1. Introduction" icon={FileText}>
-                <h3 className="text-blue-700 leading-relaxed font-bold">Thank you for using Paymeo!</h3>
+              <h3 className="text-blue-700 leading-relaxed font-bold">Thank you for using Paymeo!</h3>
               <p className="text-gray-700 leading-relaxed">
                 These Terms of Service ("Terms") govern your use of the Paymeo website (paymeo.co), 
                 mobile application, and related services (collectively, the "Platform"). Paymeo is a product of{" "}
@@ -174,18 +176,18 @@ export default function TermsPageClient() {
                   <tbody>
                     <tr className="border-b">
                       <td className="border p-3"><strong>Bounties (User-to-User)</strong><br /><span className="text-xs text-gray-500">Recommendations</span></td>
-                      <td className="border p-3">No</td>
-                      <td className="border p-3">No dispute resolution</td>
+                      <td className="border p-3">No (Self-Kolo)</td>
+                      <td className="border p-3">No dispute resolution - communication pipe only</td>
                     </tr>
                     <tr className="border-b">
                       <td className="border p-3"><strong>Shop Ask (Shopper-to-Seller)</strong><br /><span className="text-xs text-gray-500">Direct request</span></td>
                       <td className="border p-3">Yes</td>
-                      <td className="border p-3">Formal mediator</td>
+                      <td className="border p-3">Formal mediator & escrow holder</td>
                     </tr>
                     <tr>
                       <td className="border p-3"><strong>Discover Purchases</strong><br /><span className="text-xs text-gray-500">Browse & buy</span></td>
                       <td className="border p-3">Yes</td>
-                      <td className="border p-3">Formal mediator</td>
+                      <td className="border p-3">Formal mediator & escrow holder</td>
                     </tr>
                   </tbody>
                 </table>
@@ -270,7 +272,7 @@ export default function TermsPageClient() {
             </Section>
 
             {/* Section 12 - Prohibited Items */}
-            <Section id="section-12" title="12. Prohibited Items & Activities" icon={AlertCircle}>
+            <Section id="section-12" title="12. Prohibited Items" icon={AlertCircle}>
               <div className="space-y-3">
                 <p className="text-gray-700">The following items may NOT be sold on Paymeo: illegal drugs, weapons, stolen goods, counterfeit products, live animals, human remains, hazardous materials.</p>
                 <p className="text-gray-700">Prohibited activities include: off-platform transactions, fake accounts, fraud, harassment, false information.</p>
@@ -278,18 +280,116 @@ export default function TermsPageClient() {
               </div>
             </Section>
 
-            {/* Section 13 - Fees */}
-            <Section id="section-13" title="13. Fees & Payments" icon={Wallet}>
+            {/* Section 13 - Community Standards & Content Moderation (UPDATED with political content) */}
+            <Section id="section-13" title="13. Community Standards & Content Moderation" icon={Shield}>
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">13.1 Universal Application</h4>
+                  <p className="text-gray-700">
+                    These standards apply to all user-generated content on Paymeo, including but not limited to: general feed posts, 
+                    Bounty-attached requests ("Bounties"), Shop Asks, comments, and Transaction Chats. Paymeo maintains a zero-tolerance 
+                    policy for content that threatens user safety, national stability, or violates Nigerian Law.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">13.2 Prohibited Content & Bounties</h4>
+                  <p className="text-gray-700 mb-2">You are strictly prohibited from posting, soliciting, or rewarding any content related to:</p>
+                  <ul className="space-y-1 text-gray-700 list-disc list-inside ml-2">
+                    <li><strong>Personal Harassment:</strong> Bounties or posts intended to locate, track, dox, or issue "wanted" notices for private individuals.</li>
+                    <li><strong>Violence & Harm:</strong> Any request for physical harm, stalking, or incitement to violence against any person or group.</li>
+                    <li><strong>Regulated Goods:</strong> Sale or solicitation of narcotics, firearms, ammunition, or counterfeit currency.</li>
+                    <li><strong>Illegal Services:</strong> Bounties for hacking, currency manipulation (outside CBN guidelines), or unauthorized lending.</li>
+                    <li><strong>Indecency:</strong> Obscene, pornographic, or religiously offensive material.</li>
+                    <li>
+                      <strong>Political Content:</strong> The following political activities and content are strictly prohibited:
+                      <ul className="space-y-1 text-gray-700 list-disc list-inside ml-6 mt-1">
+                        <li>Hate speech directed at political figures, parties, or ethnic/political affiliations</li>
+                        <li>Incitement to violence against government institutions, law enforcement, or political opponents</li>
+                        <li>Content that threatens national security, unity, or territorial integrity of Nigeria</li>
+                        <li>Bounties for "wanted" notices or targeting of political opponents, activists, or public officials</li>
+                        <li>False information intended to disrupt elections, incite public unrest, or undermine democratic processes</li>
+                        <li>Calls for secession, coup d'état, or unconstitutional changes to government</li>
+                        <li>Promotion of terrorist organizations, insurgent groups, or any entity advocating political violence</li>
+                        <li>Harassment, doxxing, or coordinated attacks on political figures, candidates, or their supporters</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">13.3 Automated & Community Moderation</h4>
+                  <p className="text-gray-700">Paymeo utilizes AI-driven keyword filtering and sentiment analysis to flag prohibited content. We reserve the right to:</p>
+                  <ul className="space-y-1 text-gray-700 list-disc list-inside ml-2 mt-2">
+                    <li><strong>Pre-screen:</strong> Block posts containing blacklisted terms before they appear.</li>
+                    <li><strong>Shadow-ban:</strong> Automatically hide posts that receive multiple community "Reports" pending manual review.</li>
+                    <li><strong>Remove:</strong> Delete any content deemed a violation of these terms without prior notice.</li>
+                    <li><strong>Report:</strong> Flag serious violations (especially political violence or national security threats) to relevant law enforcement agencies.</li>
+                  </ul>
+                </div>
+              </div>
+            </Section>
+
+            {/* Section 14 - Transaction Chats & Bounty Logistics */}
+            <Section id="section-14" title="14. Transaction Chats & Bounty Logistics" icon={MessageCircle}>
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">14.1 The Bounty-to-Chat "Bridge"</h4>
+                  <p className="text-gray-700">
+                    To ensure transaction clarity and reduce feed clutter, Authors of Bounty posts may activate a Transaction Chat with a Responder.
+                  </p>
+                  <ul className="space-y-1 text-gray-700 list-disc list-inside ml-2 mt-2">
+                    <li><strong>Waiver of Tips:</strong> For Bounties exceeding ₦5,000, the requirement for a "New Chat Tip" is waived. The Bounty serves as the authorization to open a private dialogue.</li>
+                    <li><strong>Contextual UI:</strong> Based on the post category (e.g., Shopping vs. Service), the chat interface may adapt to include specific tools (e.g., photo proofs, waybill uploads, or milestone checklists).</li>
+                  </ul>
+                </div>
+                <div className="p-4 bg-blue-50 rounded-xl border border-blue-200">
+                  <h4 className="font-semibold text-blue-800 mb-2">14.2 The Self-Kolo Model (Liability Waiver)</h4>
+                  <p className="text-blue-700 text-sm">
+                    Paymeo utilizes a self-custody ("Self-Kolo") mechanism for User-to-User Bounties.
+                  </p>
+                  <ul className="space-y-1 text-blue-700 text-sm list-disc list-inside ml-2 mt-2">
+                    <li><strong>Author Control:</strong> Funds are locked in the Author's own wallet and released only by the Author's manual confirmation.</li>
+                    <li><strong>No Arbitration:</strong> For peer-to-peer Bounties, Paymeo acts solely as a communication pipe. We do not offer dispute resolution or mediation for Bounties. The Author is solely responsible for vetting the recommendation before releasing funds.</li>
+                  </ul>
+                </div>
+              </div>
+            </Section>
+
+            {/* Section 15 - Shopper-to-Seller Escrow & Disputes */}
+            <Section id="section-15" title="15. Shopper-to-Seller Escrow & Disputes" icon={Gavel}>
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">15.1 Escrow Protection</h4>
+                  <p className="text-gray-700">
+                    For transactions involving the purchase of physical goods through the "Shop Asks" feature or "Discover" marketplace, 
+                    Paymeo acts as a Marketplace Facilitator. Funds are held in a secure Escrow Kolo until delivery is confirmed by 
+                    the Shopper or the 48-hour auto-release period expires.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">15.2 Mandatory Dispute Resolution</h4>
+                  <p className="text-gray-700">
+                    In the event of non-delivery or defective goods, Shoppers must initiate a Dispute within the Transaction Chat.
+                  </p>
+                  <ul className="space-y-1 text-gray-700 list-disc list-inside ml-2 mt-2">
+                    <li><strong>Review of Logs:</strong> Paymeo reserves the right to review Chat logs and media (photos/waybills) to adjudicate the dispute.</li>
+                    <li><strong>Final Decision:</strong> By using the Shopping feature, both parties agree to abide by Paymeo's final determination regarding refunds or payouts.</li>
+                  </ul>
+                </div>
+              </div>
+            </Section>
+
+            {/* Section 16 - Fees */}
+            <Section id="section-16" title="16. Fees & Payments" icon={Wallet}>
               <p className="text-gray-700">All fees are disclosed on the Platform. Your continued use after fee changes constitutes acceptance. You are responsible for all applicable taxes. Payments processed by Paystack - Paymeo is not responsible for Paystack's services.</p>
             </Section>
 
-            {/* Section 14 - User Content */}
-            <Section id="section-14" title="14. User Content" icon={FileText}>
+            {/* Section 17 - User Content */}
+            <Section id="section-17" title="17. User Content" icon={FileText}>
               <p className="text-gray-700">You retain ownership of content you post. By posting, you grant Paymeo a worldwide, royalty-free license to use your content to operate the Platform. Paymeo reserves the right to remove objectionable content.</p>
             </Section>
 
-            {/* Section 15 - Dispute Resolution */}
-            <Section id="section-15" title="15. Dispute Resolution" icon={Scale}>
+            {/* Section 18 - Dispute Resolution */}
+            <Section id="section-18" title="18. Dispute Resolution" icon={Scale}>
               <div className="space-y-3">
                 <p className="text-gray-700"><strong>Bounties:</strong> No formal dispute resolution. Users resolve directly.</p>
                 <p className="text-gray-700"><strong>Shopper-to-Seller:</strong> Formal mediation by Paymeo. Decision is final and binding.</p>
@@ -297,8 +397,8 @@ export default function TermsPageClient() {
               </div>
             </Section>
 
-            {/* Section 16 - Limitation of Liability */}
-            <Section id="section-16" title="16. Limitation of Liability" icon={AlertCircle}>
+            {/* Section 19 - Limitation of Liability */}
+            <Section id="section-19" title="19. Limitation of Liability" icon={AlertCircle}>
               <div className="p-4 bg-yellow-50 rounded-xl">
                 <p className="text-yellow-800 text-sm">
                   Paymeo is not liable for any losses, damages, or injuries resulting from recommendations, product quality, 
@@ -308,23 +408,34 @@ export default function TermsPageClient() {
               </div>
             </Section>
 
-            {/* Section 17 - Disclaimer */}
-            <Section id="section-17" title="17. Disclaimer of Warranties" icon={Shield}>
+            {/* Section 20 - Disclaimer */}
+            <Section id="section-20" title="20. Disclaimer of Warranties" icon={Shield}>
               <p className="text-gray-700">The Platform is provided "AS IS" without warranties. Paymeo does not warrant uninterrupted service, accuracy of recommendations, or that transactions will complete as expected.</p>
             </Section>
 
-            {/* Section 18 - Indemnification */}
-            <Section id="section-18" title="18. Indemnification" icon={Shield}>
+            {/* Section 21 - Indemnification */}
+            <Section id="section-21" title="21. Indemnification" icon={Shield}>
               <p className="text-gray-700">You agree to indemnify Meo Technologies Ltd. from any claims arising from your use of the Platform, violations of these Terms, or disputes with other users.</p>
             </Section>
 
-            {/* Section 19 - Termination */}
-            <Section id="section-19" title="19. Termination" icon={AlertCircle}>
+            {/* Section 22 - Law Enforcement Cooperation */}
+            <Section id="section-22" title="22. Law Enforcement Cooperation" icon={Eye}>
+              <div className="p-4 bg-gray-100 rounded-xl">
+                <p className="text-gray-700">
+                  Paymeo complies with the Cybercrimes Act and NDPR. We will cooperate with the Nigeria Police Force (NPF), 
+                  EFCC, and other authorized bodies by providing transaction logs and user identity data (KYC) when a valid 
+                  legal warrant is presented regarding criminal bounties or fraudulent activity.
+                </p>
+              </div>
+            </Section>
+
+            {/* Section 23 - Termination */}
+            <Section id="section-23" title="23. Termination" icon={AlertCircle}>
               <p className="text-gray-700">You may delete your account at any time. Paymeo may suspend or terminate accounts for violations. Upon termination, pending transactions may be cancelled or completed at Paymeo's discretion.</p>
             </Section>
 
-            {/* Section 20 - General */}
-            <Section id="section-20" title="20. General Provisions" icon={FileText}>
+            {/* Section 24 - General */}
+            <Section id="section-24" title="24. General Provisions" icon={FileText}>
               <div className="space-y-2 text-gray-700">
                 <p><strong>Governing Law:</strong> Laws of the Federal Republic of Nigeria.</p>
                 <p><strong>Amendments:</strong> Paymeo may update Terms at any time. Continued use constitutes acceptance.</p>
@@ -332,8 +443,8 @@ export default function TermsPageClient() {
               </div>
             </Section>
 
-            {/* Section 21 - Contact */}
-            <Section id="section-21" title="21. Contact Us" icon={Users}>
+            {/* Section 25 - Contact */}
+            <Section id="section-25" title="25. Contact Us" icon={Users}>
               <div className="p-4 bg-gray-100 rounded-xl">
                 <p className="font-semibold">Meo Technologies Ltd.</p>
                 <p className="text-gray-600 text-sm">27/29, Biaduo Street, Keffi-Ikoyi, Lagos, Nigeria</p>
