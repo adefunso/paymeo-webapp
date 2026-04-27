@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ChevronRight, FileText, Shield, Wallet, Users, ShoppingBag, Bot, AlertCircle, Scale, Clock, ArrowUp, MessageCircle, Gavel, Eye, Lock, Award, AlertTriangle } from "lucide-react";
+import { ChevronRight, FileText, Shield, Wallet, Users, ShoppingBag, Bot, AlertCircle, Scale, Clock, ArrowUp, MessageCircle, Gavel, Eye, Lock, Award, AlertTriangle, DollarSign } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import imgPaymeoLogoWhite2 from "@/public/assets/paymeologowhite.png";
@@ -29,7 +29,7 @@ export default function TermsPageClient() {
             <span className="text-sm font-medium text-[#1e5aff]">Legal Document</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Terms of Service</h1>
-          <p className="text-gray-600">Last Updated: April 26, 2026</p>
+          <p className="text-gray-600">Last Updated: April 27, 2026</p>
         </div>
 
         {/* Two Column Layout */}
@@ -67,7 +67,8 @@ export default function TermsPageClient() {
                 <NavItem href="#section-23" title="23. Priority Bounty Hunters" />
                 <NavItem href="#section-24" title="24. Termination" />
                 <NavItem href="#section-25" title="25. General Provisions" />
-                <NavItem href="#section-26" title="26. Contact" />
+                <NavItem href="#section-26" title="26. Tipping Policy" />
+                <NavItem href="#section-27" title="27. Contact" />
               </nav>
               <button
                 onClick={scrollToTop}
@@ -81,7 +82,7 @@ export default function TermsPageClient() {
 
           {/* Main Content */}
           <main className="flex-1 space-y-8">
-            {/* Section 1 - Introduction */}
+            {/* Section 1 */}
             <Section id="section-1" title="1. Introduction" icon={FileText}>
               <h3 className="text-blue-700 leading-relaxed font-bold">Thank you for using Paymeo!</h3>
               <p className="text-gray-700 leading-relaxed">
@@ -96,7 +97,7 @@ export default function TermsPageClient() {
               </p>
             </Section>
 
-            {/* Section 2 - About Paymeo */}
+            {/* Section 2 */}
             <Section id="section-2" title="2. About Paymeo" icon={ShoppingBag}>
               <p className="text-gray-700 leading-relaxed">
                 Paymeo is an AI-powered marketplace for intent-driven social commerce — connecting shoppers to local 
@@ -106,6 +107,7 @@ export default function TermsPageClient() {
                 <li className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-[#1e5aff] mt-0.5 shrink-0" />Shoppers to find what they need, receive offers and recommendations, and pay securely</li>
                 <li className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-[#1e5aff] mt-0.5 shrink-0" />Sellers to list products, receive AI-negotiated offers, and get paid</li>
                 <li className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-[#1e5aff] mt-0.5 shrink-0" />Users to earn bounties by helping others find items and make recommendations</li>
+                <li className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-[#1e5aff] mt-0.5 shrink-0" />Users to send and receive voluntary tips as gratuities for helpful recommendations</li>
               </ul>
               <div className="mt-4 p-4 bg-yellow-50 rounded-xl border border-yellow-200">
                 <p className="text-sm text-yellow-800">
@@ -116,7 +118,7 @@ export default function TermsPageClient() {
               </div>
             </Section>
 
-            {/* Section 3 - Eligibility */}
+            {/* Section 3 */}
             <Section id="section-3" title="3. Eligibility & Account Registration" icon={Users}>
               <div className="space-y-4">
                 <div>
@@ -157,14 +159,23 @@ export default function TermsPageClient() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">4.3 Funding Your Wallet</h4>
-                  <p className="text-gray-700">You may fund your Wallet using card payments or bank transfers via Paystack.</p>
+                  <p className="text-gray-700">You may fund your Wallet using bank transfers via Paystack. Card funding is not available.</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">4.4 Wallet Balance Limits</h4>
+                  <p className="text-gray-700">To maintain compliance with Central Bank of Nigeria (CBN) guidelines, Paymeo reserves the right to:</p>
+                  <ul className="space-y-1 text-gray-700 list-disc list-inside ml-4 mt-2">
+                    <li>Cap wallet balances at specified tiers (e.g., ₦100,000 for standard users)</li>
+                    <li>Issue nudges to withdraw funds when balances exceed thresholds</li>
+                    <li>Implement auto-sweep mechanisms for balances exceeding ₦200,000</li>
+                  </ul>
                 </div>
               </div>
             </Section>
 
-            {/* Section 5 - Transaction Types */}
+            {/* Section 5 - Transaction Types Table - UPDATED with Tipping */}
             <Section id="section-5" title="5. Transaction Types" icon={Scale}>
-              <p className="text-gray-700 mb-4">Paymeo supports three distinct types of transactions:</p>
+              <p className="text-gray-700 mb-4">Paymeo supports four distinct types of transactions:</p>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm border-collapse">
                   <thead>
@@ -189,6 +200,11 @@ export default function TermsPageClient() {
                       <td className="border p-3"><strong>Discover Purchases</strong><br /><span className="text-xs text-gray-500">Browse & buy</span></td>
                       <td className="border p-3">Yes</td>
                       <td className="border p-3">Formal mediator & escrow holder</td>
+                    </tr>
+                    <tr className="border-b">
+                      <td className="border p-3"><strong>Tips (User-to-User)</strong><br /><span className="text-xs text-gray-500">Voluntary gratuities</span></td>
+                      <td className="border p-3">No</td>
+                      <td className="border p-3">No dispute resolution - voluntary user-to-user transfer only</td>
                     </tr>
                   </tbody>
                 </table>
@@ -246,7 +262,7 @@ export default function TermsPageClient() {
               <div className="space-y-3">
                 <p className="text-gray-700"><strong>9.1 Making a Purchase:</strong> Funds are held in escrow until you confirm receipt or the auto-release period expires.</p>
                 <p className="text-gray-700"><strong>9.3 Posting Requests:</strong> You may add a "bounty" to incentivize faster responses. Any bounty offered is a binding commitment.</p>
-                <p className="text-gray-700"><strong>9.4 Tipping:</strong> Tips are final and non-refundable.</p>
+                <p className="text-gray-700"><strong>9.4 Tipping:</strong> Tips are voluntary, final, non-refundable, and subject to Paymeo's Tipping Policy (Section 26).</p>
               </div>
             </Section>
 
@@ -267,7 +283,7 @@ export default function TermsPageClient() {
               </div>
               <div className="space-y-3">
                 <p className="text-gray-700"><strong>Refunds available for:</strong> Non-delivery, counterfeit/fraudulent items, materially different items.</p>
-                <p className="text-gray-700"><strong>Refunds NOT available for:</strong> Buyer's remorse, minor differences, damage after delivery, delayed delivery, bounties/recommendations.</p>
+                <p className="text-gray-700"><strong>Refunds NOT available for:</strong> Buyer's remorse, minor differences, damage after delivery, delayed delivery, bounties/recommendations, tips.</p>
                 <p className="text-gray-700"><strong>Return Process:</strong> Shopper files dispute within 7 days → Paymeo reviews → If approved, return arranged between parties → Refund issued.</p>
               </div>
             </Section>
@@ -392,7 +408,7 @@ export default function TermsPageClient() {
             {/* Section 18 - Dispute Resolution */}
             <Section id="section-18" title="18. Dispute Resolution" icon={Scale}>
               <div className="space-y-3">
-                <p className="text-gray-700"><strong>Bounties:</strong> No formal dispute resolution. Users resolve directly.</p>
+                <p className="text-gray-700"><strong>Bounties & Tips:</strong> No formal dispute resolution. Users resolve directly. Tips are final and non-disputable.</p>
                 <p className="text-gray-700"><strong>Shopper-to-Seller:</strong> Formal mediation by Paymeo. Decision is final and binding.</p>
                 <p className="text-gray-700"><strong>Disputes with Paymeo:</strong> Attempt informal resolution → then binding arbitration in Lagos, Nigeria.</p>
               </div>
@@ -403,7 +419,7 @@ export default function TermsPageClient() {
               <div className="p-4 bg-yellow-50 rounded-xl">
                 <p className="text-yellow-800 text-sm">
                   Paymeo is not liable for any losses, damages, or injuries resulting from recommendations, product quality, 
-                  delivery, or user interactions. Liability strictly limited to technical functionality of the Platform. 
+                  delivery, tips, or user interactions. Liability strictly limited to technical functionality of the Platform. 
                   For escrow transactions, liability limited to the value of funds held in that specific escrow Kolo.
                 </p>
               </div>
@@ -425,12 +441,12 @@ export default function TermsPageClient() {
                 <p className="text-gray-700">
                   Paymeo complies with the Cybercrimes Act and NDPR. We will cooperate with the Nigeria Police Force (NPF), 
                   EFCC, and other authorized bodies by providing transaction logs and user identity data (KYC) when a valid 
-                  legal warrant is presented regarding criminal bounties or fraudulent activity.
+                  legal warrant is presented regarding criminal bounties, money laundering, or fraudulent activity.
                 </p>
               </div>
             </Section>
 
-            {/* Section 23 - Priority Bounty Hunters (NEW) */}
+            {/* Section 23 - Priority Bounty Hunters */}
             <Section id="section-23" title="23. Priority Bounty Hunters" icon={Award}>
               <div className="space-y-5">
                 
@@ -580,19 +596,147 @@ export default function TermsPageClient() {
               </div>
             </Section>
 
-            {/* Section 26 - Contact */}
-            <Section id="section-26" title="26. Contact Us" icon={Users}>
+            {/* Section 26 - Tipping Policy */}
+            <Section id="section-26" title="26. Tipping Policy" icon={DollarSign}>
+              <div className="space-y-5">
+                
+                {/* 26.1 Overview */}
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">26.1 Overview</h4>
+                  <p className="text-gray-700">
+                    Paymeo allows users to send voluntary gratuities ("Tips") to other users as a token of appreciation for 
+                    helpful recommendations, exceptional service, or successful bounty fulfillment. Tips are user-to-user 
+                    transfers facilitated through the Paymeo Platform and processed by Paystack.
+                  </p>
+                  <p className="text-gray-700 mt-2">
+                    Tips are completely voluntary. Paymeo does not set tip amounts, require tips for any service, or 
+                    guarantee any service or outcome in exchange for tips. All tipping activity is subject to these Terms 
+                    and applicable Nigerian laws.
+                  </p>
+                </div>
+
+                {/* 26.2 Nature of Tips */}
+                <div className="p-4 bg-blue-50 rounded-xl border border-blue-200">
+                  <h4 className="font-semibold text-blue-800 mb-2">26.2 Nature of Tips</h4>
+                  <p className="text-blue-700 text-sm">
+                    By sending or receiving Tips on Paymeo, you acknowledge and agree that:
+                  </p>
+                  <ul className="space-y-1 text-blue-700 text-sm list-disc list-inside ml-2 mt-2">
+                    <li>Tips are voluntary gratuities paid directly from one user to another</li>
+                    <li>Paymeo does not set tip amounts, require tips, or guarantee services in exchange for tips</li>
+                    <li>All Tip funds are held and processed by Paystack, not by Paymeo</li>
+                    <li>Tips are final, non-refundable, and non-disputable</li>
+                    <li>No goods or services are guaranteed in exchange for any Tip</li>
+                  </ul>
+                </div>
+
+                {/* 26.3 Prohibited Tipping Activities */}
+                <div className="p-4 bg-red-50 rounded-xl border border-red-200">
+                  <h4 className="font-semibold text-red-800 mb-2 flex items-center gap-2">
+                    <AlertTriangle className="w-4 h-4" />
+                    26.3 Prohibited Tipping Activities
+                  </h4>
+                  <p className="text-red-700 text-sm mb-2">The following tipping activities are strictly prohibited:</p>
+                  <ul className="space-y-1 text-red-700 text-sm list-disc list-inside ml-2">
+                    <li><strong>Money Laundering:</strong> Using Tips to transfer funds between accounts without legitimate purpose or to obscure the source of funds</li>
+                    <li><strong>Self-Tipping / Circular Tipping:</strong> Tipping your own accounts or coordinating with others to artificially inflate earnings or reputation</li>
+                    <li><strong>Fake Transactions:</strong> Creating fake bounties or Asks solely to generate tipping activity</li>
+                    <li><strong>Wash Tipping:</strong> Sending Tips back and forth between accounts to simulate legitimate activity</li>
+                    <li><strong>Off-Platform Settlements:</strong> Using Tips as a mechanism to settle debts or transfer value outside of legitimate bounty fulfillment</li>
+                    <li><strong>Tip Farming:</strong> Soliciting or demanding Tips in exchange for bounty responses or recommendations</li>
+                    <li><strong>Structuring:</strong> Breaking down Tip amounts to avoid detection or monitoring</li>
+                    <li><strong>Exploitation of Limits:</strong> Attempting to circumvent any Tip limitations or frequency restrictions implemented on the Platform</li>
+                  </ul>
+                </div>
+
+                {/* 26.4 Fraud Detection & Monitoring */}
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">26.4 Fraud Detection & Monitoring</h4>
+                  <p className="text-gray-700">
+                    Paymeo employs automated fraud detection systems to monitor tipping behavior, including but not limited to:
+                  </p>
+                  <ul className="space-y-1 text-gray-700 list-disc list-inside ml-4 mt-2">
+                    <li>Analysis of tip patterns and velocity</li>
+                    <li>Detection of unusual tipping behavior relative to bounty fulfillment</li>
+                    <li>Cross-referencing of device fingerprints and BVN/NIN across accounts</li>
+                    <li>Monitoring of wallets with high tip volume but low legitimate activity</li>
+                    <li>Identification of circular payment patterns between accounts</li>
+                  </ul>
+                  <p className="text-gray-700 mt-2">
+                    Suspicious tipping activity will trigger automated flags and may result in manual investigation by Paymeo's compliance team.
+                  </p>
+                </div>
+
+                {/* 26.5 Consequences of Tipping Fraud */}
+                <div className="p-4 bg-red-100 rounded-xl border border-red-300">
+                  <h4 className="font-semibold text-red-900 mb-2">26.5 Consequences of Tipping Fraud</h4>
+                  <p className="text-red-800 text-sm mb-2">
+                    <strong>Users found engaging in prohibited tipping activities face severe consequences.</strong> Paymeo reserves the right to take any or all of the following actions:
+                  </p>
+                  <ul className="space-y-1 text-red-800 text-sm list-disc list-inside ml-2">
+                    <li><strong>Tip Reversal/Clawback:</strong> Reversal of fraudulent or suspicious Tips</li>
+                    <li><strong>Wallet Freeze:</strong> Immediate freezing of all wallet activities pending investigation</li>
+                    <li><strong>Fund Seizure:</strong> Forfeiture of funds involved in fraudulent tipping activity</li>
+                    <li><strong>Account Suspension:</strong> Temporary suspension of account privileges</li>
+                    <li><strong>Permanent Ban:</strong> Lifetime ban from all Paymeo services</li>
+                    <li><strong>Priority Status Revocation:</strong> Immediate removal from Priority Bounty Hunter program</li>
+                    <li><strong>Law Enforcement Referral:</strong> Reporting to Nigeria Police Force (NPF), EFCC, or other relevant authorities for criminal investigation under the Money Laundering (Prevention and Prohibition) Act, 2022 and Cybercrimes Act</li>
+                    <li><strong>Civil Liability:</strong> Pursuit of civil damages for losses incurred by Paymeo or other users</li>
+                    <li><strong>Blacklisting:</strong> Permanent blacklisting from all affiliated platforms and services</li>
+                  </ul>
+                  <p className="text-red-800 text-sm font-bold mt-3">
+                    <strong>IMPORTANT:</strong> Money laundering through digital platforms is a serious criminal offense in Nigeria, 
+                    punishable by substantial fines and imprisonment. Paymeo actively cooperates with law enforcement to prosecute 
+                    users engaged in laundering activities.
+                  </p>
+                </div>
+
+                {/* 26.6 Reporting Suspicious Activity */}
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">26.6 Reporting Suspicious Tipping</h4>
+                  <p className="text-gray-700">
+                    Users who suspect tipping fraud, money laundering, or other prohibited activities should report immediately to{" "}
+                    <strong>compliance@paymeo.co</strong>. Reports may be kept anonymous at the reporting user's request.
+                  </p>
+                </div>
+
+                {/* 26.7 Tax Compliance */}
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">26.7 Tax Compliance</h4>
+                  <p className="text-gray-700">
+                    Users receiving Tips are solely responsible for declaring Tip income to the Federal Inland Revenue Service (FIRS) 
+                    or other relevant tax authorities. Paymeo provides monthly earnings statements to assist users with tax compliance 
+                    but does not withhold taxes on Tips. Users should consult with a tax professional regarding their obligations.
+                  </p>
+                </div>
+
+                {/* 26.8 Platform Not a Financial Institution */}
+                <div className="p-4 bg-gray-100 rounded-xl">
+                  <p className="text-gray-700 text-sm">
+                    <strong>Important Notice:</strong> Paymeo is NOT a bank, deposit-taking financial institution, or money services business. 
+                    The Paymeo Wallet is a payment facilitation tool. Users are encouraged to withdraw funds promptly and not store 
+                    significant balances on the Platform. Paymeo reserves the right to limit wallet balances, implement auto-sweep 
+                    mechanisms, or require withdrawal of funds at any time to maintain compliance with Central Bank of Nigeria (CBN) 
+                    guidelines.
+                  </p>
+                </div>
+              </div>
+            </Section>
+
+            {/* Section 27 - Contact */}
+            <Section id="section-27" title="27. Contact Us" icon={Users}>
               <div className="p-4 bg-gray-100 rounded-xl">
                 <p className="font-semibold">Meo Technologies Ltd.</p>
                 <p className="text-gray-600 text-sm">27/29, Biaduo Street, Keffi-Ikoyi, Lagos, Nigeria</p>
                 <p className="text-gray-600 text-sm mt-1">Email: company@paymeo.co</p>
+                <p className="text-gray-600 text-sm mt-1">Compliance & Fraud Reporting: compliance@paymeo.co</p>
               </div>
             </Section>
 
             {/* Footer note */}
             <div className="pt-8 text-center text-gray-400 text-xs border-t border-gray-200">
               <p>Paymeo is a product of Meo Technologies Ltd. (RC No. 8967784)</p>
-              <p className="mt-1">Last Updated: April 26, 2026</p>
+              <p className="mt-1">Last Updated: April 27, 2026</p>
             </div>
           </main>
         </div>
