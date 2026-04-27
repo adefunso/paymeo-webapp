@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ChevronRight, FileText, Shield, Wallet, Users, ShoppingBag, Bot, AlertCircle, Scale, Clock, ArrowUp, MessageCircle, Gavel, Eye, Lock } from "lucide-react";
+import { ChevronRight, FileText, Shield, Wallet, Users, ShoppingBag, Bot, AlertCircle, Scale, Clock, ArrowUp, MessageCircle, Gavel, Eye, Lock, Award, AlertTriangle } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import imgPaymeoLogoWhite2 from "@/public/assets/paymeologowhite.png";
@@ -29,7 +29,7 @@ export default function TermsPageClient() {
             <span className="text-sm font-medium text-[#1e5aff]">Legal Document</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Terms of Service</h1>
-          <p className="text-gray-600">Version 2.0 | Last Updated: April 26, 2026</p>
+          <p className="text-gray-600">Last Updated: April 26, 2026</p>
         </div>
 
         {/* Two Column Layout */}
@@ -64,9 +64,10 @@ export default function TermsPageClient() {
                 <NavItem href="#section-20" title="20. Disclaimer" />
                 <NavItem href="#section-21" title="21. Indemnification" />
                 <NavItem href="#section-22" title="22. Law Enforcement Cooperation" />
-                <NavItem href="#section-23" title="23. Termination" />
-                <NavItem href="#section-24" title="24. General Provisions" />
-                <NavItem href="#section-25" title="25. Contact" />
+                <NavItem href="#section-23" title="23. Priority Bounty Hunters" />
+                <NavItem href="#section-24" title="24. Termination" />
+                <NavItem href="#section-25" title="25. General Provisions" />
+                <NavItem href="#section-26" title="26. Contact" />
               </nav>
               <button
                 onClick={scrollToTop}
@@ -80,7 +81,7 @@ export default function TermsPageClient() {
 
           {/* Main Content */}
           <main className="flex-1 space-y-8">
-            {/* Section 1 */}
+            {/* Section 1 - Introduction */}
             <Section id="section-1" title="1. Introduction" icon={FileText}>
               <h3 className="text-blue-700 leading-relaxed font-bold">Thank you for using Paymeo!</h3>
               <p className="text-gray-700 leading-relaxed">
@@ -95,7 +96,7 @@ export default function TermsPageClient() {
               </p>
             </Section>
 
-            {/* Section 2 */}
+            {/* Section 2 - About Paymeo */}
             <Section id="section-2" title="2. About Paymeo" icon={ShoppingBag}>
               <p className="text-gray-700 leading-relaxed">
                 Paymeo is an AI-powered marketplace for intent-driven social commerce — connecting shoppers to local 
@@ -115,7 +116,7 @@ export default function TermsPageClient() {
               </div>
             </Section>
 
-            {/* Section 3 */}
+            {/* Section 3 - Eligibility */}
             <Section id="section-3" title="3. Eligibility & Account Registration" icon={Users}>
               <div className="space-y-4">
                 <div>
@@ -161,7 +162,7 @@ export default function TermsPageClient() {
               </div>
             </Section>
 
-            {/* Section 5 - Transaction Types Table */}
+            {/* Section 5 - Transaction Types */}
             <Section id="section-5" title="5. Transaction Types" icon={Scale}>
               <p className="text-gray-700 mb-4">Paymeo supports three distinct types of transactions:</p>
               <div className="overflow-x-auto">
@@ -184,7 +185,7 @@ export default function TermsPageClient() {
                       <td className="border p-3">Yes</td>
                       <td className="border p-3">Formal mediator & escrow holder</td>
                     </tr>
-                    <tr>
+                    <tr className="border-b">
                       <td className="border p-3"><strong>Discover Purchases</strong><br /><span className="text-xs text-gray-500">Browse & buy</span></td>
                       <td className="border p-3">Yes</td>
                       <td className="border p-3">Formal mediator & escrow holder</td>
@@ -280,7 +281,7 @@ export default function TermsPageClient() {
               </div>
             </Section>
 
-            {/* Section 13 - Community Standards & Content Moderation (UPDATED with political content) */}
+            {/* Section 13 - Community Standards */}
             <Section id="section-13" title="13. Community Standards & Content Moderation" icon={Shield}>
               <div className="space-y-4">
                 <div>
@@ -429,22 +430,158 @@ export default function TermsPageClient() {
               </div>
             </Section>
 
-            {/* Section 23 - Termination */}
-            <Section id="section-23" title="23. Termination" icon={AlertCircle}>
-              <p className="text-gray-700">You may delete your account at any time. Paymeo may suspend or terminate accounts for violations. Upon termination, pending transactions may be cancelled or completed at Paymeo's discretion.</p>
+            {/* Section 23 - Priority Bounty Hunters (NEW) */}
+            <Section id="section-23" title="23. Priority Bounty Hunters" icon={Award}>
+              <div className="space-y-5">
+                
+                {/* 23.1 Overview */}
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                    <Award className="w-4 h-4 text-yellow-500" />
+                    23.1 Program Overview
+                  </h4>
+                  <p className="text-gray-700">
+                    The Priority Bounty Hunter program is a specialized designation for trusted users who have demonstrated 
+                    reliability, integrity, and commitment to the Paymeo community. Priority Bounty Hunters ("Hunters") 
+                    receive exclusive benefits including priority visibility on bounty requests, early notifications, 
+                    and enhanced trust signals on their profiles.
+                  </p>
+                </div>
+
+                {/* 23.2 Eligibility & Application */}
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">23.2 Eligibility & Application Process</h4>
+                  <p className="text-gray-700">To become a Priority Bounty Hunter, applicants must:</p>
+                  <ul className="space-y-1 text-gray-700 list-disc list-inside ml-4 mt-2">
+                    <li>Be at least 18 years of age with a fully verified Paymeo account (BVN/NIN verification completed)</li>
+                    <li>Have an active Paymeo Wallet in good standing</li>
+                    <li>Complete the Hunter application form with accurate location and service area information</li>
+                    <li>Agree to these Terms and any supplemental Hunter-specific policies</li>
+                    <li>Pass Paymeo's internal review and background verification process</li>
+                  </ul>
+                  <p className="text-gray-700 mt-2">
+                    Paymeo reserves the right to accept or reject any application at its sole discretion without providing a reason.
+                  </p>
+                </div>
+
+                {/* 23.3 Hunter Obligations & Code of Conduct */}
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">23.3 Hunter Obligations & Code of Conduct</h4>
+                  <p className="text-gray-700">Priority Bounty Hunters agree to:</p>
+                  <ul className="space-y-1 text-gray-700 list-disc list-inside ml-4 mt-2">
+                    <li><strong>Fulfillment Standard:</strong> Complete all accepted bounty requests within the agreed timeframe or communicate delays proactively</li>
+                    <li><strong>Accuracy Obligation:</strong> Provide accurate, truthful, and helpful information in all responses — no misleading or intentionally false recommendations</li>
+                    <li><strong>Communication Standard:</strong> Respond to bounty authors promptly and maintain professional, respectful communication at all times</li>
+                    <li><strong>Location Honesty:</strong> Only claim bounties and serve areas within your actual operational capacity</li>
+                    <li><strong>Platform Loyalty:</strong> Do not solicit off-platform payments or attempt to move transactions outside Paymeo</li>
+                    <li><strong>Confidentiality:</strong> Keep all author information and transaction details confidential</li>
+                    <li><strong>Compliance:</strong> Adhere to all applicable Nigerian laws, including but not limited to the Cybercrimes Act, NDPR, and consumer protection regulations</li>
+                  </ul>
+                </div>
+
+                {/* 23.4 Prohibited Conduct for Hunters */}
+                <div className="p-4 bg-red-50 rounded-xl border border-red-200">
+                  <h4 className="font-semibold text-red-800 mb-2 flex items-center gap-2">
+                    <AlertTriangle className="w-4 h-4" />
+                    23.4 Prohibited Conduct
+                  </h4>
+                  <p className="text-red-700 text-sm mb-2">Priority Bounty Hunters are strictly prohibited from:</p>
+                  <ul className="space-y-1 text-red-700 text-sm list-disc list-inside ml-2">
+                    <li><strong>Fraudulent Claims:</strong> Providing false information to collect bounties without delivering value</li>
+                    <li><strong>Misrepresentation:</strong> Impersonating sellers, businesses, or other users</li>
+                    <li><strong>Ghosting:</strong> Accepting bounties and failing to respond or deliver without communication</li>
+                    <li><strong>Collusion:</strong> Coordinating with others to artificially inflate ratings or fake bounties</li>
+                    <li><strong>Harassment:</strong> Abusing, threatening, or harassing bounty authors or other users</li>
+                    <li><strong>Off-Platform Solicitation:</strong> Attempting to take transactions outside Paymeo to avoid fees or accountability</li>
+                    <li><strong>Scams:</strong> Any form of advance-fee fraud, phishing, or deceptive practices</li>
+                    <li><strong>Fake Evidence:</strong> Submitting fabricated screenshots, photos, or proof of delivery</li>
+                  </ul>
+                </div>
+
+                {/* 23.5 Consequences of Misconduct & Fraud */}
+                <div className="p-4 bg-red-100 rounded-xl border border-red-300">
+                  <h4 className="font-semibold text-red-900 mb-2">23.5 Consequences of Misconduct & Fraud</h4>
+                  <p className="text-red-800 text-sm mb-2">
+                    <strong>Priority Bounty Hunters are held fully responsible for any fraudulent activities or violations of these Terms.</strong> 
+                    Upon discovery of misconduct, Paymeo reserves the right to take any or all of the following actions:
+                  </p>
+                  <ul className="space-y-1 text-red-800 text-sm list-disc list-inside ml-2">
+                    <li><strong>Immediate Suspension:</strong> Temporary suspension of Hunter status pending investigation</li>
+                    <li><strong>Permanent Revocation:</strong> Permanent removal from the Priority Bounty Hunter program</li>
+                    <li><strong>Account Suspension/Termination:</strong> Partial or full suspension of the user's Paymeo account</li>
+                    <li><strong>Forfeiture of Funds:</strong> Forfeiture of any pending or future bounty payments associated with fraudulent activity</li>
+                    <li><strong>Wallet Freeze:</strong> Freezing of Paymeo Wallet funds pending investigation and resolution</li>
+                    <li><strong>Legal Action:</strong> Referral to law enforcement agencies (NPF, EFCC) for criminal prosecution under Nigerian law</li>
+                    <li><strong>Civil Liability:</strong> Pursuit of civil remedies for damages caused to Paymeo or other users</li>
+                    <li><strong>Public Disclosure:</strong> Disclosure of fraudulent conduct to other users or the public</li>
+                    <li><strong>Permanent Ban:</strong> Lifetime ban from all Paymeo services and affiliated platforms</li>
+                  </ul>
+                  <p className="text-red-800 text-sm font-bold mt-3">
+                    <strong>IMPORTANT:</strong> Paymeo does not mediate disputes between bounty authors and Hunters. 
+                    The Hunter assumes all liability for the quality, accuracy, and timeliness of their recommendations. 
+                    Bounty authors release funds at their own discretion, and Paymeo has no obligation to reverse or refund 
+                    bounty payments under any circumstances.
+                  </p>
+                </div>
+
+                {/* 23.6 Hunter Liability Waiver */}
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">23.6 Hunter Liability Waiver</h4>
+                  <p className="text-gray-700">
+                    By applying for and accepting Priority Bounty Hunter status, you explicitly acknowledge and agree that:
+                  </p>
+                  <ul className="space-y-1 text-gray-700 list-disc list-inside ml-4 mt-2">
+                    <li>Paymeo is not responsible for any losses, damages, or disputes arising from your bounty responses</li>
+                    <li>You bear sole responsibility for any legal claims brought by bounty authors or third parties</li>
+                    <li>You indemnify and hold harmless Meo Technologies Ltd. from any claims related to your bounty activities</li>
+                    <li>Paymeo does not guarantee that being a Hunter will result in any minimum level of earnings</li>
+                  </ul>
+                </div>
+
+                {/* 23.7 Hunter Benefits */}
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">23.7 Hunter Benefits</h4>
+                  <p className="text-gray-700">Priority Bounty Hunters receive the following benefits:</p>
+                  <ul className="space-y-1 text-gray-700 list-disc list-inside ml-4 mt-2">
+                    <li>Priority visibility on bounty posts (displayed first to bounty authors)</li>
+                    <li>Early notifications for new bounty requests in their designated area</li>
+                    <li>"Priority Hunter" trust badge on their profile</li>
+                    <li>Access to exclusive Hunter-only features and analytics</li>
+                    <li>Priority customer support</li>
+                  </ul>
+                  <p className="text-gray-700 text-sm mt-2">
+                    Note: Benefits are provided at Paymeo's discretion and may be modified or withdrawn at any time without notice.
+                  </p>
+                </div>
+
+                {/* 23.8 Program Modifications */}
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">23.8 Program Modifications & Termination</h4>
+                  <p className="text-gray-700">
+                    Paymeo reserves the right to modify, suspend, or terminate the Priority Bounty Hunter program at any time, 
+                    with or without notice. Hunters do not have any vested right to continued participation in the program.
+                  </p>
+                </div>
+              </div>
             </Section>
 
-            {/* Section 24 - General */}
-            <Section id="section-24" title="24. General Provisions" icon={FileText}>
+            {/* Section 24 - Termination */}
+            <Section id="section-24" title="24. Termination" icon={AlertCircle}>
+              <p className="text-gray-700">You may delete your account at any time. Paymeo may suspend or terminate accounts for violations. Upon termination, pending transactions may be cancelled or completed at Paymeo's discretion. Priority Bounty Hunter status is automatically revoked upon account termination.</p>
+            </Section>
+
+            {/* Section 25 - General Provisions */}
+            <Section id="section-25" title="25. General Provisions" icon={FileText}>
               <div className="space-y-2 text-gray-700">
                 <p><strong>Governing Law:</strong> Laws of the Federal Republic of Nigeria.</p>
                 <p><strong>Amendments:</strong> Paymeo may update Terms at any time. Continued use constitutes acceptance.</p>
                 <p><strong>Severability:</strong> If any provision is invalid, remaining provisions remain in force.</p>
+                <p><strong>Entire Agreement:</strong> These Terms constitute the entire agreement between you and Paymeo.</p>
               </div>
             </Section>
 
-            {/* Section 25 - Contact */}
-            <Section id="section-25" title="25. Contact Us" icon={Users}>
+            {/* Section 26 - Contact */}
+            <Section id="section-26" title="26. Contact Us" icon={Users}>
               <div className="p-4 bg-gray-100 rounded-xl">
                 <p className="font-semibold">Meo Technologies Ltd.</p>
                 <p className="text-gray-600 text-sm">27/29, Biaduo Street, Keffi-Ikoyi, Lagos, Nigeria</p>
