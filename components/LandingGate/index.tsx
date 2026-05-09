@@ -118,12 +118,12 @@ export default function LandingGate({
 
     {/* NAV - Responsive padding and sizing */}
 <nav className="relative z-50 flex items-center justify-between px-4 sm:px-6 lg:px-12 py-3 sm:py-4 flex-shrink-0">
-  {/* Logo - Left side with fixed width to balance the layout */}
-  <div className="flex items-center gap-1.5 sm:gap-2 min-w-[100px] sm:min-w-[120px]">
-    <div className="w-7 h-7 sm:w-9 sm:h-9 bg-white/20 rounded-[12px] sm:rounded-[15px] flex items-center justify-center">
-      <Image src={imgPaymeoLogoWhite2} alt="Paymeo" className="w-6 h-6 sm:w-8 sm:h-8" />
+  {/* Logo - Left side with fixed width to balance the layout - INCREASED SIZE ON MOBILE */}
+  <div className="flex items-center gap-2 sm:gap-2 min-w-[100px] sm:min-w-[120px]">
+    <div className="w-9 h-9 sm:w-9 sm:h-9 bg-white/20 rounded-[15px] sm:rounded-[15px] flex items-center justify-center">
+      <Image src={imgPaymeoLogoWhite2} alt="Paymeo" className="w-7 h-7 sm:w-8 sm:h-8" />
     </div>
-    <span className="text-white font-extrabold text-2xl sm:text-[30px] mb-0 sm:mb-2">paymeo</span>
+    <span className="text-white font-extrabold text-3xl sm:text-[30px] mb-0 sm:mb-2">paymeo</span>
   </div>
 
   {/* Desktop Menu Button - Perfectly Centered using absolute positioning */}
@@ -164,15 +164,15 @@ export default function LandingGate({
       Sign up
     </a>
 
-    {/* Mobile Menu Button */}
+    {/* Mobile Menu Button - INCREASED SIZE ON MOBILE */}
     <div className="relative md:hidden">
       <button
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="flex items-center gap-1 bg-white/10 backdrop-blur-md border border-white/20 text-white px-2.5 py-1.5 rounded-full"
+        className="flex items-center gap-1.5 bg-white/10 backdrop-blur-md border border-white/20 text-white px-3.5 py-2 rounded-full"
       >
-        <span className="text-xs font-medium">Menu</span>
+        <span className="text-sm font-medium">Menu</span>
         <ChevronDown
-          className={`w-3 h-3 transition-transform ${
+          className={`w-4 h-4 transition-transform ${
             isMobileMenuOpen ? "rotate-180" : ""
           }`}
         />
@@ -486,8 +486,8 @@ export default function LandingGate({
       <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-12 pt-4 sm:pt-8 lg:pt-0 min-h-0 relative z-10">
         <div className="w-full max-w-6xl grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-0 items-center">
 
-          {/* MOBILE CARDS (hidden on lg+) */}
-          <div className="relative flex justify-center items-center mb-4 sm:mb-8 mt-4 sm:mt-8 lg:hidden">
+          {/* MOBILE CARDS (hidden on lg+) - INCREASED SIZE & MOVED UP */}
+          <div className="relative flex justify-center items-center mb-2 sm:mb-8 mt-0 sm:mt-8 lg:hidden">
             <motion.div
               className="absolute bottom-0 mb-4 sm:mb-6 mr-10 sm:mr-14"
               initial={{ x: -200, rotate: -25, opacity: 0 }}
@@ -496,7 +496,7 @@ export default function LandingGate({
             >
               <div
                 className="overflow-hidden rounded-2xl border-4 border-white/20 shadow-xl"
-                style={{ height: "clamp(140px, 25vw, 190px)", aspectRatio: "9/19" }}
+                style={{ height: "clamp(170px, 30vw, 220px)", aspectRatio: "9/19" }}
               >
                 <img
                   src="https://res.cloudinary.com/diml8ljwa/image/upload/w_800,q_auto/v1762341472/paymeoswipe_1_wq0dgo.webp"
@@ -514,7 +514,7 @@ export default function LandingGate({
             >
               <div
                 className="overflow-hidden rounded-3xl sm:rounded-4xl border-4 border-white/30 shadow-2xl"
-                style={{ height: "clamp(200px, 38vw, 260px)", aspectRatio: "9/19" }}
+                style={{ height: "clamp(240px, 45vw, 300px)", aspectRatio: "9/19" }}
               >
                 <video className="w-full h-full object-cover" autoPlay muted loop playsInline>
                   <source
@@ -533,7 +533,7 @@ export default function LandingGate({
             >
               <div
                 className="overflow-hidden rounded-2xl border-4 border-white/20 shadow-xl"
-                style={{ height: "clamp(140px, 25vw, 190px)", aspectRatio: "9/19" }}
+                style={{ height: "clamp(170px, 30vw, 220px)", aspectRatio: "9/19" }}
               >
                 <img
                   src="https://res.cloudinary.com/diml8ljwa/image/upload/w_800,q_auto/v1777020892/IMG_20260424_094658.jpg_nwdcql.jpg"
@@ -650,29 +650,29 @@ export default function LandingGate({
         </div>
       </div>
 
-      {/* BOTTOM CTA SECTION - Responsive */}
+      {/* BOTTOM CTA SECTION - Responsive - INCREASED SIZE ON MOBILE */}
       <div className="relative z-10 pb-2 sm:pb-3 flex flex-col items-center gap-0.5 sm:gap-1 flex-shrink-0">
-        <p className="text-white/85 text-[9px] sm:text-[11px] font-semibold tracking-widest uppercase">
+        <p className="text-white/85 text-[11px] sm:text-[11px] font-semibold tracking-widest uppercase">
           I want to
         </p>
-        <div className="relative flex items-center gap-2 sm:gap-4 p-0.5 sm:p-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
+        <div className="relative flex items-center gap-3 sm:gap-4 p-1 sm:p-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
           <a href="https://my.paymeo.co">
             <button
-              className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-5 py-1 sm:py-2 text-xs sm:text-sm font-bold rounded-full transition-colors cursor-pointer text-white hover:bg-white/10`}
+              className={`flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-1.5 sm:py-2 text-sm sm:text-sm font-bold rounded-full transition-colors cursor-pointer text-white hover:bg-white/10`}
             >
               Shop
             </button>
           </a>
-          <div className="w-px h-4 sm:h-6 bg-white/30"></div>
+          <div className="w-px h-5 sm:h-6 bg-white/30"></div>
           <a href="https://web.paymeo.co">
             <button
-              className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-5 py-1 sm:py-2 text-xs sm:text-sm font-bold rounded-full transition-colors cursor-pointer text-white hover:bg-white/10`}
+              className={`flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-1.5 sm:py-2 text-sm sm:text-sm font-bold rounded-full transition-colors cursor-pointer text-white hover:bg-white/10`}
             >
               Sell
             </button>
           </a>
         </div>
-        <p className="text-white/85 text-[9px] sm:text-[11px] font-semibold">
+        <p className="text-white/85 text-[11px] sm:text-[11px] font-semibold">
           You can switch anytime
         </p>
       </div>
