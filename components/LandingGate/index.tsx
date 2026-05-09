@@ -608,7 +608,7 @@ export default function LandingGate({
   initial={{ opacity: 0, y: 20 }}
   animate={{ opacity: 1, y: 0 }}
 >
-  <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-white leading-tight mb-2 sm:mb-3">
+ <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-white leading-tight mb-2 sm:mb-3">
     Find What You Need. Get Paid For What You Deliver.
   </h1>
   
