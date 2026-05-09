@@ -195,7 +195,10 @@ export default function Footer() {
                   About
                 </a>
               </li>
-              
+              {/* ADDED: Legal entity information */}
+              <li className="text-xs text-gray-400 pt-1">
+                Legal entity: Meo Technologies Limited
+              </li>
               <li>
                 <a href="" className="hover:text-gray-800 transition">
                   Careers
@@ -232,9 +235,13 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom copyright */}
+        {/* Bottom copyright - UPDATED with legal entity */}
         <div className="border-t border-gray-200 mt-12 pt-6 text-sm text-gray-500 flex flex-col sm:flex-row items-center justify-between">
-          <p>&copy; {new Date().getFullYear()} Paymeo. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Paymeo. A service provided by{" "}
+            <span className="font-medium text-gray-600">Meo Technologies Limited</span>.
+            All rights reserved.
+          </p>
           <div className="flex gap-6 mt-3 sm:mt-0">
             <a href="/terms" className="hover:text-gray-800 transition">
               Terms

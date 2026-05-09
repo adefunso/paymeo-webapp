@@ -24,12 +24,12 @@ export default function LandingGate({
   
   const rotatingTexts = [
     { text: "Post what you need, and let sellers come to you.", highlight: ["Post what you need", "sellers come to you."] },
-    { text: "Turn product requests into sales — local markets, real connections.", highlight: ["Turn product requests into sales", "local markets"] },
-    { text: "Shop smartly, tip people and connect over the things you love.", highlight: ["smartly", "connect"] },
+    { text: "Turn product requests into sales — local markets, real connections.", highlight: ["Turn product requests into sales", "local markets", "connections."] },
+    { text: "Shop smartly, tip people and connect over the things you love.", highlight: ["smartly", "connect", "love."] },
     { text: "Shoppers who want what you're selling find you — instantly.", highlight: ["Shoppers who want", "find you", "instantly."] },
     { text: "Create your AI-powered digital storefront in seconds.", highlight: ["AI-powered", "in seconds."] },
     { text: "Your 24/7 AI Sales Agent handles negotiations while you sleep.", highlight: ["24/7 AI Sales Agent", "while you sleep."] },
-    { text: "Get paid helping people find what they are looking for, form social connections.", highlight: ["Get paid helping people", "looking for"] },
+    { text: "Get paid helping people find what they are looking for, form social connections.", highlight: ["Get paid helping people", "looking for", "social connections."] },
   ];
 
   useEffect(() => {
@@ -56,11 +56,9 @@ export default function LandingGate({
     
     let result = text;
     highlights.forEach(highlight => {
-      // Escape special regex characters in the highlight string
       const escapedHighlight = highlight.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       const regex = new RegExp(`(${escapedHighlight})`, 'gi');
-      // Yellow styling with opacity and better line spacing
-      result = result.replace(regex, `<span class="inline-block px-1.5 py-0.5 mx-0.5 my-0.5 rounded-md bg-amber-300 border border-amber-400 text-amber-950 font-extrabold shadow-sm leading-relaxed">$1</span>`);
+      result = result.replace(regex, `<span class="inline-block px-1 sm:px-1.5 py-0.5 mx-0.5 rounded-md bg-amber-300 border border-amber-400 text-amber-950 font-extrabold shadow-sm">$1</span>`);
     });
     
     return <span dangerouslySetInnerHTML={{ __html: result }} />;
@@ -76,7 +74,6 @@ export default function LandingGate({
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-
       {/* Noise texture for depth */}
       <div
         className="absolute inset-0 opacity-[0.03] mix-blend-soft-light pointer-events-none"
@@ -88,25 +85,24 @@ export default function LandingGate({
       {/* Subtle highlight overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/10 pointer-events-none" />
 
-      {/* SVG corner decoration */}
-      <div className="absolute bottom-0 right-0 opacity-10 pointer-events-none z-0 translate-x-1/4 translate-y-1/4">
-        <svg
-          width="450"
-          height="450"
-          viewBox="0 0 160 160"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M80 0C35.817 0 0 35.817 0 80s35.817 80 80 80 80-35.817 80-80S124.183 0 80 0Zm0 150C41.117 150 10 118.883 10 80S41.117 10 80 10s70 31.117 70 70-31.117 70-70 70Z"
-            fill="white"
-          />
-        </svg>
-      </div>
+      {/* SVG corner decoration - Responsive opacity */}
+<div className="absolute bottom-0 right-0 opacity-10 sm:opacity-10 pointer-events-none z-0 translate-x-1/4 translate-y-1/4">
+  <svg
+    width="450"
+    height="450"
+    viewBox="0 0 160 160"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M80 0C35.817 0 0 35.817 0 80s35.817 80 80 80 80-35.817 80-80S124.183 0 80 0Zm0 150C41.117 150 10 118.883 10 80S41.117 10 80 10s70 31.117 70 70-31.117 70-70 70Z"
+      fill="white"
+    />
+  </svg>
+</div>
 
-      {/* IMAGE - Bottom right corner, with opacity, placed backwards (behind content) */}
-      {/* Shows on both desktop and mobile, but hidden behind content and with opacity */}
-      <div className="absolute bottom-0 right-0 z-0 pointer-events-none opacity-20 lg:opacity-100">
+{/* Background Image - Original styling with responsive opacity */}
+<div className="absolute bottom-0 right-0 z-0 pointer-events-none opacity-20 sm:opacity-100">
   <img
     src="https://res.cloudinary.com/diml8ljwa/image/upload/v1776888046/hero-image-fashion_vfbebn.png"
     alt="Fashion Smartphone"
@@ -114,566 +110,584 @@ export default function LandingGate({
     style={{
       transform: "translateX(30%) translateY(30%)",
       maxWidth: "none",
-      width: "min(500px, 90vw)",  // Changed from 70vw to 90vw for larger size on mobile
+      width: "min(500px, 90vw)",
       height: "auto"
     }}
   />
 </div>
 
-      {/* NAV */}
-      <nav className="relative z-50 flex items-center justify-between px-6 lg:px-12 py-4 flex-shrink-0">
-        <div className="flex items-center gap-2">
-          <div className="w-9 h-9 bg-white/20 rounded-[15px] flex items-center justify-center">
-            <Image src={imgPaymeoLogoWhite2} alt="Paymeo" className="w-8 h-8" />
-          </div>
-          <span className="text-white font-extrabold text-[30px] mb-2">paymeo</span>
-        </div>
+    {/* NAV - Responsive padding and sizing */}
+<nav className="relative z-50 flex items-center justify-between px-4 sm:px-6 lg:px-12 py-3 sm:py-4 flex-shrink-0">
+  {/* Logo - Left side with fixed width to balance the layout */}
+  <div className="flex items-center gap-1.5 sm:gap-2 min-w-[100px] sm:min-w-[120px]">
+    <div className="w-7 h-7 sm:w-9 sm:h-9 bg-white/20 rounded-[12px] sm:rounded-[15px] flex items-center justify-center">
+      <Image src={imgPaymeoLogoWhite2} alt="Paymeo" className="w-6 h-6 sm:w-8 sm:h-8" />
+    </div>
+    <span className="text-white font-extrabold text-2xl sm:text-[30px] mb-0 sm:mb-2">paymeo</span>
+  </div>
 
-        <div className="hidden md:flex justify-center flex-1 ml-33">
-          <button
-            onClick={() => setIsDesktopMenuOpen(!isDesktopMenuOpen)}
-            className="flex items-center gap-1 bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2.5 rounded-full hover:bg-white/20 transition-colors"
-          >
-            <span className="text-sm font-medium">Menu</span>
-            <ChevronDown
-              className={`w-4 h-4 transition-transform ${
-                isDesktopMenuOpen ? "rotate-180" : ""
-              }`}
+  {/* Desktop Menu Button - Perfectly Centered using absolute positioning */}
+  <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
+    <button
+      onClick={() => setIsDesktopMenuOpen(!isDesktopMenuOpen)}
+      className="flex items-center gap-1 bg-white/10 backdrop-blur-md border border-white/20 text-white px-3 sm:px-4 py-2 rounded-full hover:bg-white/20 transition-colors whitespace-nowrap"
+    >
+      <span className="text-xs sm:text-sm font-medium">Menu</span>
+      <ChevronDown
+        className={`w-3 h-3 sm:w-4 sm:h-4 transition-transform ${
+          isDesktopMenuOpen ? "rotate-180" : ""
+        }`}
+      />
+    </button>
+  </div>
+
+  {/* Right side buttons - Fixed width to balance the layout */}
+  <div className="flex items-center gap-1 sm:gap-2 min-w-[100px] sm:min-w-[120px] justify-end">
+    <a
+      href="/seller"
+      className="text-white/90 text-xs sm:text-sm hidden md:block mr-1 sm:mr-3 whitespace-nowrap"
+    >
+      Become a Seller
+    </a>
+
+    <a
+      href="https://my.paymeo.co"
+      className="bg-white text-[#1e5aff] text-xs sm:text-sm px-3 sm:px-4.5 py-1.5 sm:py-2.5 rounded-full font-semibold hidden md:block whitespace-nowrap"
+    >
+      Log in
+    </a>
+
+    <a
+      href="https://my.paymeo.co"
+      className="border border-white/20 text-white text-xs sm:text-sm px-3 sm:px-4.5 py-1.5 sm:py-2.5 rounded-full hidden md:block bg-white/10 backdrop-blur-md hover:bg-white/20 transition-colors whitespace-nowrap"
+    >
+      Sign up
+    </a>
+
+    {/* Mobile Menu Button */}
+    <div className="relative md:hidden">
+      <button
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        className="flex items-center gap-1 bg-white/10 backdrop-blur-md border border-white/20 text-white px-2.5 py-1.5 rounded-full"
+      >
+        <span className="text-xs font-medium">Menu</span>
+        <ChevronDown
+          className={`w-3 h-3 transition-transform ${
+            isMobileMenuOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+
+      {/* Mobile Dropdown Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <>
+            <div
+              className="fixed inset-0 z-40"
+              onClick={() => setIsMobileMenuOpen(false)}
             />
-          </button>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <a
-            href="/seller"
-            className="text-white/90 text-sm hidden md:block mr-3"
-          >
-            Become a Seller
-          </a>
-
-          <a
-            href="https://my.paymeo.co"
-            className="bg-white text-[#1e5aff] text-sm px-4.5 py-2.5 rounded-full font-semibold hidden md:block"
-          >
-            Log in
-          </a>
-
-          <a
-            href="https://my.paymeo.co"
-            className="border border-white/20 text-white text-sm px-4.5 py-2.5 rounded-full hidden md:block bg-white/10 backdrop-blur-md hover:bg-white/20 transition-colors"
-          >
-            Sign up
-          </a>
-
-          <div className="relative md:hidden">
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="flex items-center gap-1 bg-white/10 backdrop-blur-md border border-white/20 text-white px-3 py-2 rounded-full"
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="absolute right-0 mt-2 w-56 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 z-50 overflow-hidden"
             >
-              <span className="text-sm font-medium">Menu</span>
-              <ChevronDown
-                className={`w-4 h-4 transition-transform ${
-                  isMobileMenuOpen ? "rotate-180" : ""
-                }`}
-              />
-            </button>
+              <div className="py-2 max-h-[80vh] overflow-y-auto">
+                <a
+                  href="/marketplace"
+                  className="block px-4 py-2.5 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors font-bold"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Marketplace
+                </a>
+                <a
+                  href="/scan"
+                  className="block px-4 py-2.5 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Scan QR Code
+                </a>
+                <a
+                  href="/for-shoppers"
+                  className="block px-4 py-2.5 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  For Shoppers
+                </a>
+                <a
+                  href="/for-sellers"
+                  className="block px-4 py-2.5 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  For Sellers
+                </a>
+                <a
+                  href="/pricing"
+                  className="block px-4 py-2.5 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Pricing
+                </a>
+                <a
+                  href="/about"
+                  className="block px-4 py-2.5 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  About
+                </a>
+                <a
+                  href="/faq"
+                  className="block px-4 py-2.5 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  FAQ
+                </a>
+                <div className="border-t border-gray-200 my-1" />
+                <a
+                  href="/seller"
+                  className="block px-4 py-2.5 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Become a Seller
+                </a>
+                <a
+                  href="https://my.paymeo.co"
+                  className="block px-4 py-2.5 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Log in
+                </a>
+                <a
+                  href="https://my.paymeo.co"
+                  className="block px-4 py-2.5 text-sm bg-[#1e5aff] text-white font-medium hover:bg-[#0d3bb8] mx-3 my-2 rounded-full text-center transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Sign up
+                </a>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </div>
+  </div>
 
-            <AnimatePresence>
-              {isMobileMenuOpen && (
-                <>
-                  <div
-                    className="fixed inset-0 z-40"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  />
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute right-0 mt-2 w-56 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 z-50 overflow-hidden"
-                  >
-                    <div className="py-2">
-                      <a
-                        href="/marketplace"
-                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors font-bold"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        Marketplace
-                      </a>
-                      <a
-                        href="/scan"
-                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        Scan QR Code
-                      </a>
-                      <a
-                        href="/for-shoppers"
-                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        For Shoppers
-                      </a>
-                      <a
-                        href="/for-sellers"
-                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        For Sellers
-                      </a>
-                      <a
-                        href="/pricing"
-                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        Pricing
-                      </a>
-                      <a
-                        href="/about"
-                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        About
-                      </a>
-                      <a
-                        href="/faq"
-                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        FAQ
-                      </a>
-                      <div className="border-t border-gray-200 my-2" />
-                      <a
-                        href="/seller"
-                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        Become a Seller
-                      </a>
-                      <a
-                        href="https://my.paymeo.co"
-                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-[#1e5aff] hover:text-white transition-colors"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        Log in
-                      </a>
-                      <a
-                        href="https://my.paymeo.co"
-                        className="block px-4 py-3 text-sm bg-[#1e5aff] text-white font-medium hover:bg-[#0d3bb8] mx-3 my-2 rounded-full text-center transition-colors"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        Sign up
-                      </a>
-                    </div>
-                  </motion.div>
-                </>
-              )}
-            </AnimatePresence>
-          </div>
-        </div>
-
-        {/* Desktop Dropdown */}
-        <AnimatePresence>
-          {isDesktopMenuOpen && (
-            <>
+  {/* Desktop Dropdown Menu */}
+  <AnimatePresence>
+    {isDesktopMenuOpen && (
+      <>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          className="fixed inset-0 z-40 bg-black/40"
+          onClick={() => setIsDesktopMenuOpen(false)}
+        />
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+          className="fixed left-0 right-0 top-[70px] sm:top-[80px] w-full bg-white shadow-2xl z-50 border-t border-gray-200 max-h-[calc(100vh-80px)] overflow-y-auto"
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="fixed inset-0 z-40 bg-black/40"
-                onClick={() => setIsDesktopMenuOpen(false)}
-              />
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                className="fixed left-0 right-0 top-[80px] w-full bg-white shadow-2xl z-50 border-t border-gray-200 max-h-[calc(100vh-80px)] overflow-y-auto"
+                transition={{ delay: 0.1 }}
               >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.1 }}
-                    >
-                      <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">
-                        For Users
-                      </h3>
-                      <div className="space-y-3">
-                        <a
-                          href="/for-shoppers"
-                          className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors font-medium"
-                          onClick={() => setIsDesktopMenuOpen(false)}
-                        >
-                          For Shoppers
-                        </a>
-                        <a
-                          href="/for-sellers"
-                          className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors font-medium"
-                          onClick={() => setIsDesktopMenuOpen(false)}
-                        >
-                          For Sellers
-                        </a>
-                        <a
-                          href="/pricing"
-                          className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors font-medium"
-                          onClick={() => setIsDesktopMenuOpen(false)}
-                        >
-                          Pricing
-                        </a>
-                      </div>
-                    </motion.div>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.15 }}
-                    >
-                      <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">
-                        Company
-                      </h3>
-                      <div className="space-y-3">
-                        <a
-                          href="/about"
-                          className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
-                          onClick={() => setIsDesktopMenuOpen(false)}
-                        >
-                          About Us
-                        </a>
-                        <a
-                          href="#"
-                          className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
-                          onClick={() => setIsDesktopMenuOpen(false)}
-                        >
-                          Careers
-                        </a>
-                        <a
-                          href="#"
-                          className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
-                          onClick={() => setIsDesktopMenuOpen(false)}
-                        >
-                          Blog
-                        </a>
-                        <a
-                          href="#"
-                          className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
-                          onClick={() => setIsDesktopMenuOpen(false)}
-                        >
-                          Press
-                        </a>
-                      </div>
-                    </motion.div>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.2 }}
-                    >
-                      <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">
-                        Platform
-                      </h3>
-                      <div className="space-y-3">
-                        <a
-                          href="/marketplace"
-                          className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
-                          onClick={() => setIsDesktopMenuOpen(false)}
-                        >
-                          Browse Marketplace
-                        </a>
-                        <a
-                          href="/scan"
-                          className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
-                          onClick={() => setIsDesktopMenuOpen(false)}
-                        >
-                          Scan QR Code
-                        </a>
-                        <a
-                          href="/faq"
-                          className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
-                          onClick={() => setIsDesktopMenuOpen(false)}
-                        >
-                          FAQ
-                        </a>
-                        <a
-                          href="#"
-                          className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
-                          onClick={() => setIsDesktopMenuOpen(false)}
-                        >
-                          Support
-                        </a>
-                         <a
-                          href="/terms"
-                          className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
-                          onClick={() => setIsDesktopMenuOpen(false)}
-                        >
-                          Terms of Service
-                        </a>
-                         <a
-                          href="/privacy"
-                          className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
-                          onClick={() => setIsDesktopMenuOpen(false)}
-                        >
-                          Privacy Policy
-                        </a>
-                      </div>
-                    </motion.div>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.25 }}
-                    >
-                      <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">
-                        Community
-                      </h3>
-                      <div className="space-y-3">
-                        <a
-                          href="#"
-                          className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
-                          onClick={() => setIsDesktopMenuOpen(false)}
-                        >
-                          Scouts Program
-                        </a>
-                        <a
-                          href="#"
-                          className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
-                          onClick={() => setIsDesktopMenuOpen(false)}
-                        >
-                          Bounties
-                        </a>
-                        <a
-                          href="#"
-                          className="block text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
-                          onClick={() => setIsDesktopMenuOpen(false)}
-                        >
-                          Community Guidelines
-                        </a>
-                      </div>
-                    </motion.div>
-                  </div>
-
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
-                    className="mt-8 pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4"
+                <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 sm:mb-4">
+                  For Users
+                </h3>
+                <div className="space-y-2 sm:space-y-3">
+                  <a
+                    href="/for-shoppers"
+                    className="block text-sm sm:text-base text-gray-800 hover:text-[#1e5aff] transition-colors font-medium"
+                    onClick={() => setIsDesktopMenuOpen(false)}
                   >
-                    <p className="text-sm text-gray-600 text-center sm:text-left">
-                      Join thousands of sellers and shoppers already using Paymeo
-                    </p>
-                    <a
-                      href="https://web.paymeo.co"
-                      className="bg-[#1e5aff] text-white text-sm px-6 py-3 rounded-full font-medium hover:bg-[#0d3bb8] transition-colors whitespace-nowrap"
-                      onClick={() => setIsDesktopMenuOpen(false)}
-                    >
-                      Get Started
-                    </a>
-                  </motion.div>
+                    For Shoppers
+                  </a>
+                  <a
+                    href="/for-sellers"
+                    className="block text-sm sm:text-base text-gray-800 hover:text-[#1e5aff] transition-colors font-medium"
+                    onClick={() => setIsDesktopMenuOpen(false)}
+                  >
+                    For Sellers
+                  </a>
+                  <a
+                    href="/pricing"
+                    className="block text-sm sm:text-base text-gray-800 hover:text-[#1e5aff] transition-colors font-medium"
+                    onClick={() => setIsDesktopMenuOpen(false)}
+                  >
+                    Pricing
+                  </a>
                 </div>
               </motion.div>
-            </>
-          )}
-        </AnimatePresence>
-      </nav>
-{/* HERO */}
-<div className="flex-1 flex items-start lg:items-center justify-center px-6 lg:px-12 pt-2 lg:pt-0 min-h-0 relative z-10">
-  <div className="w-full max-w-6xl grid lg:grid-cols-2 gap-2 lg:gap-0 items-center mt-0 lg:mt-0 xl:mt-0">
 
-    {/* ========== MOBILE CARDS (hidden on lg+) ========== */}
-    <div className="relative flex justify-center items-center mb-0 mt-[40px] lg:hidden">
-      <motion.div
-        className="absolute bottom-0 mb-[23px] mr-[68px]"
-        initial={{ x: -200, rotate: -25, opacity: 0 }}
-        animate={{ x: "-55%", rotate: -10, opacity: 1 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.15 }}
+              >
+                <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 sm:mb-4">
+                  Company
+                </h3>
+                <div className="space-y-2 sm:space-y-3">
+                  <a
+                    href="/about"
+                    className="block text-sm sm:text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                    onClick={() => setIsDesktopMenuOpen(false)}
+                  >
+                    About Us
+                  </a>
+                  <a
+                    href="#"
+                    className="block text-sm sm:text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                    onClick={() => setIsDesktopMenuOpen(false)}
+                  >
+                    Careers
+                  </a>
+                  <a
+                    href="#"
+                    className="block text-sm sm:text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                    onClick={() => setIsDesktopMenuOpen(false)}
+                  >
+                    Blog
+                  </a>
+                  <a
+                    href="#"
+                    className="block text-sm sm:text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                    onClick={() => setIsDesktopMenuOpen(false)}
+                  >
+                    Press
+                  </a>
+                  <div className="text-xs text-gray-400 pt-1">
+                    Legal entity: Meo Technologies Limited
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 sm:mb-4">
+                  Platform
+                </h3>
+                <div className="space-y-2 sm:space-y-3">
+                  <a
+                    href="/marketplace"
+                    className="block text-sm sm:text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                    onClick={() => setIsDesktopMenuOpen(false)}
+                  >
+                    Browse Marketplace
+                  </a>
+                  <a
+                    href="/scan"
+                    className="block text-sm sm:text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                    onClick={() => setIsDesktopMenuOpen(false)}
+                  >
+                    Scan QR Code
+                  </a>
+                  <a
+                    href="/faq"
+                    className="block text-sm sm:text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                    onClick={() => setIsDesktopMenuOpen(false)}
+                  >
+                    FAQ
+                  </a>
+                  <a
+                    href="#"
+                    className="block text-sm sm:text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                    onClick={() => setIsDesktopMenuOpen(false)}
+                  >
+                    Support
+                  </a>
+                  <a
+                    href="/terms"
+                    className="block text-sm sm:text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                    onClick={() => setIsDesktopMenuOpen(false)}
+                  >
+                    Terms of Service
+                  </a>
+                  <a
+                    href="/privacy"
+                    className="block text-sm sm:text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                    onClick={() => setIsDesktopMenuOpen(false)}
+                  >
+                    Privacy Policy
+                  </a>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25 }}
+              >
+                <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 sm:mb-4">
+                  Community
+                </h3>
+                <div className="space-y-2 sm:space-y-3">
+                  <a
+                    href="#"
+                    className="block text-sm sm:text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                    onClick={() => setIsDesktopMenuOpen(false)}
+                  >
+                    Scouts Program
+                  </a>
+                  <a
+                    href="#"
+                    className="block text-sm sm:text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                    onClick={() => setIsDesktopMenuOpen(false)}
+                  >
+                    Bounties
+                  </a>
+                  <a
+                    href="#"
+                    className="block text-sm sm:text-base text-gray-800 hover:text-[#1e5aff] transition-colors"
+                    onClick={() => setIsDesktopMenuOpen(false)}
+                  >
+                    Community Guidelines
+                  </a>
+                </div>
+              </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4"
+            >
+              <p className="text-xs sm:text-sm text-gray-600 text-center sm:text-left">
+                Join thousands of sellers and shoppers already using Paymeo
+              </p>
+              <a
+                href="https://web.paymeo.co"
+                className="bg-[#1e5aff] text-white text-xs sm:text-sm px-5 sm:px-6 py-2 sm:py-3 rounded-full font-medium hover:bg-[#0d3bb8] transition-colors whitespace-nowrap"
+                onClick={() => setIsDesktopMenuOpen(false)}
+              >
+                Get Started
+              </a>
+            </motion.div>
+          </div>
+        </motion.div>
+      </>
+    )}
+  </AnimatePresence>
+</nav>
+
+      {/* HERO SECTION - Responsive */}
+      <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-12 pt-4 sm:pt-8 lg:pt-0 min-h-0 relative z-10">
+        <div className="w-full max-w-6xl grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-0 items-center">
+
+          {/* MOBILE CARDS (hidden on lg+) */}
+          <div className="relative flex justify-center items-center mb-4 sm:mb-8 mt-4 sm:mt-8 lg:hidden">
+            <motion.div
+              className="absolute bottom-0 mb-4 sm:mb-6 mr-10 sm:mr-14"
+              initial={{ x: -200, rotate: -25, opacity: 0 }}
+              animate={{ x: "-55%", rotate: -10, opacity: 1 }}
+              transition={{ duration: 0.9, ease: "easeOut" }}
+            >
+              <div
+                className="overflow-hidden rounded-2xl border-4 border-white/20 shadow-xl"
+                style={{ height: "clamp(140px, 25vw, 190px)", aspectRatio: "9/19" }}
+              >
+                <img
+                  src="https://res.cloudinary.com/diml8ljwa/image/upload/w_800,q_auto/v1762341472/paymeoswipe_1_wq0dgo.webp"
+                  className="w-full h-full object-cover"
+                  alt="Paymeo swipe"
+                />
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="relative z-20"
+              initial={{ y: 140, opacity: 0, scale: 0.9 }}
+              animate={{ y: 0, opacity: 1, scale: 1 }}
+              transition={{ duration: 0.9, ease: "easeOut" }}
+            >
+              <div
+                className="overflow-hidden rounded-3xl sm:rounded-4xl border-4 border-white/30 shadow-2xl"
+                style={{ height: "clamp(200px, 38vw, 260px)", aspectRatio: "9/19" }}
+              >
+                <video className="w-full h-full object-cover" autoPlay muted loop playsInline>
+                  <source
+                    src="https://res.cloudinary.com/diml8ljwa/video/upload/q_70,f_webm,vc_vp9,w_1200,ac_none,du_8/v1762294237/paymeohero_1_tq8bao"
+                    type="video/webm"
+                  />
+                </video>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="absolute bottom-0 mb-4 sm:mb-6 ml-10 sm:ml-14"
+              initial={{ x: 200, rotate: 25, opacity: 0 }}
+              animate={{ x: "55%", rotate: 10, opacity: 1 }}
+              transition={{ duration: 0.9, ease: "easeOut" }}
+            >
+              <div
+                className="overflow-hidden rounded-2xl border-4 border-white/20 shadow-xl"
+                style={{ height: "clamp(140px, 25vw, 190px)", aspectRatio: "9/19" }}
+              >
+                <img
+                  src="https://res.cloudinary.com/diml8ljwa/image/upload/w_800,q_auto/v1777020892/IMG_20260424_094658.jpg_nwdcql.jpg"
+                  className="w-full h-full object-cover"
+                  alt="Paymeo app"
+                />
+              </div>
+            </motion.div>
+          </div>
+
+          {/* DESKTOP CARDS (hidden below lg) */}
+          <div className="relative hidden lg:flex justify-center items-center">
+            <motion.div
+              className="absolute bottom-0 mb-8 sm:mb-12 mr-20 sm:mr-24"
+              initial={{ x: -200, rotate: -25, opacity: 0 }}
+              animate={{ x: "-55%", rotate: -10, opacity: 1 }}
+              transition={{ duration: 0.9, ease: "easeOut" }}
+            >
+              <div
+                className="overflow-hidden rounded-2xl border-4 border-white/20 shadow-xl"
+                style={{ height: "clamp(280px, 30vh, 380px)", aspectRatio: "9/19" }}
+              >
+                <img
+                  src="https://res.cloudinary.com/diml8ljwa/image/upload/w_800,q_auto/v1762341472/paymeoswipe_1_wq0dgo.webp"
+                  className="w-full h-full object-cover"
+                  alt="Paymeo swipe"
+                />
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="relative z-20"
+              initial={{ y: 140, opacity: 0, scale: 0.9 }}
+              animate={{ y: 0, opacity: 1, scale: 1 }}
+              transition={{ duration: 0.9, ease: "easeOut" }}
+            >
+              <div
+                className="overflow-hidden rounded-4xl border-4 border-white/30 shadow-2xl"
+                style={{ height: "clamp(400px, 50vh, 585px)", aspectRatio: "9/19" }}
+              >
+                <video className="w-full h-full object-cover" autoPlay muted loop playsInline>
+                  <source
+                    src="https://res.cloudinary.com/diml8ljwa/video/upload/q_70,f_webm,vc_vp9,w_1200,ac_none,du_8/v1762294237/paymeohero_1_tq8bao"
+                    type="video/webm"
+                  />
+                </video>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="absolute bottom-0 mb-8 sm:mb-12 ml-20 sm:ml-24"
+              initial={{ x: 200, rotate: 25, opacity: 0 }}
+              animate={{ x: "55%", rotate: 10, opacity: 1 }}
+              transition={{ duration: 0.9, ease: "easeOut" }}
+            >
+              <div
+                className="overflow-hidden rounded-2xl border-4 border-white/20 shadow-xl"
+                style={{ height: "clamp(280px, 30vh, 380px)", aspectRatio: "9/19" }}
+              >
+                <img
+                  src="https://res.cloudinary.com/diml8ljwa/image/upload/w_800,q_auto/v1777020892/IMG_20260424_094658.jpg_nwdcql.jpg"
+                  className="w-full h-full object-cover"
+                  alt="Paymeo app"
+                />
+              </div>
+            </motion.div>
+          </div>
+
+          {/* TEXT CONTENT - Responsive typography */}
+<motion.div
+  className="text-center lg:text-left max-w-lg mx-auto lg:mx-0 lg:-ml-10 xl:-mr-20 px-2 sm:px-0"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+>
+  <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-white leading-tight mb-2 sm:mb-3">
+    Find What You Need. Get Paid For What You Deliver.
+  </h1>
+  
+  <div className="min-h-[70px] sm:min-h-[80px] md:min-h-[70px]">
+    <AnimatePresence mode="wait">
+      <motion.p
+        key={currentTextIndex}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
+        className="text-white text-xs sm:text-sm md:text-[13px] font-semibold leading-relaxed sm:leading-snug"
       >
-        <div
-          className="overflow-hidden rounded-2xl border-4 border-white/20 shadow-xl"
-          style={{ height: "190px", aspectRatio: "9/19" }}
-        >
-          <img
-            src="https://res.cloudinary.com/diml8ljwa/image/upload/w_800,q_auto/v1762341472/paymeoswipe_1_wq0dgo.webp"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </motion.div>
-
-      <motion.div
-        className="relative z-20"
-        initial={{ y: 140, opacity: 0, scale: 0.9 }}
-        animate={{ y: 0, opacity: 1, scale: 1 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
-      >
-        <div
-          className="overflow-hidden rounded-4xl border-4 border-white/30 shadow-2xl"
-          style={{ height: "260px", aspectRatio: "9/19" }}
-        >
-          <video className="w-full h-full object-cover" autoPlay muted loop playsInline>
-            <source
-              src="https://res.cloudinary.com/diml8ljwa/video/upload/q_70,f_webm,vc_vp9,w_1200,ac_none,du_8/v1762294237/paymeohero_1_tq8bao"
-              type="video/webm"
-            />
-          </video>
-        </div>
-      </motion.div>
-
-      <motion.div
-        className="absolute bottom-0 mb-[23px] ml-[68px]"
-        initial={{ x: 200, rotate: 25, opacity: 0 }}
-        animate={{ x: "55%", rotate: 10, opacity: 1 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
-      >
-        <div
-          className="overflow-hidden rounded-2xl border-4 border-white/20 shadow-xl"
-          style={{ height: "190px", aspectRatio: "9/19" }}
-        >
-          <img
-            src="https://res.cloudinary.com/diml8ljwa/image/upload/w_800,q_auto/v1777020892/IMG_20260424_094658.jpg_nwdcql.jpg"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </motion.div>
-    </div>
-
-    {/* ========== DESKTOP CARDS (hidden below lg) ========== */}
-    <div className="relative flex justify-center items-center mb-0 mt-0 hidden lg:flex lg:ml-[-40px]">
-      <motion.div
-        className="absolute bottom-0 mb-[50px] mr-[120px]"
-        initial={{ x: -200, rotate: -25, opacity: 0 }}
-        animate={{ x: "-55%", rotate: -10, opacity: 1 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
-      >
-        <div
-          className="overflow-hidden rounded-2xl border-4 border-white/20 shadow-xl"
-          style={{ height: "clamp(210px, 40vh, 432px)", aspectRatio: "9/19" }}
-        >
-          <img
-            src="https://res.cloudinary.com/diml8ljwa/image/upload/w_800,q_auto/v1762341472/paymeoswipe_1_wq0dgo.webp"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </motion.div>
-
-      <motion.div
-        className="relative z-20"
-        initial={{ y: 140, opacity: 0, scale: 0.9 }}
-        animate={{ y: 0, opacity: 1, scale: 1 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
-      >
-        <div
-          className="overflow-hidden rounded-4xl border-4 border-white/30 shadow-2xl"
-          style={{ height: "clamp(280px, 70vh, 585px)", aspectRatio: "9/19" }}
-        >
-          <video className="w-full h-full object-cover" autoPlay muted loop playsInline>
-            <source
-              src="https://res.cloudinary.com/diml8ljwa/video/upload/q_70,f_webm,vc_vp9,w_1200,ac_none,du_8/v1762294237/paymeohero_1_tq8bao"
-              type="video/webm"
-            />
-          </video>
-        </div>
-      </motion.div>
-
-      <motion.div
-        className="absolute bottom-0 mb-[50px] ml-[120px]"
-        initial={{ x: 200, rotate: 25, opacity: 0 }}
-        animate={{ x: "55%", rotate: 10, opacity: 1 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
-      >
-        <div
-          className="overflow-hidden rounded-2xl border-4 border-white/20 shadow-xl"
-          style={{ height: "clamp(210px, 40vh, 432px)", aspectRatio: "9/19" }}
-        >
-          <img
-            src="https://res.cloudinary.com/diml8ljwa/image/upload/w_800,q_auto/v1777020892/IMG_20260424_094658.jpg_nwdcql.jpg"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </motion.div>
-    </div>
-
-    {/* TEXT CONTENT */}
-    <motion.div
-      className="text-center lg:text-left max-w-lg mx-auto lg:mx-0 lg:ml-[-40px] xl:ml-[-60px] mt-[10px] sm:mt-0 lg:-mt-12"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-    >
-      <h1 className="text-2xl lg:text-4xl xl:text-5xl font-extrabold text-white leading-tight mb-2">
-        Find What You Need. Get Paid For What You Deliver.
-      </h1>
-      <div className="min-h-[60px] lg:min-h-[70px]">
-        <AnimatePresence mode="wait">
-          <motion.p
-            key={currentTextIndex}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="text-white text-[13px] lg:text-[13px] xl:text-[14px] font-semibold leading-snug"
-          >
-            {renderHighlightedText(rotatingTexts[currentTextIndex].text, rotatingTexts[currentTextIndex].highlight)}
-          </motion.p>
-        </AnimatePresence>
+        {renderHighlightedText(rotatingTexts[currentTextIndex].text, rotatingTexts[currentTextIndex].highlight)}
+      </motion.p>
+    </AnimatePresence>
+  </div>
+  
+  {/* QR Code Section - Responsive */}
+  <div className="flex items-center justify-center lg:justify-start gap-2 sm:gap-4 mt-2 sm:mt-4">
+    <div className="relative inline-block">
+      <div className="bg-white p-1.5 sm:p-2 rounded-lg hidden sm:block shadow-md relative z-10">
+        <img
+          src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://paymeo.co"
+          className="w-[60px] sm:w-[80px] h-[60px] sm:h-[80px]"
+          alt="QR code to download app"
+        />
       </div>
-     <div className="flex items-center justify-center lg:justify-start gap-4 mt-1">
-  <div className="relative inline-block">
-    {/* QR code block - higher z-index to bring forward */}
-    <div className="bg-white p-2 rounded-lg hidden sm:block shadow-md relative z-10">
-      <img
-        src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://paymeo.co"
-        className="w-[80px] h-[80px]"
-        alt="QR code to download app"
-      />
-    </div>
-    
-    {/* Pill protruding from right side - goes to back */}
-    <div className="hidden sm:block absolute left-full top-1/2 -translate-y-1/2 -ml-3 z-0">
-      <div className="bg-white text-black text-sm font-semibold pl-3 pr-3 py-1 rounded-r-full shadow-md whitespace-nowrap flex items-center gap-2">
-        <span>Scan to download app</span>
+      
+      <div className="hidden sm:block absolute left-full top-1/2 -translate-y-1/2 -ml-2 sm:-ml-3 z-0">
+        <div className="bg-white text-black text-xs sm:text-sm font-semibold pl-2 sm:pl-3 pr-2 sm:pr-3 py-0.5 sm:py-1 rounded-r-full shadow-md whitespace-nowrap flex items-center gap-1 sm:gap-2">
+          <span>Scan to download app</span>
+        </div>
       </div>
     </div>
   </div>
-</div>
-    </motion.div>
+</motion.div>
 
-  </div>
-</div>
+        </div>
+      </div>
 
-      {/* BOTTOM */}
-      <div className="relative z-10 pb-3 flex flex-col items-center gap-1 flex-shrink-0">
-        <p className="text-white/85 text-[11px] font-semibold tracking-widest uppercase">
+      {/* BOTTOM CTA SECTION - Responsive */}
+      <div className="relative z-10 pb-2 sm:pb-3 flex flex-col items-center gap-0.5 sm:gap-1 flex-shrink-0">
+        <p className="text-white/85 text-[9px] sm:text-[11px] font-semibold tracking-widest uppercase">
           I want to
         </p>
-        <div className="relative flex items-center gap-4 p-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
+        <div className="relative flex items-center gap-2 sm:gap-4 p-0.5 sm:p-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
           <a href="https://my.paymeo.co">
             <button
-              className={`flex items-center gap-2 px-5 py-2 text-sm font-bold rounded-full transition-colors cursor-pointer ${
-                selected === "personal"
-                  ? "text-white hover:bg-white/10"
-                  : "text-white hover:bg-white/10"
-              }`}
+              className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-5 py-1 sm:py-2 text-xs sm:text-sm font-bold rounded-full transition-colors cursor-pointer text-white hover:bg-white/10`}
             >
               Shop
             </button>
           </a>
-          <div className="w-px h-6 bg-white/30"></div>
+          <div className="w-px h-4 sm:h-6 bg-white/30"></div>
           <a href="https://web.paymeo.co">
             <button
-              className={`flex items-center gap-2 px-5 py-2 text-sm font-bold rounded-full transition-colors cursor-pointer ${
-                selected === "business"
-                  ? "text-white hover:bg-white/10"
-                  : "text-white hover:bg-white/10"
-              }`}
+              className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-5 py-1 sm:py-2 text-xs sm:text-sm font-bold rounded-full transition-colors cursor-pointer text-white hover:bg-white/10`}
             >
               Sell
             </button>
           </a>
         </div>
-        <p className="text-white/85 text-[11px] font-semibold">
+        <p className="text-white/85 text-[9px] sm:text-[11px] font-semibold">
           You can switch anytime
         </p>
       </div>
+
+      {/* FOOTER WITH LEGAL NAME - Responsive */}
+      <div className="relative z-10 mt-1 sm:mt-2 pt-2 sm:pt-3 border-t border-white/10 flex-shrink-0">
+        <div className="px-4 sm:px-6 lg:px-12 py-1 sm:py-2">
+          <p className="text-white/40 text-[8px] sm:text-[10px] lg:text-[11px] text-center leading-tight">
+            © {new Date().getFullYear()} Paymeo. A service provided by{" "}
+            <span className="text-white/60 font-medium">Meo Technologies Limited</span>.
+            All rights reserved.
+          </p>
+        </div>
+      </div>
+
     </motion.section>
   );
 }
