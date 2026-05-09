@@ -119,12 +119,12 @@ export default function LandingGate({
     {/* NAV - Responsive padding and sizing */}
 <nav className="relative z-50 flex items-center justify-between px-4 sm:px-6 lg:px-12 py-3 sm:py-4 flex-shrink-0">
   {/* Logo - Left side with fixed width to balance the layout - INCREASED SIZE ON MOBILE */}
-  <div className="flex items-center gap-2 sm:gap-2 min-w-[100px] sm:min-w-[120px]">
-    <div className="w-9 h-9 sm:w-9 sm:h-9 bg-white/20 rounded-[15px] sm:rounded-[15px] flex items-center justify-center">
-      <Image src={imgPaymeoLogoWhite2} alt="Paymeo" className="w-7 h-7 sm:w-8 sm:h-8" />
-    </div>
-    <span className="text-white font-extrabold text-3xl sm:text-[30px] mb-0 sm:mb-2">paymeo</span>
+<div className="flex items-center gap-2 sm:gap-2 min-w-[100px] sm:min-w-[120px]">
+  <div className="w-9 h-9 sm:w-9 sm:h-9 bg-white/20 rounded-[15px] sm:rounded-[15px] flex items-center justify-center translate-y-0.5">
+    <Image src={imgPaymeoLogoWhite2} alt="Paymeo" className="w-8 h-8 sm:w-8 sm:h-8" />
   </div>
+  <span className="text-white font-extrabold text-3xl sm:text-[30px] mb-0 sm:mb-0">paymeo</span>
+</div>
 
   {/* Desktop Menu Button - Perfectly Centered using absolute positioning */}
   <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
