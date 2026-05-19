@@ -27,7 +27,7 @@ export default function SplashScreen() {
       <img
         src="https://res.cloudinary.com/diml8ljwa/image/upload/v1762615201/paymeologowhite_mu8lfg.png"
         alt="Paymeo Logo"
-        className="w-25 h-25 animate-heartbeat select-none"
+        className="w-20 h-20 animate-heartbeat select-none"
       />
     </div>
   );
